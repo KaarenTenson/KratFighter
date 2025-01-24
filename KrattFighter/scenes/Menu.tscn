@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dsnf0kqqflnkn"]
+[gd_scene load_steps=3 format=3 uid="uid://dsnf0kqqflnkn"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Script" path="res://scripts/button_group.gd" id="1_231kn"]
+[ext_resource type="PackedScene" uid="uid://bllugb4ij0vev" path="res://scenes/OptionsPanel.tscn" id="2_aribr"]
+
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -8,5 +11,107 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="MenuMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuMargin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MenuMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
+text = "GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonGroup" type="VBoxContainer" parent="MenuMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme_override_constants/separation = 40
+script = ExtResource("1_231kn")
+
+[node name="Start" type="Control" parent="MenuMargin/VBoxContainer/ButtonGroup"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="MenuMargin/VBoxContainer/ButtonGroup/Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY
+"
+flat = true
+
+[node name="Options" type="Control" parent="MenuMargin/VBoxContainer/ButtonGroup"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionsButton" type="Button" parent="MenuMargin/VBoxContainer/ButtonGroup/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -27.0
+offset_right = 35.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options
+"
+flat = true
+
+[node name="Exit" type="Control" parent="MenuMargin/VBoxContainer/ButtonGroup"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ExitButton" type="Button" parent="MenuMargin/VBoxContainer/ButtonGroup/Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit
+
+"
+flat = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"Music"
+
+[node name="OptionPanel" parent="." instance=ExtResource("2_aribr")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Start/StartButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Exit/ExitButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_exit_button_pressed"]
