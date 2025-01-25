@@ -13,8 +13,10 @@ func _process(delta: float) -> void:
 	if(in_air):
 		self.global_position=get_global_mouse_position()+Vector2(-margin, -margin)
 func _on_pressed() -> void:
+	self.top_level=true
 	in_air=true
-	set_process_input(false)
+	#set_process_input(false)
 	clicked.emit(self)
 func free_mouse():
+	self.top_level=false
 	in_air=false
