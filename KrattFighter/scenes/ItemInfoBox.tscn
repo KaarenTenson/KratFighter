@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://vn00x1r4dvvx"]
+
+[ext_resource type="Script" path="res://scripts/item_info_box.gd" id="1_epaut"]
+
+[sub_resource type="Theme" id="Theme_p848h"]
+
+[node name="MarginContainer" type="Panel"]
+offset_right = 130.0
+offset_bottom = 181.0
+script = ExtResource("1_epaut")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_p848h")
+
+[node name="name" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "name:"
+autowrap_mode = 3
+
+[node name="damge" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "damage:"
+autowrap_mode = 3
+
+[node name="body_part" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "bodypart:"
+autowrap_mode = 3
+
+[node name="desc" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "desc:"
+autowrap_mode = 3

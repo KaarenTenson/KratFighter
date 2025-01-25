@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=28 format=3 uid="uid://dbmla2m42cyto"]
+=======
+[gd_scene load_steps=32 format=3 uid="uid://dbmla2m42cyto"]
+>>>>>>> e53e5b9 (muudatused)
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
 [ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
@@ -57,6 +61,7 @@ modulate_color = Color(0.558077, 0.446423, 0.423286, 1)
 [sub_resource type="SystemFont" id="SystemFont_0yk3e"]
 
 [node name="Margin" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -492,6 +497,10 @@ scale = Vector2(0.5, 0.5)
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("13_s8gds")
+
+[node name="info_box" parent="." instance=ExtResource("18_qg5jj")]
+visible = false
+layout_mode = 0
 
 [connection signal="high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_high_light"]
 [connection signal="remove_btn" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_remove_btn"]

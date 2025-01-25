@@ -2,6 +2,7 @@ extends GridContainer
 const INVENTORY_SLOT = preload("res://scenes/InventorySlot.tscn")
 var inv_instance:InventorySlot
 var cur_button:InventorySlot=null
+@onready var info_box:InfoBox=$"../../../../info_box"
 @onready var equipment_panel: EquipmentPanel = $"../../Equipment/EquipmentMargin/EquipmentPanel"
 
 signal high_light(body_part:int)
@@ -14,8 +15,11 @@ func _ready() -> void:
 		var new_obj :=inv_instance.duplicate()
 		find_empty().add_child(new_obj)
 		new_obj.pressed.connect(handle_btn_input.bind(new_obj))
+		new_obj.mouse_entered.connect(handle_hover.bind(new_obj))
+		new_obj.mouse_exited.connect(handle_hover_exit.bind(new_obj))
 		new_obj.set_item(ItemManager.items_dict[item])
 		new_obj.set_position(Vector2(0,0))
+		
 
 func find_empty()->Panel:
 	for child in self.get_children():
@@ -58,3 +62,12 @@ func _on_equipment_panel_switch_btn(btn: InventorySlot) -> void:
 	cur_button=null
 	btn.reparent(find_empty())
 	handle_btn_input(btn)
+func handle_hover(btn:InventorySlot):
+	if(btn.in_air):
+		info_box.visible=false
+		return
+	info_box.visible=true
+	info_box.set_item(btn.item)
+	info_box.global_position=btn.global_position+ btn.get_rect().size
+func handle_hover_exit(btn:InventorySlot):
+	info_box.visible=false
