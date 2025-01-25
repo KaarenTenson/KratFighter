@@ -9,10 +9,13 @@
 texture = ExtResource("2_6vflv")
 
 [sub_resource type="SystemFont" id="SystemFont_hd35x"]
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_ghosy"]
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_mi287"]
+subpixel_positioning = 0
 
 [node name="OptionMargin" type="MarginContainer"]
 anchors_preset = 15
