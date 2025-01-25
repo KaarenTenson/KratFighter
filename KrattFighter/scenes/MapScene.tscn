@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://0f77yxc2a1tb"]
+[gd_scene load_steps=21 format=3 uid="uid://0f77yxc2a1tb"]
 
 [ext_resource type="Texture2D" uid="uid://bs0f2jsavl1py" path="res://assets/art/images.jpeg" id="1_2eqvb"]
 [ext_resource type="Texture2D" uid="uid://b4dy285wvr1pe" path="res://assets/map object/day/cave.png" id="2_kttar"]
@@ -11,7 +11,22 @@
 [ext_resource type="Texture2D" uid="uid://qcpyekmtu0g7" path="res://assets/map object/day/tree3.png" id="9_ujcke"]
 [ext_resource type="Texture2D" uid="uid://ki6chadhijiy" path="res://assets/map object/day/tree1.png" id="10_y1th2"]
 [ext_resource type="PackedScene" uid="uid://b3lqmedbjnxu3" path="res://Item_scenes/MAP_item.tscn" id="12_hwbit"]
+[ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="14_0yxf7"]
+[ext_resource type="Script" path="res://scenes/options_button.gd" id="15_a4wxh"]
+[ext_resource type="PackedScene" uid="uid://bkvyr4bgx088l" path="res://scenes/BagButton.tscn" id="15_cthh8"]
+[ext_resource type="Texture2D" uid="uid://dkbs4tl1vaulu" path="res://assets/buttons/building.png" id="16_50xbk"]
 [ext_resource type="Script" path="res://scenes/itemspawn.gd" id="21_bw3bk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7dsxm"]
+texture = ExtResource("14_0yxf7")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apntk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m0x3j"]
+
+[sub_resource type="Theme" id="Theme_bhhxe"]
+Button/styles/focus = SubResource("StyleBoxEmpty_apntk")
+Button/styles/normal = SubResource("StyleBoxEmpty_m0x3j")
 
 [node name="MapScene" type="Node2D"]
 script = ExtResource("21_bw3bk")
@@ -22,7 +37,7 @@ scale = Vector2(8.65111, 4.95333)
 texture = ExtResource("1_2eqvb")
 
 [node name="Cave" type="Sprite2D" parent="."]
-position = Vector2(208, 410)
+position = Vector2(245.75, 291.75)
 scale = Vector2(0.3495, 0.3495)
 texture = ExtResource("2_kttar")
 
@@ -84,53 +99,152 @@ texture = ExtResource("10_y1th2")
 position = Vector2(1030, 759)
 
 [node name="Node2D" parent="Spawns (11 kokku)/mets1" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="peenar1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(507, 839)
 
 [node name="Node2D" parent="Spawns (11 kokku)/peenar1" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="koobas2" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(457, 458)
+position = Vector2(488.75, 343.75)
 
 [node name="Node2D" parent="Spawns (11 kokku)/koobas2" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="koobas1" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(76, 573)
+position = Vector2(117.75, 428.75)
 
 [node name="Node2D" parent="Spawns (11 kokku)/koobas1" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="maja2" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(712, 345)
+position = Vector2(849, 370)
 
 [node name="Node2D" parent="Spawns (11 kokku)/maja2" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="maja1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(601, 168)
 
 [node name="Node2D" parent="Spawns (11 kokku)/maja1" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="küngas1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(1686, 294)
 
 [node name="Node2D" parent="Spawns (11 kokku)/küngas1" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="järv2" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(1676, 506)
 
 [node name="Node2D" parent="Spawns (11 kokku)/järv2" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="järv1" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(1530, 869)
+position = Vector2(1374, 817)
 
 [node name="Node2D" parent="Spawns (11 kokku)/järv1" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="peenar2" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(780, 674)
 
 [node name="Node2D" parent="Spawns (11 kokku)/peenar2" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
 
 [node name="küngas2" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(1113, 287)
 
 [node name="Node2D" parent="Spawns (11 kokku)/küngas2" instance=ExtResource("12_hwbit")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" type="Node2D" parent="."]
+visible = false
+position = Vector2(22, 328)
+scale = Vector2(0.938783, 0.938783)
+
+[node name="InventoryContainer" type="GridContainer" parent="Inventory"]
+offset_right = 450.0
+offset_bottom = 450.0
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+metadata/_edit_lock_ = true
+
+[node name="InventoryPanel1" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="InventoryPanel2" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="InventoryPanel3" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="InventoryPanel4" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="InventoryPanel5" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="InventoryPanel6" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="InventoryPanel7" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="InventoryPanel8" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="InventoryPanel9" type="Panel" parent="Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="Bag" type="Node2D" parent="."]
+
+[node name="bagbutton" parent="Bag" instance=ExtResource("15_cthh8")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 23.0
+offset_top = 795.0
+offset_right = 1943.0
+offset_bottom = 1875.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.138578, 0.243415)
+script = ExtResource("15_a4wxh")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="Node2D"]
+offset_left = 1420.0
+offset_top = 795.0
+offset_right = 2388.0
+offset_bottom = 1343.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_bhhxe")
+icon = ExtResource("16_50xbk")
+flat = true
+
+[connection signal="pressed" from="Bag/bagbutton" to="Bag/bagbutton" method="_on_bagbutton_pressed"]

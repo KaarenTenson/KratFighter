@@ -43,12 +43,12 @@ texture = ExtResource("4_xye4o")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsi4x"]
 texture = ExtResource("4_xye4o")
 
-[sub_resource type="SystemFont" id="SystemFont_3ocvv"]
+[sub_resource type="SystemFont" id="SystemFont_821ou"]
 subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_vqfua"]
 default_font_size = 40
-TextEdit/fonts/font = SubResource("SystemFont_3ocvv")
+TextEdit/fonts/font = SubResource("SystemFont_821ou")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jn06"]
 texture = ExtResource("3_6ivee")

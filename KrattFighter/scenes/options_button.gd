@@ -12,3 +12,7 @@ func _process(delta: float) -> void:
 
 func _on_pressed() -> void:
 	option_panel.visible = not option_panel.visible
+
+
+func _on_bagbutton_pressed() -> void:
+	$"../../Inventory".visible = not $"../../Inventory".visible
