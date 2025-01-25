@@ -1,3 +1,35 @@
-[gd_scene format=3 uid="uid://dyv8i1x5wo1vq"]
+[gd_scene load_steps=3 format=3 uid="uid://dyv8i1x5wo1vq"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_dwljl"]
+[ext_resource type="Script" path="res://scripts/body_part.gd" id="2_blje7"]
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_dwljl")
+
+[node name="Head" type="Node2D" parent="."]
+position = Vector2(-116, -696)
+script = ExtResource("2_blje7")
+
+[node name="LeftHand" type="Node2D" parent="."]
+position = Vector2(-164, -634)
+rotation = 1.39626
+script = ExtResource("2_blje7")
+
+[node name="leftLeg" type="Node2D" parent="."]
+position = Vector2(-28, -386)
+rotation = 0.174533
+script = ExtResource("2_blje7")
+
+[node name="rightleg" type="Node2D" parent="."]
+position = Vector2(54, -372)
+rotation = -0.174533
+script = ExtResource("2_blje7")
+
+[node name="chest" type="Node2D" parent="."]
+position = Vector2(-24, -500)
+script = ExtResource("2_blje7")
+
+[node name="rightHand" type="Node2D" parent="."]
+position = Vector2(-36, -717)
+rotation = 0.872665
+script = ExtResource("2_blje7")
