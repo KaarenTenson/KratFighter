@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc7vygxx4l6ud"]
+
+[ext_resource type="Texture2D" uid="uid://bq052lr6vopvg" path="res://assets/drive-download-20250125T091820Z-001/hat.png" id="1_bx8yf"]
+
+[node name="ColorfulHeadwear" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bx8yf")

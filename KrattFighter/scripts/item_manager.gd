@@ -12,8 +12,8 @@ enum ITEMS {
 	ARMOR,
 	AXE,
 	HAT,
-	HATS,
-	KOSA,
+	KOSA, # Sychte
+	
 	MESHOK,
 	PLUG,
 	POT,

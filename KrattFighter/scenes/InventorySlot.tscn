@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dbe08u4d21ptk"]
+[gd_scene load_steps=3 format=3 uid="uid://dbe08u4d21ptk"]
+
+[ext_resource type="Script" path="res://scripts/inventory_slot.gd" id="1_fcvuy"]
+[ext_resource type="Resource" uid="uid://c4dji776p2wcs" path="res://items/sword.tres" id="2_jj35t"]
 
 [node name="InventorySlot" type="Button"]
 custom_minimum_size = Vector2(100, 100)
@@ -13,7 +16,9 @@ offset_right = 50.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_mode = 0
-flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("1_fcvuy")
+stats = ExtResource("2_jj35t")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

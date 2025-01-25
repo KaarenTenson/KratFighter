@@ -40,6 +40,7 @@ texture = ExtResource("4_xye4o")
 texture = ExtResource("4_xye4o")
 
 [sub_resource type="SystemFont" id="SystemFont_3ocvv"]
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_vqfua"]
 default_font_size = 40
