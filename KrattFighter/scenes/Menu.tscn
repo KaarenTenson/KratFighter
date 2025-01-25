@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsnf0kqqflnkn"]
+[gd_scene load_steps=15 format=3 uid="uid://dsnf0kqqflnkn"]
 
 [ext_resource type="Script" path="res://scripts/button_group.gd" id="1_231kn"]
 [ext_resource type="PackedScene" uid="uid://bllugb4ij0vev" path="res://scenes/OptionsPanel.tscn" id="2_aribr"]
 [ext_resource type="Texture2D" uid="uid://bmiuaowg3nvhf" path="res://assets/buttons/play.png" id="2_mbayb"]
 [ext_resource type="Texture2D" uid="uid://kkx31cuuor7f" path="res://assets/buttons/options.png" id="3_qi8re"]
 [ext_resource type="Texture2D" uid="uid://bdde5628po1rk" path="res://assets/buttons/exit.png" id="4_dtbie"]
+[ext_resource type="Script" path="res://scenes/options_button.gd" id="4_u6lha"]
+[ext_resource type="Texture2D" uid="uid://d2gpr522nvjc7" path="res://assets/vignette.png" id="6_7vwc7"]
+[ext_resource type="Script" path="res://scripts/menuAnimation.gd" id="7_clixt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7bmv5"]
 
@@ -16,6 +19,43 @@ point_count = 2
 resource_local_to_scene = true
 file = "assets/animations/TitleOGG.ogg"
 
+[sub_resource type="Animation" id="Animation_blqas"]
+resource_name = "vignettePop"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.27, 1.00417), Vector2(1.35812, 1.02667), Vector2(1.27, 1.00417)]
+}
+
+[sub_resource type="Animation" id="Animation_c1h7h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.27, 1.00417)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ns3yx"]
+_data = {
+"RESET": SubResource("Animation_c1h7h"),
+"vignettePop": SubResource("Animation_blqas")
+}
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -26,7 +66,7 @@ grow_vertical = 2
 
 [node name="MenuMargin" type="MarginContainer" parent="."]
 visibility_layer = 3
-z_index = 1
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +141,7 @@ grow_vertical = 2
 scale = Vector2(0.3, 0.3)
 icon = ExtResource("3_qi8re")
 flat = true
+script = ExtResource("4_u6lha")
 
 [node name="Exit" type="Control" parent="MenuMargin/VBoxContainer/ButtonGroup"]
 layout_mode = 2
@@ -128,23 +169,29 @@ bus = &"Music"
 
 [node name="OptionPanel" parent="." instance=ExtResource("2_aribr")]
 visible = false
+z_index = 2
 layout_mode = 1
+offset_left = 152.0
+offset_top = -111.0
+offset_right = 152.0
+offset_bottom = -111.0
 
-[node name="VignetteBloom" type="CPUParticles2D" parent="."]
+[node name="Bloom" type="CPUParticles2D" parent="."]
 process_mode = 3
-visibility_layer = 30
+physics_interpolation_mode = 1
 z_index = 1
 material = SubResource("ShaderMaterial_7bmv5")
-position = Vector2(2017, 534)
+position = Vector2(2403, 543)
 rotation = 3.14159
 amount = 200
-lifetime = 10.0
+lifetime = 17.17
+explosiveness = 0.07
 randomness = 0.13
 lifetime_randomness = 0.27
-emission_shape = 1
-emission_sphere_radius = 128.0
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
 direction = Vector2(0, 0)
-spread = 15.1
+spread = 34.19
 gravity = Vector2(0, 0)
 initial_velocity_min = 7.5
 initial_velocity_max = 141.03
@@ -152,14 +199,15 @@ angular_velocity_min = 10.0
 angular_velocity_max = 110.0
 radial_accel_min = 6.94
 radial_accel_max = 6.94
-scale_amount_min = 3.0
-scale_amount_max = 3.5
+scale_amount_min = 7.0
+scale_amount_max = 9.2
 split_scale = true
 scale_curve_x = SubResource("Curve_3tioo")
 scale_curve_y = null
 color = Color(0, 0, 0, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
+z_index = 1
 position = Vector2(960, 540)
 
 [node name="Title_Video" type="VideoStreamPlayer" parent="."]
@@ -171,6 +219,19 @@ stream = SubResource("VideoStreamTheora_4inwi")
 autoplay = true
 loop = true
 
+[node name="Vignette" type="Sprite2D" parent="."]
+position = Vector2(961.5, 546)
+scale = Vector2(1.27, 1.00417)
+texture = ExtResource("6_7vwc7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vignette"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_ns3yx")
+}
+script = ExtResource("7_clixt")
+
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Start/StartButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_start_button_pressed"]
-[connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" to="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" method="_on_pressed"]
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Exit/ExitButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_exit_button_pressed"]
+[connection signal="animation_finished" from="Vignette/AnimationPlayer" to="Vignette/AnimationPlayer" method="_on_animation_finished"]
