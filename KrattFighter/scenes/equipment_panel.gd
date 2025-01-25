@@ -7,9 +7,12 @@ class_name EquipmentPanel
 @onready var l_leg_panel: Panel = $EquipmentContainer/LegMargin/HBoxContainer/LHandMargin/L_LegPanel
 @onready var r_leg_panel: Panel = $EquipmentContainer/LegMargin/HBoxContainer/MarginContainer/RLegPanel
 
+
 var btn_dict:Dictionary
 var translate_enum_dict:Dictionary
+var translate_side_dict:Dictionary
 var active_panel:Panel
+signal switch_btn(btn: InventorySlot)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +30,14 @@ func _ready() -> void:
 		l_leg_panel:null,
 		r_leg_panel:null,
 		
+	}
+	translate_side_dict={
+		l_hand_panel: true,
+		r_hand_panel: false,
+		l_leg_panel: true,
+		r_leg_panel:false,
+		head_panel: false,
+		body_panel:false,
 	}
 
 
@@ -70,6 +81,11 @@ func is_inside(panel:Panel)->bool:
 		return true
 	return false
 func add_item(button:InventorySlot):
+	if(btn_dict[active_panel]!=null):
+		_on_inventory_container_remove_btn(button)
+		switch_btn.emit(btn_dict[active_panel])
+	var btn_item=button.item
+	ItemManager.set_bodypart(btn_item.name, translate_side_dict[active_panel])
 	btn_dict[active_panel]=button
 	button.reparent(active_panel)
 	
@@ -78,4 +94,7 @@ func add_item(button:InventorySlot):
 func _on_inventory_container_remove_btn(btn: InventorySlot) -> void:
 	for key in btn_dict.keys():
 		if(btn_dict[key]==btn):
+			var btn_item:Items=btn_dict[key].item
+			ItemManager.remove_item(btn_item.body_part, translate_side_dict[key])
 			btn_dict[key]=null
+			

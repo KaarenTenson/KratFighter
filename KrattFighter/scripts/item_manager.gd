@@ -76,7 +76,7 @@ class KrattBodyClass:
 	var right_hand: int 
 	var left_leg: int
 	var right_leg: int
-var current_items:Array[int]=[ITEMS.PITCH_FORK, ITEMS.AXE]
+var current_items:Array[int]=[ITEMS.PITCH_FORK, ITEMS.AXE, ITEMS.HOE]
 var kratt_body:=KrattBodyClass.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -91,8 +91,9 @@ func set_bodypart(item:int, isLeft:bool):
 				kratt_body.right_hand=item
 		BODY_PART.LEG: 
 			if(isLeft):
-				kratt_body.left_hand=item
-				kratt_body.right_hand=item
+				kratt_body.left_leg=item
+			else:
+				kratt_body.right_leg=item
 	kratt_changed.emit()
 # Called when the node enters the scene tree for the first time.
 func remove_item(body_part:int, isLeft:bool):
@@ -106,13 +107,14 @@ func remove_item(body_part:int, isLeft:bool):
 				kratt_body.right_hand=ITEMS.WOOD_HAND
 		BODY_PART.LEG: 
 			if(isLeft):
-				kratt_body.left_hand=ITEMS.WOOD_HAND
-				kratt_body.right_hand=ITEMS.WOOD_HAND
+				kratt_body.left_leg=ITEMS.WOOD_LEG
+			else:
+				kratt_body.right_leg=ITEMS.WOOD_LEG
 	kratt_changed.emit()
 	
 func _ready() -> void:
-	kratt_body.head=ITEMS.CONQUERORS_HELMET
-	kratt_body.body=ITEMS.BARREL
+	kratt_body.head=ITEMS.WOOD_HEAD
+	kratt_body.body=ITEMS.WOOD_CHEST
 	
 	kratt_body.left_hand=ITEMS.WOOD_HAND
 	kratt_body.right_hand=ITEMS.WOOD_HAND

@@ -43,10 +43,18 @@ func _on_input_manager_global_clicked() -> void:
 	if(equipment_panel.is_equpping(cur_button.item.body_part)):
 		if(!is_in_invetory):
 			equipment_panel.add_item(cur_button)
-	if(is_in_invetory):
-		remove_btn.emit(cur_button)
-		cur_button.reparent(find_empty())
+	else:
+		if(is_in_invetory):
+			remove_btn.emit(cur_button)
+			cur_button.reparent(find_empty())
 	un_high_light.emit(cur_button.item.body_part)
 	cur_button.free_mouse()
 	await  get_tree().create_timer(0.2).timeout
 	cur_button=null
+
+
+func _on_equipment_panel_switch_btn(btn: InventorySlot) -> void:
+	await get_tree().create_timer(0.21).timeout
+	cur_button=null
+	btn.reparent(find_empty())
+	handle_btn_input(btn)
