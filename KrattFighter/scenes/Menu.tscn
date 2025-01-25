@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsnf0kqqflnkn"]
+[gd_scene load_steps=9 format=3 uid="uid://dsnf0kqqflnkn"]
 
 [ext_resource type="Script" path="res://scripts/button_group.gd" id="1_231kn"]
 [ext_resource type="PackedScene" uid="uid://bllugb4ij0vev" path="res://scenes/OptionsPanel.tscn" id="2_aribr"]
+[ext_resource type="Texture2D" uid="uid://bmiuaowg3nvhf" path="res://assets/buttons/play.png" id="2_mbayb"]
+[ext_resource type="Texture2D" uid="uid://kkx31cuuor7f" path="res://assets/buttons/options.png" id="3_qi8re"]
+[ext_resource type="Texture2D" uid="uid://bdde5628po1rk" path="res://assets/buttons/exit.png" id="4_dtbie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7bmv5"]
+
+[sub_resource type="Curve" id="Curve_3tioo"]
+_data = [Vector2(0.00399999, 0.19698), 0.0, 0.0, 0, 0, Vector2(1, 0.803706), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_4inwi"]
+resource_local_to_scene = true
+file = "assets/animations/TitleOGG.ogg"
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -12,10 +25,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MenuMargin" type="MarginContainer" parent="."]
+visibility_layer = 3
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -634.0
+offset_top = 42.0
+offset_right = -634.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 200
@@ -52,14 +71,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -147.0
+offset_top = -5.5
+offset_right = 864.0
+offset_bottom = 542.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "PLAY
-"
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("2_mbayb")
 flat = true
 
 [node name="Options" type="Control" parent="MenuMargin/VBoxContainer/ButtonGroup"]
@@ -73,14 +92,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -27.0
-offset_right = 35.0
-offset_bottom = 27.0
+offset_left = -147.0
+offset_top = -82.5
+offset_right = 887.0
+offset_bottom = 465.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Options
-"
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("3_qi8re")
 flat = true
 
 [node name="Exit" type="Control" parent="MenuMargin/VBoxContainer/ButtonGroup"]
@@ -94,15 +113,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -147.0
+offset_top = -159.5
+offset_right = 854.0
+offset_bottom = 388.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Exit
-
-"
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("4_dtbie")
 flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -111,6 +129,47 @@ bus = &"Music"
 [node name="OptionPanel" parent="." instance=ExtResource("2_aribr")]
 visible = false
 layout_mode = 1
+
+[node name="VignetteBloom" type="CPUParticles2D" parent="."]
+process_mode = 3
+visibility_layer = 30
+z_index = 1
+material = SubResource("ShaderMaterial_7bmv5")
+position = Vector2(2017, 534)
+rotation = 3.14159
+amount = 200
+lifetime = 10.0
+randomness = 0.13
+lifetime_randomness = 0.27
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, 0)
+spread = 15.1
+gravity = Vector2(0, 0)
+initial_velocity_min = 7.5
+initial_velocity_max = 141.03
+angular_velocity_min = 10.0
+angular_velocity_max = 110.0
+radial_accel_min = 6.94
+radial_accel_max = 6.94
+scale_amount_min = 3.0
+scale_amount_max = 3.5
+split_scale = true
+scale_curve_x = SubResource("Curve_3tioo")
+scale_curve_y = null
+color = Color(0, 0, 0, 1)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="Title_Video" type="VideoStreamPlayer" parent="."]
+visibility_layer = 2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = SubResource("VideoStreamTheora_4inwi")
+autoplay = true
+loop = true
 
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Start/StartButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_options_button_pressed"]
