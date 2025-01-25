@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://cx7uj87y40yup"]
+
+[ext_resource type="PackedScene" uid="uid://cyut55k45etpk" path="res://Item_scenes/suur_tõll.tscn" id="1_6btec"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="1_8e2dq"]
+[ext_resource type="Texture2D" uid="uid://c6viiv65r1diq" path="res://assets/drive-download-20250125T091820Z-001/suur-t]ll.png" id="2_t07bq"]
+
+[resource]
+script = ExtResource("1_8e2dq")
+default = false
+scene = ExtResource("1_6btec")
+texture = ExtResource("2_t07bq")
+name = 19
+desc = ""
+body_part = 0
+hp = 100
+damage = 0
+attack_speed = 0
+ability = 0

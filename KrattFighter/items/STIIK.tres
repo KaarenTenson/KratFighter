@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://dqvhfq5aimuq4"]
+
+[ext_resource type="PackedScene" uid="uid://buqgben10go3k" path="res://Item_scenes/stick.tscn" id="1_g1pw6"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="1_igwc1"]
+[ext_resource type="Texture2D" uid="uid://buii0foq6nuh4" path="res://assets/drive-download-20250125T091820Z-001/stiik.png" id="2_yc8ra"]
+
+[resource]
+script = ExtResource("1_igwc1")
+default = false
+scene = ExtResource("1_g1pw6")
+texture = ExtResource("2_yc8ra")
+name = 17
+desc = ""
+body_part = 2
+hp = 20
+damage = 5
+attack_speed = 3
+ability = 0
