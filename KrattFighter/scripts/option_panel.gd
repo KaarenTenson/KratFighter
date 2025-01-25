@@ -3,7 +3,6 @@ var SFX_bus:int=AudioServer.get_bus_index("SFX")
 var Music_bus:int=AudioServer.get_bus_index("Music")
 # Called when the node enters the scene tree for the first time.
 
-
 func _on_button_pressed() -> void:
 	self.visible=not self.visible
 

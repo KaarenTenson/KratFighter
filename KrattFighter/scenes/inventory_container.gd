@@ -2,6 +2,7 @@ extends GridContainer
 const INVENTORY_SLOT = preload("res://scenes/InventorySlot.tscn")
 var inv_instance:InventorySlot
 var cur_button:InventorySlot=null
+@onready var equipment_panel: EquipmentPanel = $"../../Equipment/EquipmentMargin/EquipmentPanel"
 
 signal high_light(body_part:int)
 signal un_high_light(body_part:int)
@@ -10,9 +11,10 @@ func _ready() -> void:
 	inv_instance=INVENTORY_SLOT.instantiate()
 	for item in ItemManager.current_items:
 		var new_obj :=inv_instance.duplicate()
+		find_empty().add_child(new_obj)
 		new_obj.clicked.connect(handle_btn_input)
 		new_obj.set_item(ItemManager.items_dict[item])
-		find_empty().add_child(new_obj)
+		new_obj.set_position(Vector2(0,0))
 
 func find_empty()->Panel:
 	for child in self.get_children():
@@ -32,6 +34,8 @@ func handle_btn_input(btn:InventorySlot):
 func _on_input_manager_global_clicked() -> void:
 	if(cur_button)==null:
 		return
+	if(equipment_panel.is_equpping(cur_button.item.body_part)):
+		equipment_panel.add_item(cur_button)
 	un_high_light.emit(cur_button.item.body_part)
 	cur_button.free_mouse()
 	await  get_tree().create_timer(0.2).timeout

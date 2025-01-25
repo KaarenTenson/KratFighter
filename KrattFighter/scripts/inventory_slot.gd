@@ -20,3 +20,5 @@ func _on_pressed() -> void:
 func free_mouse():
 	self.top_level=false
 	in_air=false
+	self.set_position(Vector2(0,0))
+	self.icon=ItemManager.items_dict[ItemManager.ITEMS.SWORD].texture

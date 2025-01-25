@@ -1,4 +1,5 @@
 extends PanelContainer
+class_name EquipmentPanel
 @onready var head_panel: Panel = $EquipmentContainer/HeadPanel
 @onready var l_hand_panel: Panel = $"EquipmentContainer/Hand&BodyMargin/HBoxContainer/LHandMargin/LHandPanel"
 @onready var body_panel: Panel = $"EquipmentContainer/Hand&BodyMargin/HBoxContainer/BodyPanel"
@@ -6,12 +7,26 @@ extends PanelContainer
 @onready var l_leg_panel: Panel = $EquipmentContainer/LegMargin/HBoxContainer/LHandMargin/L_LegPanel
 @onready var r_leg_panel: Panel = $EquipmentContainer/LegMargin/HBoxContainer/MarginContainer/RLegPanel
 
-
-
+var btn_dict:Dictionary={
+	head_panel: null,
+	body_panel: null,
+	l_hand_panel:null,
+	r_hand_panel:null,
+	l_leg_panel:null,
+	r_leg_panel:null,
+	
+}
+var translate_enum_dict:Dictionary
+var active_panel:Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	translate_enum_dict={
+	ItemManager.BODY_PART.HAND:[l_hand_panel,r_hand_panel],
+	ItemManager.BODY_PART.LEG:[l_leg_panel ,r_leg_panel],
+	ItemManager.BODY_PART.HEAD: [head_panel],
+	ItemManager.BODY_PART.CHEST: [body_panel]
+}
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,28 +39,36 @@ func un_high_light_panel(panel:Panel)->void:
 
 
 func _on_inventory_container_high_light(body_part: int) -> void:
-	match body_part:
-		ItemManager.BODY_PART.HAND:
-			high_light_panel(l_hand_panel)
-			high_light_panel(r_hand_panel)
-		ItemManager.BODY_PART.LEG:
-			high_light_panel(l_leg_panel)
-			high_light_panel(r_leg_panel)
-		ItemManager.BODY_PART.HEAD:
-			high_light_panel(head_panel)
-		ItemManager.BODY_PART.CHEST:
-			high_light_panel(body_panel)
+	for el in translate_enum_dict[body_part]:
+		high_light_panel(el)
 
 
 func _on_inventory_container_un_high_light(body_part: int) -> void:
+	for el in translate_enum_dict[body_part]:
+		un_high_light_panel(el)
+
+func is_equpping(body_part:int):
 	match body_part:
 		ItemManager.BODY_PART.HAND:
-			high_light_panel(l_hand_panel)
-			high_light_panel(r_hand_panel)
+			return is_inside(l_hand_panel) or is_inside(r_hand_panel)
 		ItemManager.BODY_PART.LEG:
-			high_light_panel(l_leg_panel)
-			high_light_panel(r_leg_panel)
+			return is_inside(l_leg_panel) or is_inside(r_leg_panel)
 		ItemManager.BODY_PART.HEAD:
-			high_light_panel(head_panel)
+			return is_inside(head_panel)
 		ItemManager.BODY_PART.CHEST:
-			high_light_panel(body_panel)
+			return is_inside(body_panel)
+func is_inside(panel:Panel)->bool:
+	var panel_size:Vector2=panel.size
+	var mouse_pos:Vector2=get_global_mouse_position()
+	var panel_pos:Vector2=panel.get_global_mouse_position()
+	if (mouse_pos.x > panel_pos.x and 
+	mouse_pos.x < panel_pos.x + panel_size.x and 
+	mouse_pos.y > panel_pos.y and 
+	panel_pos.y < panel_pos.y +panel_size.y):
+		active_panel=panel
+		return true
+	return false
+func add_item(button:InventorySlot):
+	active_panel.add_child(button)
+	
+	
