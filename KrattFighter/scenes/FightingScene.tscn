@@ -10,8 +10,8 @@ size = Vector2(1921, 104)
 script = ExtResource("1_2pcju")
 
 [node name="Player" parent="." instance=ExtResource("2_5syol")]
-position = Vector2(1680, 492)
-scale = Vector2(0.5, 0.5)
+position = Vector2(224, 524)
+scale = Vector2(-0.5, 0.5)
 
 [node name="BackGround" type="Parallax2D" parent="."]
 

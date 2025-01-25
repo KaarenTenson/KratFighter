@@ -53,6 +53,21 @@ func set_body(item:int, isLeft:bool):
 				kratt_body.left_hand=item
 				kratt_body.right_hand=item
 	kratt_changed.emit()
+# Called when the node enters the scene tree for the first time.
+func remove_item(body_part:int, isLeft:bool):
+	match body_part:
+		BODY_PART.HEAD: kratt_body.head=ITEMS.WOOD_HEAD
+		BODY_PART.CHEST: kratt_body.body=ITEMS.WOOD_CHEST
+		BODY_PART.HAND: 
+			if(isLeft):
+				kratt_body.left_hand=ITEMS.WOOD_HAND
+			else:
+				kratt_body.right_hand=ITEMS.WOOD_HAND
+		BODY_PART.LEG: 
+			if(isLeft):
+				kratt_body.left_hand=ITEMS.WOOD_HAND
+				kratt_body.right_hand=ITEMS.WOOD_HAND
+	kratt_changed.emit()
 	
 func _ready() -> void:
 	kratt_body.left_hand=ITEMS.WOOD_HAND
