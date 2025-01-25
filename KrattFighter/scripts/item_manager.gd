@@ -3,7 +3,20 @@ extends Node
 enum ITEMS {
 	SWORD,
 	PITCHFORK
-	}
+}
+@export var itemsEnum: ITEMS
+enum BODY_PART {
+	HEAD,
+	CHEST,
+	HAND,
+	LEG
+}
+@export var body_Enum:BODY_PART
+enum ABILITY {
+	NONE,
+	FIRE,
+}
+@export var ability_enum: ABILITY
 var items_dict:Dictionary={
 	ITEMS.SWORD: "es",
 	ITEMS.PITCHFORK: "es"

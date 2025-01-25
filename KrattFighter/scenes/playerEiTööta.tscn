@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://xuh86tobkln1"]
 
-[ext_resource type="Texture2D" uid="uid://bmceyfim37y87" path="res://assets/Kratt_body/fullbody.png" id="1_usb7o"]
+[ext_resource type="Texture2D" uid="uid://d2uupcj0ttqm7" path="res://assets/Kratt_body/fullbody.png" id="1_usb7o"]
 [ext_resource type="Texture2D" uid="uid://clbxy8wbf0krk" path="res://assets/Kratt_body/pea.png" id="2_bu0wi"]
 [ext_resource type="Texture2D" uid="uid://cayqhi85a06jd" path="res://assets/Kratt_body/tagakäsi.png" id="3_36tbx"]
 [ext_resource type="Texture2D" uid="uid://cjpi7m2gxjvgq" path="res://assets/Kratt_body/esinekäsi.png" id="4_pdxbe"]

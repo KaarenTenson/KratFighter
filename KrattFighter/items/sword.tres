@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://c4dji776p2wcs"]
+
+[ext_resource type="Script" path="res://scripts/Items.gd" id="1_caytd"]
+[ext_resource type="Texture2D" uid="uid://c32nf7d4et3dp" path="res://assets/drive-download-20250125T091820Z-001/mook.png" id="2_86g8m"]
+
+[resource]
+script = ExtResource("1_caytd")
+texture = ExtResource("2_86g8m")
+body_part = 2
+hp = 10
+damage = 30
+attack_speed = 20
+ability = 0
+name = null

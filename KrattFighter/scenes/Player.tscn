@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5eog6"]
 [ext_resource type="Texture2D" uid="uid://clbxy8wbf0krk" path="res://assets/Kratt_body/pea.png" id="1_vdgth"]
 [ext_resource type="Texture2D" uid="uid://5r3nvkv1ak1w" path="res://assets/Kratt_body/kere.png" id="2_a8wrj"]
-[ext_resource type="Script" path="res://scenes/body_part.gd" id="2_yok0s"]
+[ext_resource type="Script" path="res://scripts/body_part.gd" id="2_yok0s"]
 [ext_resource type="Texture2D" uid="uid://cayqhi85a06jd" path="res://assets/Kratt_body/tagakäsi.png" id="3_4qi4g"]
 [ext_resource type="Texture2D" uid="uid://cjpi7m2gxjvgq" path="res://assets/Kratt_body/esinekäsi.png" id="4_o1hdu"]
 [ext_resource type="Texture2D" uid="uid://dcmm28kpyv28b" path="res://assets/Kratt_body/tagajalg.png" id="5_oghnu"]
