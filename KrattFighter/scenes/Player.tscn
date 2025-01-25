@@ -12,9 +12,10 @@
 [node name="Player" type="Node2D"]
 script = ExtResource("1_5eog6")
 
-[node name="Head" type="StaticBody2D" parent="."]
+[node name="Head" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(-116, -696)
 script = ExtResource("2_yok0s")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Head"]
 position = Vector2(-112, -128)
@@ -25,8 +26,10 @@ region_rect = Rect2(164.563, 41.5626, 288.562, 249.812)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Head"]
 polygon = PackedVector2Array(-227, -75, -173, -121, -167, -175, -97, -213, -29, -157, -53, -99, -87, -67, -159, -65, -217, -53)
 
-[node name="chest" type="StaticBody2D" parent="."]
+[node name="chest" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(-24, -500)
+script = ExtResource("2_yok0s")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="chest"]
 position = Vector2(-16, -43)
@@ -38,8 +41,10 @@ region_rect = Rect2(354.375, 207.436, 297, 411.252)
 position = Vector2(-335, -78)
 polygon = PackedVector2Array(220, -113, 291, -175, 339, -158, 391, -31, 424, 113, 429, 184, 391, 198, 335, 167, 267, 71, 185, -25)
 
-[node name="LeftHand" type="StaticBody2D" parent="."]
+[node name="LeftHand" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(-164, -583)
+script = ExtResource("2_yok0s")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftHand"]
 position = Vector2(-34, 509)
@@ -50,8 +55,10 @@ region_rect = Rect2(210.938, 331.875, 258.188, 1159.69)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftHand"]
 polygon = PackedVector2Array(-9, -8, 29, 34, 45, 253, 42, 348, 50, 407, -70, 960, -83, 1033, -115, 1033, -19, 525, 6, 381)
 
-[node name="rightHand" type="StaticBody2D" parent="."]
+[node name="rightHand" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(-36, -717)
+script = ExtResource("2_yok0s")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="rightHand"]
 position = Vector2(217, 550)
@@ -63,8 +70,10 @@ region_rect = Rect2(457.438, 191.437, 516.375, 1184.62)
 position = Vector2(26, 12)
 polygon = PackedVector2Array(94, 76, 270, 324, 380, 816, 424, 1110, 398, 1110, 244, 336, 54, 83, -6, -11)
 
-[node name="leftLeg" type="StaticBody2D" parent="."]
+[node name="leftLeg" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(-28, -386)
+script = ExtResource("2_yok0s")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="leftLeg"]
 position = Vector2(-2, 604)
@@ -76,8 +85,10 @@ region_rect = Rect2(378.001, 494.25, 263.25, 1387.12)
 position = Vector2(35, 376)
 polygon = PackedVector2Array(-62, -37, -37, -392, -7, -367, -30, 38, -16, 77, 42, 390, -68, 902, -103, 888, 1, 394, -88, 58)
 
-[node name="rightleg" type="StaticBody2D" parent="."]
+[node name="rightleg" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(54, -372)
+script = ExtResource("2_yok0s")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="rightleg"]
 position = Vector2(-53, 407)
