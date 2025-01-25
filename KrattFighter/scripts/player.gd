@@ -10,11 +10,18 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	create_body()
+	ItemManager.kratt_changed.connect(
+		refresh_body
+		)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+func refresh_body():
+	for child in get_children():
+		(child.get_children()[0] as StaticBody2D).queue_free()
+	create_body()
 func create_body():
 	head.set_items(ItemManager.items_dict[ItemManager.kratt_body.head])
 	chest.set_items(ItemManager.items_dict[ItemManager.kratt_body.body])

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://byvqqspdgrj6j"]
+
+[ext_resource type="PackedScene" uid="uid://ubktyug4s83q" path="res://Item_scenes/wood_leg.tscn" id="1_3uyp0"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="1_thlwx"]
+
+[resource]
+script = ExtResource("1_thlwx")
+default = true
+scene = ExtResource("1_3uyp0")
+name = 3
+desc = ""
+body_part = 3
+hp = 30
+damage = 10
+attack_speed = 1
+ability = 0
