@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://dbmla2m42cyto"]
+[gd_scene load_steps=25 format=3 uid="uid://dbmla2m42cyto"]
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
 [ext_resource type="PackedScene" uid="uid://dbe08u4d21ptk" path="res://scenes/InventorySlot.tscn" id="1_bmb0g"]
 [ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
+[ext_resource type="Script" path="res://scenes/inventory_container.gd" id="1_ym7jk"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="3_6ivee"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_xye4o"]
 [ext_resource type="Texture2D" uid="uid://cc2yx0bd7cp7d" path="res://assets/EquipmentIcons/faceicon.png" id="5_1vt3v"]
@@ -64,6 +65,54 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 metadata/_edit_lock_ = true
 
+[node name="Labels" type="Control" parent="."]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="InventoryLabel" type="Label" parent="Labels"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = -94.0
+offset_right = 346.0
+offset_bottom = -25.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 50
+text = "Inventory"
+
+[node name="StatsLabel" type="Label" parent="Labels"]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 546.0
+offset_right = 911.0
+offset_bottom = 615.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 50
+text = "Stats
+"
+
+[node name="EquipmentLabel" type="Label" parent="Labels"]
+layout_mode = 0
+offset_left = 736.0
+offset_top = -94.0
+offset_right = 1000.0
+offset_bottom = -25.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 50
+text = "Equipment
+"
+
 [node name="Window" type="HBoxContainer" parent="."]
 layout_mode = 2
 metadata/_edit_lock_ = true
@@ -79,6 +128,7 @@ size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
+script = ExtResource("1_ym7jk")
 metadata/_edit_lock_ = true
 
 [node name="InventoryPanel1" type="Panel" parent="Window/Inventory/InventoryContainer"]
@@ -86,72 +136,45 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel1" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
-
 [node name="InventoryPanel2" type="Panel" parent="Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel2" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
 
 [node name="InventoryPanel3" type="Panel" parent="Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel3" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
-
 [node name="InventoryPanel4" type="Panel" parent="Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel4" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
 
 [node name="InventoryPanel5" type="Panel" parent="Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel5" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
-
 [node name="InventoryPanel6" type="Panel" parent="Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel6" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
 
 [node name="InventoryPanel7" type="Panel" parent="Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel7" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
-
 [node name="InventoryPanel8" type="Panel" parent="Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel8" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
-
 [node name="InventoryPanel9" type="Panel" parent="Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel9" instance=ExtResource("1_bmb0g")]
-layout_mode = 1
 
 [node name="Bag" type="Control" parent="Window/Inventory"]
 layout_mode = 2
@@ -389,51 +412,3 @@ text = "poop throw"
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
-
-[node name="Labels" type="Control" parent="."]
-layout_mode = 2
-metadata/_edit_lock_ = true
-
-[node name="InventoryLabel" type="Label" parent="Labels"]
-layout_mode = 0
-offset_left = 113.0
-offset_top = -94.0
-offset_right = 346.0
-offset_bottom = -25.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 6
-theme_override_constants/outline_size = 14
-theme_override_font_sizes/font_size = 50
-text = "Inventory"
-
-[node name="StatsLabel" type="Label" parent="Labels"]
-layout_mode = 0
-offset_left = 785.0
-offset_top = 546.0
-offset_right = 911.0
-offset_bottom = 615.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 6
-theme_override_constants/outline_size = 14
-theme_override_font_sizes/font_size = 50
-text = "Stats
-"
-
-[node name="EquipmentLabel" type="Label" parent="Labels"]
-layout_mode = 0
-offset_left = 736.0
-offset_top = -94.0
-offset_right = 1000.0
-offset_bottom = -25.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 6
-theme_override_constants/outline_size = 14
-theme_override_font_sizes/font_size = 50
-text = "Equipment
-"
