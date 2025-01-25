@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://dbmla2m42cyto"]
+[gd_scene load_steps=31 format=3 uid="uid://d05oalaus2loq"]
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
 [ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
-[ext_resource type="Texture2D" uid="uid://c5okwhnx8a54x" path="res://assets/building-scene.png" id="1_qdelb"]
 [ext_resource type="Script" path="res://scenes/inventory_container.gd" id="1_ym7jk"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="3_6ivee"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_xye4o"]
@@ -13,8 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://b0o60oi2we1cq" path="res://assets/EquipmentIcons/rightarmicon.png" id="8_yvcg7"]
 [ext_resource type="Texture2D" uid="uid://bk7qjwxeb2upk" path="res://assets/EquipmentIcons/leftlegicon.png" id="9_qkwhn"]
 [ext_resource type="Texture2D" uid="uid://cmuxjtr1crft5" path="res://assets/EquipmentIcons/rightlegicon.png" id="10_75fv8"]
+[ext_resource type="Texture2D" uid="uid://bpey0d6veju3x" path="res://assets/art/white_bg.jpg" id="13_boj4u"]
 [ext_resource type="Script" path="res://scenes/input_manager.gd" id="13_s8gds"]
+[ext_resource type="Texture2D" uid="uid://gp20vt16soja" path="res://assets/buttons/fight.png" id="14_5w4vy"]
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="14_8mukd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tibs5"]
+texture = ExtResource("4_xye4o")
+modulate_color = Color(0.659193, 0.510786, 0.552338, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d65m7"]
 texture = ExtResource("1_ejhf3")
@@ -56,6 +61,9 @@ modulate_color = Color(0.558077, 0.446423, 0.423286, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_0yk3e"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b83ve"]
+texture = ExtResource("13_boj4u")
+
 [node name="Margin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -64,14 +72,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Bacground" type="Panel" parent="."]
+texture_filter = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_qdelb")
+theme_override_styles/panel = SubResource("StyleBoxTexture_tibs5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -133,6 +142,20 @@ theme_override_font_sizes/font_size = 50
 text = "Equipment
 "
 
+[node name="PlayerLabel" type="Label" parent="MarginContainer/Labels"]
+layout_mode = 0
+offset_left = 1389.0
+offset_top = -86.0
+offset_right = 1653.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 50
+text = "Player"
+
 [node name="Window" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 metadata/_edit_lock_ = true
@@ -154,6 +177,7 @@ metadata/_edit_lock_ = true
 [node name="InventoryPanel1" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
 [node name="InventoryPanel2" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
@@ -471,24 +495,33 @@ theme_override_constants/shadow_outline_size = 3
 theme_override_font_sizes/font_size = 35
 text = "poop throw"
 
-[node name="Information" type="VBoxContainer" parent="MarginContainer/Window"]
+[node name="InformationMargin" type="MarginContainer" parent="MarginContainer/Window"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="MarginContainer/Window/Information"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Window/InformationMargin"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Player"
-horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="MarginContainer/Window/Information"]
+[node name="Panel" type="PanelContainer" parent="MarginContainer/Window/InformationMargin/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_b83ve")
 
-[node name="Player" parent="MarginContainer/Window/Information/Control" instance=ExtResource("14_8mukd")]
-position = Vector2(269, 450)
-scale = Vector2(0.5, 0.5)
+[node name="Button" type="Button" parent="MarginContainer/Window/InformationMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+icon = ExtResource("14_5w4vy")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Player" parent="MarginContainer/Window/InformationMargin" instance=ExtResource("14_8mukd")]
+position = Vector2(404, 359)
+scale = Vector2(0.25, 0.25)
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("13_s8gds")
