@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://0f77yxc2a1tb"]
 
-[ext_resource type="Texture2D" uid="uid://bs0f2jsavl1py" path="res://assets/art/images.jpeg" id="1_2eqvb"]
+[ext_resource type="Texture2D" uid="uid://dppxnd13kefer" path="res://assets/mapp base grass/with-roads-day.png" id="2_3dxf1"]
 [ext_resource type="Texture2D" uid="uid://b4dy285wvr1pe" path="res://assets/map object/day/cave.png" id="2_kttar"]
 [ext_resource type="Texture2D" uid="uid://urpv58tkypf7" path="res://assets/map object/day/cliff.png" id="3_0y06g"]
 [ext_resource type="Texture2D" uid="uid://cxv8fcu40qscr" path="res://assets/map object/day/flowers1.png" id="4_p2ysf"]
@@ -33,16 +33,16 @@ script = ExtResource("21_bw3bk")
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(968.75, 552.75)
-scale = Vector2(8.65111, 4.95333)
-texture = ExtResource("1_2eqvb")
+scale = Vector2(1.01216, 1.02191)
+texture = ExtResource("2_3dxf1")
 
 [node name="Cave" type="Sprite2D" parent="."]
-position = Vector2(245.75, 291.75)
+position = Vector2(291.75, 434.75)
 scale = Vector2(0.3495, 0.3495)
 texture = ExtResource("2_kttar")
 
 [node name="Cliff" type="Sprite2D" parent="."]
-position = Vector2(1419, 170)
+position = Vector2(1137.5, 803)
 scale = Vector2(0.723, 0.402)
 texture = ExtResource("3_0y06g")
 
@@ -69,94 +69,95 @@ texture = ExtResource("5_u8ynd")
 flip_h = true
 
 [node name="Lake" type="Sprite2D" parent="."]
-position = Vector2(1638, 687)
+position = Vector2(1661, 267)
 scale = Vector2(0.592, 0.592)
 texture = ExtResource("6_gwmie")
 
 [node name="Maja" type="Sprite2D" parent="."]
-position = Vector2(795, 193)
+position = Vector2(718, 148.5)
 scale = Vector2(0.343, 0.343)
 texture = ExtResource("7_0heig")
+flip_h = true
 
 [node name="Tree2" type="Sprite2D" parent="."]
-position = Vector2(1217, 467)
+position = Vector2(1047.75, 281)
 scale = Vector2(0.282, 0.282)
 texture = ExtResource("8_3rhh8")
 
 [node name="Tree3" type="Sprite2D" parent="."]
-position = Vector2(1072, 551)
+position = Vector2(902.75, 365)
 scale = Vector2(0.2955, 0.2955)
 texture = ExtResource("9_ujcke")
 
 [node name="Tree1" type="Sprite2D" parent="."]
-position = Vector2(1272, 700)
+position = Vector2(1102.75, 514)
 scale = Vector2(0.242875, 0.242875)
 texture = ExtResource("10_y1th2")
 
 [node name="Spawns (11 kokku)" type="Node2D" parent="."]
 
 [node name="mets1" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(1030, 759)
+position = Vector2(1260, 229)
 
 [node name="Node2D" parent="Spawns (11 kokku)/mets1" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="peenar1" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(507, 839)
+position = Vector2(440, 921)
 
 [node name="Node2D" parent="Spawns (11 kokku)/peenar1" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="koobas2" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(488.75, 343.75)
+position = Vector2(534.75, 486.75)
 
 [node name="Node2D" parent="Spawns (11 kokku)/koobas2" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="koobas1" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(117.75, 428.75)
+position = Vector2(163.75, 571.75)
 
 [node name="Node2D" parent="Spawns (11 kokku)/koobas1" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="maja2" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(849, 370)
+position = Vector2(719, 347)
 
 [node name="Node2D" parent="Spawns (11 kokku)/maja2" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="maja1" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(601, 168)
+position = Vector2(468, 183)
 
 [node name="Node2D" parent="Spawns (11 kokku)/maja1" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="küngas1" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(1686, 294)
+position = Vector2(1454, 700)
 
 [node name="Node2D" parent="Spawns (11 kokku)/küngas1" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="järv2" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(1676, 506)
+position = Vector2(1709, 78)
 
 [node name="Node2D" parent="Spawns (11 kokku)/järv2" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="järv1" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(1374, 817)
+position = Vector2(1816, 524)
 
 [node name="Node2D" parent="Spawns (11 kokku)/järv1" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="peenar2" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(780, 674)
+position = Vector2(819, 686)
 
 [node name="Node2D" parent="Spawns (11 kokku)/peenar2" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
 
 [node name="küngas2" type="Node2D" parent="Spawns (11 kokku)"]
-position = Vector2(1113, 287)
+position = Vector2(1121, 989)
 
 [node name="Node2D" parent="Spawns (11 kokku)/küngas2" instance=ExtResource("12_hwbit")]
 metadata/_edit_use_anchors_ = true
@@ -180,45 +181,117 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
 
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel1" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 9.58688
+offset_top = 12.7825
+offset_right = 264.587
+offset_bottom = 267.783
+
 [node name="InventoryPanel2" type="Panel" parent="Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel2" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 9.78133
+offset_top = 11.7173
+offset_right = 264.781
+offset_bottom = 266.717
 
 [node name="InventoryPanel3" type="Panel" parent="Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
 
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel3" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 11.041
+offset_top = 11.7173
+offset_right = 266.041
+offset_bottom = 266.717
+
 [node name="InventoryPanel4" type="Panel" parent="Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel4" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 11.7173
+offset_top = 11.9118
+offset_right = 266.717
+offset_bottom = 266.912
 
 [node name="InventoryPanel5" type="Panel" parent="Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
 
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel5" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 10.8465
+offset_top = 11.9118
+offset_right = 265.847
+offset_bottom = 266.912
+
 [node name="InventoryPanel6" type="Panel" parent="Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel6" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 11.041
+offset_top = 10.8466
+offset_right = 266.041
+offset_bottom = 265.847
 
 [node name="InventoryPanel7" type="Panel" parent="Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
 
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel7" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 10.6521
+offset_top = 12.1062
+offset_right = 265.652
+offset_bottom = 267.106
+
 [node name="InventoryPanel8" type="Panel" parent="Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
 
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel8" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 10.8465
+offset_top = 12.1062
+offset_right = 265.847
+offset_bottom = 267.106
+
 [node name="InventoryPanel9" type="Panel" parent="Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7dsxm")
+
+[node name="Node2D" parent="Inventory/InventoryContainer/InventoryPanel9" instance=ExtResource("12_hwbit")]
+z_index = 1
+layout_mode = 0
+offset_left = 9.9758
+offset_top = 12.1062
+offset_right = 264.976
+offset_bottom = 267.106
 
 [node name="Bag" type="Node2D" parent="."]
 
@@ -235,9 +308,9 @@ grow_vertical = 1
 scale = Vector2(0.138578, 0.243415)
 script = ExtResource("15_a4wxh")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Building icon" type="Node2D" parent="."]
 
-[node name="Button" type="Button" parent="Node2D"]
+[node name="buildingbutton" type="Button" parent="Building icon"]
 offset_left = 1420.0
 offset_top = 795.0
 offset_right = 2388.0
@@ -246,5 +319,7 @@ scale = Vector2(0.5, 0.5)
 theme = SubResource("Theme_bhhxe")
 icon = ExtResource("16_50xbk")
 flat = true
+script = ExtResource("15_a4wxh")
 
 [connection signal="pressed" from="Bag/bagbutton" to="Bag/bagbutton" method="_on_bagbutton_pressed"]
+[connection signal="pressed" from="Building icon/buildingbutton" to="Building icon/buildingbutton" method="_on_buildingbutton_pressed"]

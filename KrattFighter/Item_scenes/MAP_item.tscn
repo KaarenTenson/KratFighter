@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3lqmedbjnxu3"]
+[gd_scene load_steps=5 format=3 uid="uid://b3lqmedbjnxu3"]
+
+[ext_resource type="Script" path="res://Item_scenes/map_item.gd" id="1_472g4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oi3vv"]
 
@@ -17,3 +19,4 @@ scale = Vector2(0.5, 0.5)
 theme = SubResource("Theme_3i854")
 flat = true
 expand_icon = true
+script = ExtResource("1_472g4")

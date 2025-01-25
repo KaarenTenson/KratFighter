@@ -16,3 +16,7 @@ func _on_pressed() -> void:
 
 func _on_bagbutton_pressed() -> void:
 	$"../../Inventory".visible = not $"../../Inventory".visible
+
+
+func _on_buildingbutton_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/BuildingScene.tscn")
