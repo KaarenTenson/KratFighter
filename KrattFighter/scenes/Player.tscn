@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scripts/body_part.gd" id="2_yok0s"]
 
 [node name="Player" type="Node2D"]
-scale = Vector2(-1, 1)
 script = ExtResource("1_5eog6")
 
 [node name="Head" type="Node2D" parent="."]
@@ -12,15 +11,18 @@ position = Vector2(-116, -696)
 script = ExtResource("2_yok0s")
 
 [node name="LeftHand" type="Node2D" parent="."]
-position = Vector2(-164, -583)
+position = Vector2(-164, -634)
+rotation = 1.39626
 script = ExtResource("2_yok0s")
 
 [node name="leftLeg" type="Node2D" parent="."]
 position = Vector2(-28, -386)
+rotation = 0.174533
 script = ExtResource("2_yok0s")
 
 [node name="rightleg" type="Node2D" parent="."]
 position = Vector2(54, -372)
+rotation = -0.174533
 script = ExtResource("2_yok0s")
 
 [node name="chest" type="Node2D" parent="."]
@@ -29,4 +31,5 @@ script = ExtResource("2_yok0s")
 
 [node name="rightHand" type="Node2D" parent="."]
 position = Vector2(-36, -717)
+rotation = 0.872665
 script = ExtResource("2_yok0s")

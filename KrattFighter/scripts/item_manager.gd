@@ -6,7 +6,7 @@ enum ITEMS {
 	WOOD_CHEST,
 	WOOD_LEG,
 	SWORD,
-	PITCHFORK
+	PITCH_FORK
 }
 @export var itemsEnum: ITEMS
 enum BODY_PART {
@@ -26,7 +26,9 @@ var items_dict:Dictionary={
 	ITEMS.SWORD: load("res://items/sword.tres"),
 	ITEMS.WOOD_CHEST: load("res://items/wood_chest.tres"),
 	ITEMS.WOOD_LEG: load("res://items/wood_leg.tres"),
-	ITEMS.WOOD_HAND: load("res://items/wood_hand.tres")
+	ITEMS.WOOD_HAND: load("res://items/wood_hand.tres"),
+	ITEMS.PITCH_FORK: load("res://items/pitchfork.tres")
+	
 }
 class KrattBodyClass: 
 	var head: int 
@@ -39,7 +41,7 @@ var current_items:Array[int]=[]
 var kratt_body:=KrattBodyClass.new()
 
 # Called when the node enters the scene tree for the first time.
-func set_body(item:int, isLeft:bool):
+func set_bodypart(item:int, isLeft:bool):
 	match (items_dict[item] as Items).body_part:
 		BODY_PART.HEAD: kratt_body.head=item
 		BODY_PART.CHEST: kratt_body.body=item
@@ -70,10 +72,11 @@ func remove_item(body_part:int, isLeft:bool):
 	kratt_changed.emit()
 	
 func _ready() -> void:
-	kratt_body.left_hand=ITEMS.WOOD_HAND
 	kratt_body.head=ITEMS.WOOD_HEAD
-	kratt_body.right_hand=ITEMS.WOOD_HAND
 	kratt_body.body=ITEMS.WOOD_CHEST
-	kratt_body.left_leg=ITEMS.WOOD_LEG
-	kratt_body.right_leg=ITEMS.WOOD_LEG
+	
+	kratt_body.left_hand=ITEMS.SWORD
+	kratt_body.right_hand=ITEMS.SWORD
+	kratt_body.left_leg=ITEMS.PITCH_FORK
+	kratt_body.right_leg=ITEMS.PITCH_FORK
 	
