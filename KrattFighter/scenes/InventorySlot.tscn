@@ -4,15 +4,9 @@
 
 [node name="InventorySlot" type="Button"]
 custom_minimum_size = Vector2(100, 100)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = -860.0
-offset_bottom = -440.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -20,5 +14,3 @@ size_flags_vertical = 3
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_fcvuy")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
