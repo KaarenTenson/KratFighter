@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://b7ygsxt422o0k"]
+
+[ext_resource type="Script" path="res://scripts/Items.gd" id="1_byj8n"]
+[ext_resource type="Texture2D" uid="uid://ctdaqnvah7lj2" path="res://assets/drive-download-20250125T091820Z-001/axe.png" id="2_25osb"]
+
+[resource]
+script = ExtResource("1_byj8n")
+default = false
+texture = ExtResource("2_25osb")
+name = 0
+desc = ""
+body_part = 0
+hp = 0
+damage = 0
+attack_speed = 0
+ability = 0

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://6vt373acheui"]
+
+[ext_resource type="Texture2D" uid="uid://5r3nvkv1ak1w" path="res://assets/Kratt_body/kere.png" id="1_2hw1r"]
+
+[node name="wood_chest" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, -43)
+texture = ExtResource("1_2hw1r")
+region_enabled = true
+region_rect = Rect2(354.375, 207.436, 297, 411.252)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-335, -78)
+polygon = PackedVector2Array(220, -113, 291, -175, 339, -158, 391, -31, 424, 113, 429, 184, 391, 198, 335, 167, 267, 71, 185, -25)

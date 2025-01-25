@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://k858ogjvx5xt"]
+
+[ext_resource type="Texture2D" uid="uid://c32nf7d4et3dp" path="res://assets/drive-download-20250125T091820Z-001/mook.png" id="1_d5tox"]
+
+[node name="sword" type="StaticBody2D"]
+rotation = -0.349066
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-26, 581)
+rotation = 2.52375
+texture = ExtResource("1_d5tox")
+region_rect = Rect2(210.938, 331.875, 258.188, 1159.69)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-9, -8, 29, 34, 22, 248, 14, 333, -1, 421, -80, 1106, -110, 1170, -119, 1055, -52, 542, -40, 359)

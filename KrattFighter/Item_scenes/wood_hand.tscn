@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvyun4uli5vy7"]
+
+[ext_resource type="Texture2D" uid="uid://cjpi7m2gxjvgq" path="res://assets/Kratt_body/esinekäsi.png" id="1_12dox"]
+
+[node name="wood_hand" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(217, 550)
+texture = ExtResource("1_12dox")
+region_enabled = true
+region_rect = Rect2(457.438, 191.437, 516.375, 1184.62)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(26, 12)
+polygon = PackedVector2Array(94, 76, 270, 324, 380, 816, 424, 1110, 398, 1110, 244, 336, 54, 83, -6, -11)

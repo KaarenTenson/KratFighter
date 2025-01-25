@@ -1,20 +1,18 @@
 [gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://c4dji776p2wcs"]
 
+[ext_resource type="PackedScene" uid="uid://k858ogjvx5xt" path="res://Item_scenes/sword.tscn" id="1_7s2ba"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="1_caytd"]
-[ext_resource type="Texture2D" uid="uid://c32nf7d4et3dp" path="res://assets/drive-download-20250125T091820Z-001/mook.png" id="2_86g8m"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fe572"]
-atlas = ExtResource("2_86g8m")
-region = Rect2(73.375, 24.75, 870.75, 965.25)
+[ext_resource type="Texture2D" uid="uid://c32nf7d4et3dp" path="res://assets/drive-download-20250125T091820Z-001/mook.png" id="3_d55xp"]
 
 [resource]
 script = ExtResource("1_caytd")
-texture = SubResource("AtlasTexture_fe572")
-sprite_rotation = -215.4
-sprite_position = Vector2(-26, 581)
+default = false
+scene = ExtResource("1_7s2ba")
+texture = ExtResource("3_d55xp")
+name = 0
+desc = ""
 body_part = 2
 hp = 10
 damage = 30
 attack_speed = 20
 ability = 0
-name = 0

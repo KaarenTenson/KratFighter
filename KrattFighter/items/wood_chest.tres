@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://cp51f4beamteh"]
+
+[ext_resource type="PackedScene" uid="uid://6vt373acheui" path="res://Item_scenes/wood_chest.tscn" id="1_1ff8h"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="1_d6ske"]
+
+[resource]
+script = ExtResource("1_d6ske")
+default = true
+scene = ExtResource("1_1ff8h")
+name = 0
+desc = ""
+body_part = 1
+hp = 50
+damage = 0
+attack_speed = 0
+ability = 0

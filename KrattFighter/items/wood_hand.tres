@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://clf0nmymnxq0k"]
+
+[ext_resource type="PackedScene" uid="uid://dvyun4uli5vy7" path="res://Item_scenes/wood_hand.tscn" id="1_dmse0"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="1_ewnpn"]
+
+[resource]
+script = ExtResource("1_ewnpn")
+default = true
+scene = ExtResource("1_dmse0")
+name = 0
+desc = ""
+body_part = 2
+hp = 20
+damage = 0
+attack_speed = 0
+ability = 0
