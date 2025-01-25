@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvlgq6xjep4er"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_5eog6"]
+[ext_resource type="Texture2D" uid="uid://clbxy8wbf0krk" path="res://assets/Kratt_body/pea.png" id="1_vdgth"]
+[ext_resource type="Texture2D" uid="uid://5r3nvkv1ak1w" path="res://assets/Kratt_body/kere.png" id="2_a8wrj"]
+[ext_resource type="Script" path="res://scenes/body_part.gd" id="2_yok0s"]
+[ext_resource type="Texture2D" uid="uid://cayqhi85a06jd" path="res://assets/Kratt_body/tagakäsi.png" id="3_4qi4g"]
+[ext_resource type="Texture2D" uid="uid://cjpi7m2gxjvgq" path="res://assets/Kratt_body/esinekäsi.png" id="4_o1hdu"]
+[ext_resource type="Texture2D" uid="uid://dcmm28kpyv28b" path="res://assets/Kratt_body/tagajalg.png" id="5_oghnu"]
+[ext_resource type="Texture2D" uid="uid://cf1gpc3tqv555" path="res://assets/Kratt_body/esinejalg.png" id="6_mflk2"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_5eog6")
+
+[node name="Head" type="StaticBody2D" parent="."]
+position = Vector2(-116, -696)
+script = ExtResource("2_yok0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Head"]
+position = Vector2(-112, -128)
+texture = ExtResource("1_vdgth")
+region_enabled = true
+region_rect = Rect2(164.563, 41.5626, 288.562, 249.812)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Head"]
+polygon = PackedVector2Array(-227, -75, -173, -121, -167, -175, -97, -213, -29, -157, -53, -99, -87, -67, -159, -65, -217, -53)
+
+[node name="chest" type="StaticBody2D" parent="."]
+position = Vector2(-24, -500)
+
+[node name="Sprite2D" type="Sprite2D" parent="chest"]
+position = Vector2(-16, -43)
+texture = ExtResource("2_a8wrj")
+region_enabled = true
+region_rect = Rect2(354.375, 207.436, 297, 411.252)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="chest"]
+position = Vector2(-335, -78)
+polygon = PackedVector2Array(220, -113, 291, -175, 339, -158, 391, -31, 424, 113, 429, 184, 391, 198, 335, 167, 267, 71, 185, -25)
+
+[node name="LeftHand" type="StaticBody2D" parent="."]
+position = Vector2(-164, -583)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftHand"]
+position = Vector2(-34, 509)
+texture = ExtResource("3_4qi4g")
+region_enabled = true
+region_rect = Rect2(210.938, 331.875, 258.188, 1159.69)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftHand"]
+polygon = PackedVector2Array(-9, -8, 29, 34, 45, 253, 42, 348, 50, 407, -70, 960, -83, 1033, -115, 1033, -19, 525, 6, 381)
+
+[node name="rightHand" type="StaticBody2D" parent="."]
+position = Vector2(-36, -717)
+
+[node name="Sprite2D" type="Sprite2D" parent="rightHand"]
+position = Vector2(217, 550)
+texture = ExtResource("4_o1hdu")
+region_enabled = true
+region_rect = Rect2(457.438, 191.437, 516.375, 1184.62)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="rightHand"]
+position = Vector2(26, 12)
+polygon = PackedVector2Array(94, 76, 270, 324, 380, 816, 424, 1110, 398, 1110, 244, 336, 54, 83, -6, -11)
+
+[node name="leftLeg" type="StaticBody2D" parent="."]
+position = Vector2(-28, -386)
+
+[node name="Sprite2D" type="Sprite2D" parent="leftLeg"]
+position = Vector2(-2, 604)
+texture = ExtResource("5_oghnu")
+region_enabled = true
+region_rect = Rect2(378.001, 494.25, 263.25, 1387.12)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="leftLeg"]
+position = Vector2(35, 376)
+polygon = PackedVector2Array(-62, -37, -37, -392, -7, -367, -30, 38, -16, 77, 42, 390, -68, 902, -103, 888, 1, 394, -88, 58)
+
+[node name="rightleg" type="StaticBody2D" parent="."]
+position = Vector2(54, -372)
+
+[node name="Sprite2D" type="Sprite2D" parent="rightleg"]
+position = Vector2(-53, 407)
+texture = ExtResource("6_mflk2")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="rightleg"]
+position = Vector2(70, 380)
+polygon = PackedVector2Array(-51, 26, -76, -372, -51, -385, -22, 32, -16, 77, 154, 377, 241, 910, 215, 908, 120, 390, -66, 64)

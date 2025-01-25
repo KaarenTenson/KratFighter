@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://p5r0ud5bjfiu"]
+[gd_scene load_steps=4 format=3 uid="uid://p5r0ud5bjfiu"]
 
 [ext_resource type="Script" path="res://scripts/fighting_scene.gd" id="1_2pcju"]
+[ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="2_5syol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymjcf"]
 size = Vector2(1921, 104)
 
 [node name="FightingScene" type="Node2D"]
 script = ExtResource("1_2pcju")
+
+[node name="Player" parent="." instance=ExtResource("2_5syol")]
+position = Vector2(1680, 492)
+scale = Vector2(0.5, 0.5)
 
 [node name="BackGround" type="Parallax2D" parent="."]
 
@@ -20,10 +25,10 @@ shape = SubResource("RectangleShape2D_ymjcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="ground"]
 
-[node name="enemySpawn" type="Node2D" parent="."]
+[node name="playerSpawn" type="Node2D" parent="."]
 position = Vector2(1769, 844)
 
-[node name="yourSpawn" type="Node2D" parent="."]
+[node name="enemyspawn" type="Node2D" parent="."]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
