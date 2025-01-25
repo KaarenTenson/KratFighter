@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://byq68e7oh6mui"]
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://b7ygsxt422o0k"]
 
-[ext_resource type="PackedScene" uid="uid://uhgljdtsb51p" path="res://Item_scenes/axe.tscn" id="1_2ttbu"]
+[ext_resource type="PackedScene" path="res://Item_scenes/axe.tscn" id="1_2ttbu"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="1_byj8n"]
 [ext_resource type="Texture2D" uid="uid://ctdaqnvah7lj2" path="res://assets/drive-download-20250125T091820Z-001/axe.png" id="2_25osb"]
 
