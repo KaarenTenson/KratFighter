@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://clbxy8wbf0krk" path="res://assets/Kratt_body/pea.png" id="1_vdgth"]
 [ext_resource type="Texture2D" uid="uid://5r3nvkv1ak1w" path="res://assets/Kratt_body/kere.png" id="2_a8wrj"]
 [ext_resource type="Script" path="res://scripts/body_part.gd" id="2_yok0s"]
-[ext_resource type="Texture2D" uid="uid://cayqhi85a06jd" path="res://assets/Kratt_body/tagakäsi.png" id="3_4qi4g"]
 [ext_resource type="Texture2D" uid="uid://cjpi7m2gxjvgq" path="res://assets/Kratt_body/esinekäsi.png" id="4_o1hdu"]
+[ext_resource type="Texture2D" uid="uid://c32nf7d4et3dp" path="res://assets/drive-download-20250125T091820Z-001/mook.png" id="4_polmn"]
 [ext_resource type="Texture2D" uid="uid://dcmm28kpyv28b" path="res://assets/Kratt_body/tagajalg.png" id="5_oghnu"]
 [ext_resource type="Texture2D" uid="uid://cf1gpc3tqv555" path="res://assets/Kratt_body/esinejalg.png" id="6_mflk2"]
 
@@ -26,30 +26,15 @@ region_rect = Rect2(164.563, 41.5626, 288.562, 249.812)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Head"]
 polygon = PackedVector2Array(-227, -75, -173, -121, -167, -175, -97, -213, -29, -157, -53, -99, -87, -67, -159, -65, -217, -53)
 
-[node name="chest" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
-position = Vector2(-24, -500)
-script = ExtResource("2_yok0s")
-sprite = NodePath("Sprite2D")
-
-[node name="Sprite2D" type="Sprite2D" parent="chest"]
-position = Vector2(-16, -43)
-texture = ExtResource("2_a8wrj")
-region_enabled = true
-region_rect = Rect2(354.375, 207.436, 297, 411.252)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="chest"]
-position = Vector2(-335, -78)
-polygon = PackedVector2Array(220, -113, 291, -175, 339, -158, 391, -31, 424, 113, 429, 184, 391, 198, 335, 167, 267, 71, 185, -25)
-
 [node name="LeftHand" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(-164, -583)
 script = ExtResource("2_yok0s")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftHand"]
-position = Vector2(-34, 509)
-texture = ExtResource("3_4qi4g")
-region_enabled = true
+position = Vector2(-26, 581)
+rotation = -3.75944
+texture = ExtResource("4_polmn")
 region_rect = Rect2(210.938, 331.875, 258.188, 1159.69)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftHand"]
@@ -84,6 +69,21 @@ region_rect = Rect2(378.001, 494.25, 263.25, 1387.12)
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="leftLeg"]
 position = Vector2(35, 376)
 polygon = PackedVector2Array(-62, -37, -37, -392, -7, -367, -30, 38, -16, 77, 42, 390, -68, 902, -103, 888, 1, 394, -88, 58)
+
+[node name="chest" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
+position = Vector2(-24, -500)
+script = ExtResource("2_yok0s")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="chest"]
+position = Vector2(-16, -43)
+texture = ExtResource("2_a8wrj")
+region_enabled = true
+region_rect = Rect2(354.375, 207.436, 297, 411.252)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="chest"]
+position = Vector2(-335, -78)
+polygon = PackedVector2Array(220, -113, 291, -175, 339, -158, 391, -31, 424, 113, 429, 184, 391, 198, 335, 167, 267, 71, 185, -25)
 
 [node name="rightleg" type="StaticBody2D" parent="." node_paths=PackedStringArray("sprite")]
 position = Vector2(54, -372)

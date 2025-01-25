@@ -1,7 +1,10 @@
 extends Node
 
 enum ITEMS {
-	DEFAULT,
+	WOOD_HAND,
+	WOOD_HEAD,
+	WOOD_CHEST,
+	WOOD_LEG,
 	SWORD,
 	PITCHFORK
 }
@@ -19,7 +22,7 @@ enum ABILITY {
 }
 @export var ability_enum: ABILITY
 var items_dict:Dictionary={
-	ITEMS.DEFAULT: null,
+	ITEMS.WOOD_HEAD: load("res://items/wood_head.tres"),
 	ITEMS.SWORD: load("res://items/sword.tres"),
 	ITEMS.PITCHFORK: "es"
 }
