@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dibly4w8jf22y"
-path="res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"
+uid="uid://byv07ny2gctcj"
+path="res://.godot/imported/mother_stone.png-71139d52752afb585db9a13ab9af68de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drive-download-20250125T091820Z-001/kivi.png"
-dest_files=["res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"]
+source_file="res://assets/drive-download-20250125T091820Z-001/mother_stone.png"
+dest_files=["res://.godot/imported/mother_stone.png-71139d52752afb585db9a13ab9af68de.ctex"]
 
 [params]
 

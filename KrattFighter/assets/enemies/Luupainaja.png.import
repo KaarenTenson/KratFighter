@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dibly4w8jf22y"
-path="res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"
+uid="uid://bitcdw24o2mec"
+path="res://.godot/imported/Luupainaja.png-dd6665950f4d2a7d294672b11cac17af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drive-download-20250125T091820Z-001/kivi.png"
-dest_files=["res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"]
+source_file="res://assets/enemies/Luupainaja.png"
+dest_files=["res://.godot/imported/Luupainaja.png-dd6665950f4d2a7d294672b11cac17af.ctex"]
 
 [params]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr2b88bfj2hm"]
+
+[ext_resource type="Texture2D" uid="uid://5r3nvkv1ak1w" path="res://assets/Kratt_body/kere.png" id="1_fjr36"]
+[ext_resource type="Texture2D" uid="uid://c5ofiusuq5nyw" path="res://assets/drive-download-20250125T091820Z-001/meshok.png" id="2_15pd3"]
+
+[node name="wood_chest" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, -43)
+texture = ExtResource("1_fjr36")
+region_enabled = true
+region_rect = Rect2(354.375, 207.436, 297, 411.252)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-36, -99)
+rotation = 2.66518
+scale = Vector2(0.514129, 0.514129)
+texture = ExtResource("2_15pd3")

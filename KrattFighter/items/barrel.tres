@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://bhrmilnn6n615"]
+
+[ext_resource type="PackedScene" uid="uid://cxmjtmw35rdgk" path="res://Item_scenes/barrel.tscn" id="1_8arme"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="2_vveam"]
+[ext_resource type="Texture2D" uid="uid://cis88cbc303hc" path="res://assets/drive-download-20250125T091820Z-001/barrel.png" id="3_xkw0x"]
+
+[resource]
+script = ExtResource("2_vveam")
+default = false
+scene = ExtResource("1_8arme")
+texture = ExtResource("3_xkw0x")
+name = 24
+desc = "Wooden container full of fizzy liquid. Men love to drink it after a hard day’s work, while men in the north drink it every day regardless."
+body_part = 1
+hp = 40
+damage = 0
+attack_speed = 0
+ability = 0

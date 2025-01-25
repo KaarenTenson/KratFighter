@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlw2fk2spsp8a"]
+
+[ext_resource type="Texture2D" uid="uid://0eoaqgws0b18" path="res://assets/drive-download-20250125T091820Z-001/smth.png" id="1_ujmin"]
+
+[node name="Hoe" type="StaticBody2D"]
+rotation = 2.35619
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(398.808, -413.893)
+texture = ExtResource("1_ujmin")
+flip_h = true

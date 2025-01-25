@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://0djwdq3v2ukg"]
+
+[ext_resource type="PackedScene" uid="uid://dwta6uy24t1h2" path="res://Item_scenes/plough.tscn" id="1_wtkid"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="2_2mxl1"]
+[ext_resource type="Texture2D" uid="uid://d2g6nn14hcun4" path="res://assets/drive-download-20250125T091820Z-001/plug.png" id="3_3s8g4"]
+
+[resource]
+script = ExtResource("2_2mxl1")
+default = false
+scene = ExtResource("1_wtkid")
+texture = ExtResource("3_3s8g4")
+name = 12
+desc = "An innovation in farm-ation! Genius inventors from Revälä designed the Estlandian “plough”, which can shape soil when pulled by a farm animal."
+body_part = 3
+hp = 15
+damage = 20
+attack_speed = 0
+ability = 0

@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc7vygxx4l6ud"]
+[gd_scene load_steps=2 format=3 uid="uid://bw5pmss31vi7j"]
 
-[ext_resource type="Texture2D" uid="uid://bq052lr6vopvg" path="res://assets/drive-download-20250125T091820Z-001/hat.png" id="1_bx8yf"]
+[ext_resource type="Texture2D" uid="uid://butyb7w8mvbfm" path="res://assets/drive-download-20250125T091820Z-001/bo.png" id="1_4cued"]
 
-[node name="ColorfulHeadwear" type="StaticBody2D"]
+[node name="wood_head" type="StaticBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bx8yf")
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-62, -49)
+texture = ExtResource("1_4cued")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-62, -49)
+polygon = PackedVector2Array(45.5, -179.4, 43, -178.3, 43, -176.9, 0, -138.9, -25, -153.2, -25, -155, -45.4, -155, -53.4, -152, -56.6, -152, -77.6, -138, -80, -138, -93, -121, -94.4, -121, -100.4, -103, -101.7, -103, -105.7, -78, -107.3, -75.9, -101.6, -66.7, -104, -59.3, -104, -57.9, -146.9, -11, -149.8, -11, -148, -5.70001, -148, 1.20001, -134.5, 8, -132.9, 8, -118.7, 6, -117.2, 6, -114, 2.79999, -114, 1.5, -98, -2.39999, -98, -3.29999, -78, -6.29999, -78, -7, -76.4, -7, -74.4, -2, -71.9, -2, -19.8, -8, -12.6, -8, -4.60001, -11, 0.5, -11, 2.29999, -17.4, 33, 28.6, 33, 30.8, 54.1, 54, 57.2, 54, 62.2, 45, 64.7, 45, 62, 36, 62, 32.4, 24, -21, 23.3, -21, 17.4, -33.7, 21.5, -50, 23.1, -50, 22, -85.1, 22, -85.9, 28.6, -90, 31, -90, 37, -98.4, 37, -102.8, 12.2, -129.6, 20, -138.2, 20, -138.9, 39.5, -150, 41.3, -150, 42.4, -152.5, 39, -155.9, 39, -158.3, 34.8, -157.8, 48.9, -171, 50.3, -171, 51.4, -173.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(-62, -49)
+polygon = PackedVector2Array(195.1, 138.7, 193, 139.8, 193, 140.5, 187.9, 142, 185.5, 142, 184.7, 144.9, 194.4, 151, 196.8, 151, 200, 147.8, 200, 141.9)

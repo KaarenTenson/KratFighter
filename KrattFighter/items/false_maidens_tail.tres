@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://bvtl2ta2uhm81"]
+
+[ext_resource type="PackedScene" uid="uid://bkp47r8jvugg7" path="res://Item_scenes/false_maidens_tail.tscn" id="1_evsgw"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="2_ah8l8"]
+[ext_resource type="Texture2D" uid="uid://mma5solpntae" path="res://assets/drive-download-20250125T091820Z-001/tail.png" id="3_x1ln3"]
+
+[resource]
+script = ExtResource("2_ah8l8")
+default = false
+scene = ExtResource("1_evsgw")
+texture = ExtResource("3_x1ln3")
+name = 20
+desc = "Looks like it belonged to a fish of some sort? Surely a terrifying beast with a tail this massive."
+body_part = 3
+hp = 50
+damage = 10
+attack_speed = 20
+ability = 0

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://dkqrj2wxgwn44"]
 
 [ext_resource type="Script" path="res://scripts/Items.gd" id="1_t51ae"]
-[ext_resource type="PackedScene" uid="uid://7q8rj6620fwh" path="res://Item_scenes/stone.tscn" id="1_v0phx"]
+[ext_resource type="PackedScene" uid="uid://7q8rj6620fwh" path="res://Item_scenes/millstone.tscn" id="1_v0phx"]
 [ext_resource type="Texture2D" uid="uid://dabrjgerrslxk" path="res://assets/drive-download-20250125T091820Z-001/stone.png" id="2_hwjwa"]
 
 [resource]

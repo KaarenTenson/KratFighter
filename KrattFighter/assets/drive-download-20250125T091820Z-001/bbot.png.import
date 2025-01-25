@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dibly4w8jf22y"
-path="res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"
+uid="uid://7xuhek7ckjb1"
+path="res://.godot/imported/bbot.png-b8bbc2d7a5f74d0fe73f92181b5b6f1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drive-download-20250125T091820Z-001/kivi.png"
-dest_files=["res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"]
+source_file="res://assets/drive-download-20250125T091820Z-001/bbot.png"
+dest_files=["res://.godot/imported/bbot.png-b8bbc2d7a5f74d0fe73f92181b5b6f1d.ctex"]
 
 [params]
 

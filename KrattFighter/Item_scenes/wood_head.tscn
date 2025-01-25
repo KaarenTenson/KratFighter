@@ -5,10 +5,11 @@
 [node name="wood_head" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-112, -128)
+position = Vector2(-93.6, -116)
 texture = ExtResource("1_4srpp")
 region_enabled = true
 region_rect = Rect2(164.563, 41.5626, 288.562, 249.812)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(18.4, 12)
 polygon = PackedVector2Array(-227, -75, -173, -121, -167, -175, -97, -213, -29, -157, -53, -99, -87, -67, -159, -65, -217, -53)

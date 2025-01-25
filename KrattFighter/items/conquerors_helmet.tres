@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://dmao5q0a2dlbm"]
+
+[ext_resource type="PackedScene" uid="uid://bjp2hv2dfsu7h" path="res://Item_scenes/conquerors_helmet.tscn" id="1_npx0u"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="2_vko62"]
+[ext_resource type="Texture2D" uid="uid://b0ndvn1o0mafm" path="res://assets/drive-download-20250125T091820Z-001/v-helm.png" id="3_7cyx1"]
+
+[resource]
+script = ExtResource("2_vko62")
+default = false
+scene = ExtResource("1_npx0u")
+texture = ExtResource("3_7cyx1")
+name = 23
+desc = "Vicious-looking helmet worn by men from the west. Its design seems to be ergonomic for battle conditions and fashion statements."
+body_part = 0
+hp = 50
+damage = 15
+attack_speed = 0
+ability = 0

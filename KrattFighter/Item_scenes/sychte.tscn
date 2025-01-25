@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://di3j5unp6kvv3" path="res://assets/drive-download-20250125T091820Z-001/kosa.png" id="1_v1oou"]
 
 [node name="Sychte" type="StaticBody2D"]
+rotation = 2.0944
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(424, -480)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkp47r8jvugg7"]
+
+[ext_resource type="Texture2D" uid="uid://mma5solpntae" path="res://assets/drive-download-20250125T091820Z-001/tail.png" id="1_tad4v"]
+
+[node name="FalseMaidensTail" type="StaticBody2D"]
+rotation = 0.0872665
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, 214)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tad4v")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dibly4w8jf22y"
-path="res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"
+uid="uid://bypix70wnp85u"
+path="res://.godot/imported/scrrat.png-c7ab28f9c9b2b50f60443e34fb38ba89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drive-download-20250125T091820Z-001/kivi.png"
-dest_files=["res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"]
+source_file="res://assets/enemies/scrrat.png"
+dest_files=["res://.godot/imported/scrrat.png-c7ab28f9c9b2b50f60443e34fb38ba89.ctex"]
 
 [params]
 

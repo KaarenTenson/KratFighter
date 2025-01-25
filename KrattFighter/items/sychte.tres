@@ -13,6 +13,6 @@ name = 10
 desc = "A sharp farming tool for harvesting crops, often depicted as a symbol of death by people from lands far, far away."
 body_part = 2
 hp = 5
-damage = 0
+damage = 16
 attack_speed = 0
 ability = 0

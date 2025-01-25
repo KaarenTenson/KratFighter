@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dibly4w8jf22y"
-path="res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"
+uid="uid://cis88cbc303hc"
+path="res://.godot/imported/barrel.png-275b941d26004356b5804be122214480.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drive-download-20250125T091820Z-001/kivi.png"
-dest_files=["res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"]
+source_file="res://assets/drive-download-20250125T091820Z-001/barrel.png"
+dest_files=["res://.godot/imported/barrel.png-275b941d26004356b5804be122214480.ctex"]
 
 [params]
 

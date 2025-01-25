@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1dfe3tqjpsdo"]
+
+[ext_resource type="Texture2D" uid="uid://dnskbhsh1xjtl" path="res://assets/drive-download-20250125T091820Z-001/Untitled-2.png" id="1_r5nf0"]
+
+[node name="SmallSpruce" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(132, 588)
+rotation = 2.32208
+texture = ExtResource("1_r5nf0")

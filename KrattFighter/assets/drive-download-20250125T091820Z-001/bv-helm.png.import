@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dibly4w8jf22y"
-path="res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"
+uid="uid://be7fih635uhsr"
+path="res://.godot/imported/bv-helm.png-50b2c314ed4658726f806a39f3aefb6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drive-download-20250125T091820Z-001/kivi.png"
-dest_files=["res://.godot/imported/kivi.png-55f269c326289e75e1df453dac4741c3.ctex"]
+source_file="res://assets/drive-download-20250125T091820Z-001/bv-helm.png"
+dest_files=["res://.godot/imported/bv-helm.png-50b2c314ed4658726f806a39f3aefb6c.ctex"]
 
 [params]
 

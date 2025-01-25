@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cf1gpc3tqv555" path="res://assets/Kratt_body/esinejalg.png" id="1_c7kd5"]
 
 [node name="wood_leg" type="StaticBody2D"]
+rotation = 0.20944
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-53, 407)

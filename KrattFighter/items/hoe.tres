@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://gl08iewuklap"]
+
+[ext_resource type="PackedScene" uid="uid://dlw2fk2spsp8a" path="res://Item_scenes/hoe.tscn" id="1_m05qe"]
+[ext_resource type="Script" path="res://scripts/Items.gd" id="2_4m544"]
+[ext_resource type="Texture2D" uid="uid://0eoaqgws0b18" path="res://assets/drive-download-20250125T091820Z-001/smth.png" id="3_vse6s"]
+
+[resource]
+script = ExtResource("2_4m544")
+default = false
+scene = ExtResource("1_m05qe")
+texture = ExtResource("3_vse6s")
+name = 15
+desc = "Versatile agricultural tool for shaping soil and planting crops. The hoe and the pitchfork are rivals in the kratt leg market."
+body_part = 3
+hp = 30
+damage = 20
+attack_speed = 0
+ability = 0

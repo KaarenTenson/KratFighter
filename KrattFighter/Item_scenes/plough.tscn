@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwta6uy24t1h2"]
+
+[ext_resource type="Texture2D" uid="uid://d2g6nn14hcun4" path="res://assets/drive-download-20250125T091820Z-001/plug.png" id="1_woccu"]
+
+[node name="Plough" type="StaticBody2D"]
+rotation = 1.09956
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(474, 218)
+texture = ExtResource("1_woccu")

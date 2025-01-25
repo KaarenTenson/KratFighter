@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="Items" load_steps=3 format=3 uid="uid://c4dji776p2wcs"]
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://c4dji776p2wcs"]
 
+[ext_resource type="PackedScene" uid="uid://k858ogjvx5xt" path="res://Item_scenes/sword.tscn" id="1_1kisr"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="1_caytd"]
 [ext_resource type="Texture2D" uid="uid://c32nf7d4et3dp" path="res://assets/drive-download-20250125T091820Z-001/mook.png" id="3_d55xp"]
 
 [resource]
 script = ExtResource("1_caytd")
 default = false
+scene = ExtResource("1_1kisr")
 texture = ExtResource("3_d55xp")
-name = 0
-desc = ""
+name = 4
+desc = "A great weapon of refined quality. Said to have belonged to a hero whose soul took the form of a bird."
 body_part = 2
 hp = 10
 damage = 30

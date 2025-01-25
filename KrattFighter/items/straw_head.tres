@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://cx7uj87y40yup"]
 
-[ext_resource type="PackedScene" uid="uid://cyut55k45etpk" path="res://Item_scenes/suur_tõll.tscn" id="1_6btec"]
+[ext_resource type="PackedScene" uid="uid://cyut55k45etpk" path="res://Item_scenes/straw_head.tscn" id="1_6btec"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="1_8e2dq"]
 [ext_resource type="Texture2D" uid="uid://c6viiv65r1diq" path="res://assets/drive-download-20250125T091820Z-001/suur-t]ll.png" id="2_t07bq"]
 
@@ -9,8 +9,8 @@ script = ExtResource("1_8e2dq")
 default = false
 scene = ExtResource("1_6btec")
 texture = ExtResource("2_t07bq")
-name = 19
-desc = ""
+name = 18
+desc = "A decorative head designed after a protective giant from the islands in the west. It feels as if it’s trying to speak to you."
 body_part = 0
 hp = 100
 damage = 0

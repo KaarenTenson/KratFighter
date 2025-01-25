@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dmepumjkf5h2b" path="res://assets/drive-download-20250125T091820Z-001/totem.png" id="1_ia110"]
 
 [node name="totem" type="StaticBody2D"]
+scale = Vector2(0.75, 0.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(45, 453)

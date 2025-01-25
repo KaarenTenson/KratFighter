@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cihv2kd433hsb" path="res://assets/drive-download-20250125T091820Z-001/pitchfork.png" id="1_5afw4"]
 
 [node name="pitch_fork" type="StaticBody2D"]
+rotation = -0.174533
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-124, 656)
