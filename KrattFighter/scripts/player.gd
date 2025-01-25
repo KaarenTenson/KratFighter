@@ -6,14 +6,10 @@ extends Node2D
 @onready var left_leg: BodyPart = $leftLeg
 @onready var right_leg: BodyPart = $rightleg
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	create_body()
-	ItemManager.kratt_changed.connect(
-		refresh_body
-		)
-
+	ItemManager.kratt_changed.connect(refresh_body)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
