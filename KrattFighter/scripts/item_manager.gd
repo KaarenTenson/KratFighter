@@ -76,7 +76,7 @@ class KrattBodyClass:
 	var right_hand: int 
 	var left_leg: int
 	var right_leg: int
-var current_items:Array[int]=[]
+var current_items:Array[int]=[ITEMS.PITCH_FORK, ITEMS.AXE]
 var kratt_body:=KrattBodyClass.new()
 
 # Called when the node enters the scene tree for the first time.
