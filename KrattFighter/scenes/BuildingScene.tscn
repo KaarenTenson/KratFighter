@@ -1,17 +1,19 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbmla2m42cyto"]
+[gd_scene load_steps=27 format=3 uid="uid://dbmla2m42cyto"]
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
-[ext_resource type="PackedScene" uid="uid://dbe08u4d21ptk" path="res://scenes/InventorySlot.tscn" id="1_bmb0g"]
 [ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
+[ext_resource type="Texture2D" uid="uid://c5okwhnx8a54x" path="res://assets/building-scene.png" id="1_qdelb"]
 [ext_resource type="Script" path="res://scenes/inventory_container.gd" id="1_ym7jk"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="3_6ivee"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_xye4o"]
 [ext_resource type="Texture2D" uid="uid://cc2yx0bd7cp7d" path="res://assets/EquipmentIcons/faceicon.png" id="5_1vt3v"]
+[ext_resource type="Script" path="res://scenes/equipment_panel.gd" id="5_ubaec"]
 [ext_resource type="Texture2D" uid="uid://p5cownvjmjca" path="res://assets/EquipmentIcons/lefthandicon.png" id="6_ck34k"]
 [ext_resource type="Texture2D" uid="uid://cq66kjv68yowd" path="res://assets/EquipmentIcons/chesticon.png" id="7_ypf8g"]
 [ext_resource type="Texture2D" uid="uid://b0o60oi2we1cq" path="res://assets/EquipmentIcons/rightarmicon.png" id="8_yvcg7"]
 [ext_resource type="Texture2D" uid="uid://bk7qjwxeb2upk" path="res://assets/EquipmentIcons/leftlegicon.png" id="9_qkwhn"]
 [ext_resource type="Texture2D" uid="uid://cmuxjtr1crft5" path="res://assets/EquipmentIcons/rightlegicon.png" id="10_75fv8"]
+[ext_resource type="Script" path="res://scenes/input_manager.gd" id="13_s8gds"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d65m7"]
 texture = ExtResource("1_ejhf3")
@@ -53,7 +55,25 @@ modulate_color = Color(0.558077, 0.446423, 0.423286, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_0yk3e"]
 
-[node name="Margin" type="MarginContainer"]
+[node name="Margin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qdelb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -63,13 +83,12 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
-metadata/_edit_lock_ = true
 
-[node name="Labels" type="Control" parent="."]
+[node name="Labels" type="Control" parent="MarginContainer"]
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="InventoryLabel" type="Label" parent="Labels"]
+[node name="InventoryLabel" type="Label" parent="MarginContainer/Labels"]
 layout_mode = 0
 offset_left = 113.0
 offset_top = -94.0
@@ -83,7 +102,7 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 50
 text = "Inventory"
 
-[node name="StatsLabel" type="Label" parent="Labels"]
+[node name="StatsLabel" type="Label" parent="MarginContainer/Labels"]
 layout_mode = 0
 offset_left = 785.0
 offset_top = 546.0
@@ -98,7 +117,7 @@ theme_override_font_sizes/font_size = 50
 text = "Stats
 "
 
-[node name="EquipmentLabel" type="Label" parent="Labels"]
+[node name="EquipmentLabel" type="Label" parent="MarginContainer/Labels"]
 layout_mode = 0
 offset_left = 736.0
 offset_top = -94.0
@@ -113,16 +132,16 @@ theme_override_font_sizes/font_size = 50
 text = "Equipment
 "
 
-[node name="Window" type="HBoxContainer" parent="."]
+[node name="Window" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="Inventory" type="VBoxContainer" parent="Window"]
+[node name="Inventory" type="VBoxContainer" parent="MarginContainer/Window"]
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
-[node name="InventoryContainer" type="GridContainer" parent="Window/Inventory"]
+[node name="InventoryContainer" type="GridContainer" parent="MarginContainer/Window/Inventory"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
@@ -131,195 +150,238 @@ columns = 3
 script = ExtResource("1_ym7jk")
 metadata/_edit_lock_ = true
 
-[node name="InventoryPanel1" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel1" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventoryPanel2" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel2" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventoryPanel3" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel3" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventoryPanel4" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel4" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventoryPanel5" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel5" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventoryPanel6" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel6" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventoryPanel7" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel7" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventoryPanel8" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel8" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="InventoryPanel9" type="Panel" parent="Window/Inventory/InventoryContainer"]
+[node name="InventoryPanel9" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
-[node name="Bag" type="Control" parent="Window/Inventory"]
+[node name="Bag" type="Control" parent="MarginContainer/Window/Inventory"]
 layout_mode = 2
 size_flags_vertical = 3
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Window/Inventory/Bag"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Window/Inventory/Bag"]
 texture_filter = 3
 position = Vector2(237, 269)
 scale = Vector2(0.6675, 0.6675)
 texture = ExtResource("1_6idb2")
 
-[node name="Equipment" type="VBoxContainer" parent="Window"]
+[node name="Equipment" type="VBoxContainer" parent="MarginContainer/Window"]
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
-[node name="EquipmentMargin" type="MarginContainer" parent="Window/Equipment"]
+[node name="EquipmentMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/margin_bottom = 100
 
-[node name="EquipmentPanel" type="PanelContainer" parent="Window/Equipment/EquipmentMargin"]
+[node name="EquipmentPanel" type="PanelContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_bvqyb")
+script = ExtResource("5_ubaec")
 
-[node name="EquipmentContainer" type="VBoxContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel"]
+[node name="EquipmentContainer" type="VBoxContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="HeadPanel" type="Panel" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer"]
+[node name="HeadPanel" type="Panel" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_1e1yh")
 
-[node name="InventorySlot" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/HeadPanel" instance=ExtResource("1_bmb0g")]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/HeadPanel"]
 layout_mode = 1
-icon = ExtResource("5_1vt3v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_1vt3v")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="Hand&BodyMargin" type="MarginContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer"]
+[node name="Hand&BodyMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LHandMargin" type="MarginContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer"]
+[node name="LHandMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 26
 theme_override_constants/margin_right = 30
 
-[node name="LHandPanel" type="Panel" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/LHandMargin"]
+[node name="LHandPanel" type="Panel" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/LHandMargin"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ngw4j")
 
-[node name="InventorySlot" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/LHandMargin/LHandPanel" instance=ExtResource("1_bmb0g")]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/LHandMargin/LHandPanel"]
 layout_mode = 1
-icon = ExtResource("6_ck34k")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ck34k")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="BodyPanel" type="Panel" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer"]
+[node name="BodyPanel" type="Panel" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xbh5x")
 
-[node name="InventorySlot" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/BodyPanel" instance=ExtResource("1_bmb0g")]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/BodyPanel"]
 layout_mode = 1
-icon = ExtResource("7_ypf8g")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ypf8g")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="RHandMargin" type="MarginContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer"]
+[node name="RHandMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 
-[node name="RHandPanel" type="Panel" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/RHandMargin"]
+[node name="RHandPanel" type="Panel" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/RHandMargin"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_lnbvw")
 
-[node name="InventorySlot" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/RHandMargin/RHandPanel" instance=ExtResource("1_bmb0g")]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/Hand&BodyMargin/HBoxContainer/RHandMargin/RHandPanel"]
 layout_mode = 1
-icon = ExtResource("8_yvcg7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_yvcg7")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="LegMargin" type="MarginContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer"]
+[node name="LegMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LHandMargin" type="MarginContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer"]
+[node name="LHandMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 120
 
-[node name="LHandPanel" type="Panel" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer/LHandMargin"]
+[node name="L_LegPanel" type="Panel" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer/LHandMargin"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_il1qd")
 
-[node name="InventorySlot" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer/LHandMargin/LHandPanel" instance=ExtResource("1_bmb0g")]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer/LHandMargin/L_LegPanel"]
 layout_mode = 1
-icon = ExtResource("9_qkwhn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_qkwhn")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 120
 
-[node name="RHandPanel" type="Panel" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer/MarginContainer"]
+[node name="RLegPanel" type="Panel" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vsi4x")
 
-[node name="InventorySlot" parent="Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer/MarginContainer/RHandPanel" instance=ExtResource("1_bmb0g")]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/LegMargin/HBoxContainer/MarginContainer/RLegPanel"]
 layout_mode = 1
-icon = ExtResource("10_75fv8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_75fv8")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="StatsContainer" type="PanelContainer" parent="Window/Equipment"]
+[node name="StatsContainer" type="PanelContainer" parent="MarginContainer/Window/Equipment"]
 texture_filter = 3
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_vqfua")
 theme_override_styles/panel = SubResource("StyleBoxTexture_2jn06")
 
-[node name="TextContainer" type="VBoxContainer" parent="Window/Equipment/StatsContainer"]
+[node name="TextContainer" type="VBoxContainer" parent="MarginContainer/Window/Equipment/StatsContainer"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AttackMargin" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer"]
+[node name="AttackMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
 
-[node name="AttackContainer" type="HBoxContainer" parent="Window/Equipment/StatsContainer/TextContainer/AttackMargin"]
+[node name="AttackContainer" type="HBoxContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AttackMargin"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 
-[node name="AttackLabel" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer"]
+[node name="AttackLabel" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.755178, 0.846742, 1, 1)
@@ -330,11 +392,11 @@ theme_override_constants/outline_size = 2
 theme_override_fonts/font = SubResource("SystemFont_0yk3e")
 text = "Attack:"
 
-[node name="TextMargin" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer"]
+[node name="TextMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 46
 
-[node name="AttackText" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer/TextMargin"]
+[node name="AttackText" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer/TextMargin"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
 theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
@@ -344,16 +406,16 @@ theme_override_constants/shadow_outline_size = 3
 theme_override_font_sizes/font_size = 35
 text = "10 - 15"
 
-[node name="HitpointsMargin" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer"]
+[node name="HitpointsMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
 
-[node name="HitpointsContainer" type="HBoxContainer" parent="Window/Equipment/StatsContainer/TextContainer/HitpointsMargin"]
+[node name="HitpointsContainer" type="HBoxContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/HitpointsMargin"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HitpointsLabel" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer"]
+[node name="HitpointsLabel" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.756863, 0.847059, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.0431373, 0.0941176, 1, 1)
@@ -362,11 +424,11 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
 text = "HP:"
 
-[node name="MarginContainer" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 114
 
-[node name="HitpointsText" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer/MarginContainer"]
+[node name="HitpointsText" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
 theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
@@ -376,16 +438,16 @@ theme_override_constants/shadow_outline_size = 3
 theme_override_font_sizes/font_size = 35
 text = "15"
 
-[node name="AbilitiesMargin" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer"]
+[node name="AbilitiesMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
 
-[node name="AbilitiesContainer" type="HBoxContainer" parent="Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin"]
+[node name="AbilitiesContainer" type="HBoxContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="AbilitiesLabel" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer"]
+[node name="AbilitiesLabel" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.756863, 0.847059, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.0431373, 0.0941176, 1, 1)
@@ -394,11 +456,11 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 2
 text = "Abilities:"
 
-[node name="MarginContainer" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 
-[node name="AbilitiesText" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer/MarginContainer"]
+[node name="AbilitiesText" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
 theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
@@ -408,7 +470,14 @@ theme_override_constants/shadow_outline_size = 3
 theme_override_font_sizes/font_size = 35
 text = "poop throw"
 
-[node name="Information" type="VBoxContainer" parent="Window"]
+[node name="Information" type="VBoxContainer" parent="MarginContainer/Window"]
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("13_s8gds")
+
+[connection signal="high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_high_light"]
+[connection signal="un_high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_un_high_light"]
+[connection signal="global_clicked" from="InputManager" to="MarginContainer/Window/Inventory/InventoryContainer" method="_on_input_manager_global_clicked"]
