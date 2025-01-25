@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
-ItemManager="*res://item_manager.gd"
+ItemManager="*res://scripts/item_manager.gd"
 
 [display]
 
