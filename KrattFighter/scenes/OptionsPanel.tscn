@@ -1,17 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bllugb4ij0vev"]
+[gd_scene load_steps=9 format=3 uid="uid://bllugb4ij0vev"]
 
 [ext_resource type="Script" path="res://scripts/option_panel.gd" id="1_ma8cl"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="2_6vflv"]
 [ext_resource type="Texture2D" uid="uid://bdde5628po1rk" path="res://assets/buttons/exit.png" id="3_vy6t2"]
-[ext_resource type="Texture2D" uid="uid://kkx31cuuor7f" path="res://assets/buttons/options.png" id="4_s02eo"]
+[ext_resource type="Texture2D" uid="uid://co6yyj0eqxrpa" path="res://assets/art/Saunavennad 2.png" id="4_rqmsr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntwak"]
 texture = ExtResource("2_6vflv")
+
+[sub_resource type="SystemFont" id="SystemFont_hd35x"]
+
+[sub_resource type="SystemFont" id="SystemFont_ghosy"]
+
+[sub_resource type="SystemFont" id="SystemFont_mi287"]
 
 [node name="OptionMargin" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -49.0
+offset_right = 48.0
+offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 400
@@ -50,6 +60,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="OptionPanel/MarginContainer/VBoxContainer/sliderSFXBOX"]
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_hd35x")
 theme_override_font_sizes/font_size = 54
 text = "SFX:
 "
@@ -67,6 +78,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="OptionPanel/MarginContainer/VBoxContainer/sliderMusicBox"]
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_ghosy")
 theme_override_font_sizes/font_size = 54
 text = "Music:"
 
@@ -77,6 +89,12 @@ size_flags_vertical = 1
 max_value = 1.0
 step = 0.01
 
+[node name="CheckBox" type="CheckBox" parent="OptionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_mi287")
+theme_override_font_sizes/font_size = 54
+text = "Fullscreen mode"
+
 [node name="Button" type="Button" parent="OptionPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -86,11 +104,12 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Options" type="Sprite2D" parent="OptionPanel/MarginContainer/VBoxContainer"]
-position = Vector2(469, 60)
-scale = Vector2(0.22963, 0.22963)
-texture = ExtResource("4_s02eo")
+[node name="Saunavennad2" type="Sprite2D" parent="OptionPanel/MarginContainer/VBoxContainer"]
+position = Vector2(458, 70)
+scale = Vector2(0.905833, 0.905833)
+texture = ExtResource("4_rqmsr")
 
 [connection signal="value_changed" from="OptionPanel/MarginContainer/VBoxContainer/sliderSFXBOX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionPanel/MarginContainer/VBoxContainer/sliderMusicBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="toggled" from="OptionPanel/MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="OptionPanel/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

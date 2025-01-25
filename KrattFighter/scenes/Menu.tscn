@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsnf0kqqflnkn"]
+[gd_scene load_steps=24 format=3 uid="uid://dsnf0kqqflnkn"]
 
 [ext_resource type="Script" path="res://scripts/button_group.gd" id="1_231kn"]
 [ext_resource type="PackedScene" uid="uid://bllugb4ij0vev" path="res://scenes/OptionsPanel.tscn" id="2_aribr"]
@@ -9,31 +9,47 @@
 [ext_resource type="Texture2D" uid="uid://d2gpr522nvjc7" path="res://assets/vignette.png" id="6_7vwc7"]
 [ext_resource type="Script" path="res://scripts/menuAnimation.gd" id="7_clixt"]
 
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_4inwi"]
+resource_local_to_scene = true
+file = "assets/animations/TitleOGG.ogg"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6s2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5fjw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euxad"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1h13"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_63ur0"]
+Button/styles/focus = SubResource("StyleBoxEmpty_y6s2f")
+Button/styles/hover = SubResource("StyleBoxEmpty_f5fjw")
+Button/styles/normal = SubResource("StyleBoxEmpty_euxad")
+Button/styles/pressed = SubResource("StyleBoxFlat_c1h13")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dspww"]
+atlas = ExtResource("3_qi8re")
+region = Rect2(64.6756, 64.2053, 835.469, 403.634)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oredl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03tbd"]
+
+[sub_resource type="Theme" id="Theme_fa317"]
+Button/styles/focus = SubResource("StyleBoxEmpty_oredl")
+Button/styles/normal = SubResource("StyleBoxEmpty_03tbd")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7bmv5"]
 
 [sub_resource type="Curve" id="Curve_3tioo"]
 _data = [Vector2(0.00399999, 0.19698), 0.0, 0.0, 0, 0, Vector2(1, 0.803706), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_4inwi"]
-resource_local_to_scene = true
-file = "assets/animations/TitleOGG.ogg"
-
-[sub_resource type="Animation" id="Animation_blqas"]
-resource_name = "vignettePop"
-length = 8.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 4, 8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1.27, 1.00417), Vector2(1.35812, 1.02667), Vector2(1.27, 1.00417)]
-}
 
 [sub_resource type="Animation" id="Animation_c1h7h"]
 length = 0.001
@@ -50,6 +66,22 @@ tracks/0/keys = {
 "values": [Vector2(1.27, 1.00417)]
 }
 
+[sub_resource type="Animation" id="Animation_blqas"]
+resource_name = "vignettePop"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.19687, 0.9025), Vector2(1.35812, 1.02667), Vector2(1.19687, 0.9025)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ns3yx"]
 _data = {
 "RESET": SubResource("Animation_c1h7h"),
@@ -63,6 +95,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Title_Video" type="VideoStreamPlayer" parent="."]
+visibility_layer = 2
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = SubResource("VideoStreamTheora_4inwi")
+autoplay = true
+loop = true
 
 [node name="MenuMargin" type="MarginContainer" parent="."]
 visibility_layer = 3
@@ -97,6 +138,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
+theme = SubResource("Theme_63ur0")
 theme_override_constants/separation = 40
 script = ExtResource("1_231kn")
 
@@ -132,15 +174,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -147.0
-offset_top = -82.5
-offset_right = 887.0
-offset_bottom = 465.5
+offset_left = -129.0
+offset_top = -78.5
+offset_right = 706.0
+offset_bottom = 324.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
-icon = ExtResource("3_qi8re")
-flat = true
+icon = SubResource("AtlasTexture_dspww")
 script = ExtResource("4_u6lha")
 
 [node name="Exit" type="Control" parent="MenuMargin/VBoxContainer/ButtonGroup"]
@@ -175,6 +216,7 @@ offset_left = 152.0
 offset_top = -111.0
 offset_right = 152.0
 offset_bottom = -111.0
+theme = SubResource("Theme_fa317")
 
 [node name="Bloom" type="CPUParticles2D" parent="."]
 process_mode = 3
@@ -185,6 +227,7 @@ position = Vector2(2403, 543)
 rotation = 3.14159
 amount = 200
 lifetime = 17.17
+preprocess = 12.13
 explosiveness = 0.07
 randomness = 0.13
 lifetime_randomness = 0.27
@@ -210,17 +253,8 @@ color = Color(0, 0, 0, 1)
 z_index = 1
 position = Vector2(960, 540)
 
-[node name="Title_Video" type="VideoStreamPlayer" parent="."]
-visibility_layer = 2
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-stream = SubResource("VideoStreamTheora_4inwi")
-autoplay = true
-loop = true
-
 [node name="Vignette" type="Sprite2D" parent="."]
-position = Vector2(961.5, 546)
+position = Vector2(960.5, 543.5)
 scale = Vector2(1.27, 1.00417)
 texture = ExtResource("6_7vwc7")
 
