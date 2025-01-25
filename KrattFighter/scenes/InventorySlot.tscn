@@ -14,5 +14,6 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+flat = true
 icon_alignment = 1
 expand_icon = true
