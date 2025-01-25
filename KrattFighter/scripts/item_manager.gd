@@ -6,7 +6,24 @@ enum ITEMS {
 	WOOD_CHEST,
 	WOOD_LEG,
 	SWORD,
-	PITCH_FORK
+	PITCH_FORK,
+	
+	AMBER,
+	ARMOR,
+	AXE,
+	HAT,
+	HATS,
+	KOSA,
+	MESHOK,
+	PLUG,
+	POT,
+	SHIRT,
+	SMTH,
+	STIIK,
+	STONE,
+	SUUR_TÕLL,
+	TOTEM,
+	
 }
 @export var itemsEnum: ITEMS
 enum BODY_PART {
