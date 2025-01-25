@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bq1mqyubd7eq" path="res://assets/map object/day/lake.png" id="6_gwmie"]
 [ext_resource type="Texture2D" uid="uid://cev3gwwgte7q1" path="res://assets/map object/day/maja.png" id="7_0heig"]
 [ext_resource type="Texture2D" uid="uid://c5cuavvtuf3t0" path="res://assets/map object/day/tree2.png" id="8_3rhh8"]
-[ext_resource type="Texture2D" uid="uid://dabrjgerrslxk" path="res://assets/drive-download-20250125T091820Z-001/stone.png" id="9_7w365"]
 [ext_resource type="Texture2D" uid="uid://qcpyekmtu0g7" path="res://assets/map object/day/tree3.png" id="9_ujcke"]
 [ext_resource type="Texture2D" uid="uid://ki6chadhijiy" path="res://assets/map object/day/tree1.png" id="10_y1th2"]
+[ext_resource type="PackedScene" uid="uid://b3lqmedbjnxu3" path="res://Item_scenes/MAP_item.tscn" id="12_hwbit"]
 [ext_resource type="Script" path="res://scenes/itemspawn.gd" id="21_bw3bk"]
 
 [node name="MapScene" type="Node2D"]
@@ -83,57 +83,54 @@ texture = ExtResource("10_y1th2")
 [node name="mets1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(1030, 759)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/mets1"]
+[node name="Node2D" parent="Spawns (11 kokku)/mets1" instance=ExtResource("12_hwbit")]
 
 [node name="peenar1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(507, 839)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/peenar1"]
+[node name="Node2D" parent="Spawns (11 kokku)/peenar1" instance=ExtResource("12_hwbit")]
 
 [node name="koobas2" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(457, 458)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/koobas2"]
+[node name="Node2D" parent="Spawns (11 kokku)/koobas2" instance=ExtResource("12_hwbit")]
 
 [node name="koobas1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(76, 573)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/koobas1"]
+[node name="Node2D" parent="Spawns (11 kokku)/koobas1" instance=ExtResource("12_hwbit")]
 
 [node name="maja2" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(712, 345)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/maja2"]
+[node name="Node2D" parent="Spawns (11 kokku)/maja2" instance=ExtResource("12_hwbit")]
 
 [node name="maja1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(601, 168)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/maja1"]
+[node name="Node2D" parent="Spawns (11 kokku)/maja1" instance=ExtResource("12_hwbit")]
 
 [node name="küngas1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(1686, 294)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/küngas1"]
+[node name="Node2D" parent="Spawns (11 kokku)/küngas1" instance=ExtResource("12_hwbit")]
 
 [node name="järv2" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(1676, 506)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/järv2"]
-position = Vector2(-1.14441e-05, -0.999996)
-scale = Vector2(0.097, 0.091)
-texture = ExtResource("9_7w365")
+[node name="Node2D" parent="Spawns (11 kokku)/järv2" instance=ExtResource("12_hwbit")]
 
 [node name="järv1" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(1530, 869)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/järv1"]
+[node name="Node2D" parent="Spawns (11 kokku)/järv1" instance=ExtResource("12_hwbit")]
 
 [node name="peenar2" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(780, 674)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/peenar2"]
+[node name="Node2D" parent="Spawns (11 kokku)/peenar2" instance=ExtResource("12_hwbit")]
 
 [node name="küngas2" type="Node2D" parent="Spawns (11 kokku)"]
 position = Vector2(1113, 287)
 
-[node name="Sprite2D" type="Sprite2D" parent="Spawns (11 kokku)/küngas2"]
+[node name="Node2D" parent="Spawns (11 kokku)/küngas2" instance=ExtResource("12_hwbit")]
