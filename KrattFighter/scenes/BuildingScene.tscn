@@ -1,4 +1,24 @@
-[gd_scene format=3 uid="uid://dbmla2m42cyto"]
+[gd_scene load_steps=10 format=3 uid="uid://dbmla2m42cyto"]
+
+[ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
+[ext_resource type="PackedScene" uid="uid://dbe08u4d21ptk" path="res://scenes/InventorySlot.tscn" id="1_bmb0g"]
+[ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
+[ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="3_6ivee"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d65m7"]
+texture = ExtResource("1_ejhf3")
+
+[sub_resource type="SystemFont" id="SystemFont_3ocvv"]
+
+[sub_resource type="Theme" id="Theme_vqfua"]
+default_font_size = 40
+TextEdit/fonts/font = SubResource("SystemFont_3ocvv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jn06"]
+texture = ExtResource("3_6ivee")
+modulate_color = Color(0.558077, 0.446423, 0.423286, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_0yk3e"]
 
 [node name="Margin" type="MarginContainer"]
 anchors_preset = 15
@@ -10,24 +30,230 @@ theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
+metadata/_edit_lock_ = true
 
 [node name="Window" type="HBoxContainer" parent="."]
 layout_mode = 2
+metadata/_edit_lock_ = true
 
-[node name="Inventory&Equipment" type="VBoxContainer" parent="Window"]
+[node name="Inventory" type="VBoxContainer" parent="Window"]
 layout_mode = 2
 size_flags_horizontal = 3
+metadata/_edit_lock_ = true
 
-[node name="Inventory" type="GridContainer" parent="Window/Inventory&Equipment"]
+[node name="InventoryContainer" type="GridContainer" parent="Window/Inventory"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 3
+metadata/_edit_lock_ = true
 
-[node name="Equipment" type="Control" parent="Window/Inventory&Equipment"]
+[node name="InventoryPanel1" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel1" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="InventoryPanel2" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel2" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="InventoryPanel3" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel3" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="InventoryPanel4" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel4" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="InventoryPanel5" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel5" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="InventoryPanel6" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel6" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="InventoryPanel7" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel7" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="InventoryPanel8" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel8" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="InventoryPanel9" type="Panel" parent="Window/Inventory/InventoryContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
+
+[node name="InventorySlot" parent="Window/Inventory/InventoryContainer/InventoryPanel9" instance=ExtResource("1_bmb0g")]
+layout_mode = 1
+
+[node name="Bag" type="Control" parent="Window/Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Window/Inventory/Bag"]
+texture_filter = 3
+position = Vector2(237, 269)
+scale = Vector2(0.6675, 0.6675)
+texture = ExtResource("1_6idb2")
+
+[node name="Equipment" type="VBoxContainer" parent="Window"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
+
+[node name="EquipmentContainer" type="Control" parent="Window/Equipment"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="StatsContainer" type="PanelContainer" parent="Window/Equipment"]
+texture_filter = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_vqfua")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2jn06")
+
+[node name="TextContainer" type="VBoxContainer" parent="Window/Equipment/StatsContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AttackMargin" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+
+[node name="AttackContainer" type="HBoxContainer" parent="Window/Equipment/StatsContainer/TextContainer/AttackMargin"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="AttackLabel" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.755178, 0.846742, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0439989, 0.0931322, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_0yk3e")
+text = "Attack:"
+
+[node name="TextMargin" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 46
+
+[node name="AttackText" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer/TextMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "10 - 15"
+
+[node name="HitpointsMargin" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+
+[node name="HitpointsContainer" type="HBoxContainer" parent="Window/Equipment/StatsContainer/TextContainer/HitpointsMargin"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Stats" type="VBoxContainer" parent="Window"]
+[node name="HitpointsLabel" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.756863, 0.847059, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0431373, 0.0941176, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+text = "HP:"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 114
+
+[node name="HitpointsText" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "15"
+
+[node name="AbilitiesMargin" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+
+[node name="AbilitiesContainer" type="HBoxContainer" parent="Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AbilitiesLabel" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.756863, 0.847059, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.0431373, 0.0941176, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+text = "Abilities:"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+
+[node name="AbilitiesText" type="Label" parent="Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "poop throw"
+
+[node name="Information" type="VBoxContainer" parent="Window"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
+metadata/_edit_lock_ = true
