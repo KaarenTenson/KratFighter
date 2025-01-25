@@ -496,5 +496,4 @@ script = ExtResource("13_s8gds")
 [connection signal="high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_high_light"]
 [connection signal="remove_btn" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_remove_btn"]
 [connection signal="un_high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_un_high_light"]
-[connection signal="switch_btn" from="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" to="MarginContainer/Window/Inventory/InventoryContainer" method="_on_equipment_panel_switch_btn"]
 [connection signal="global_clicked" from="InputManager" to="MarginContainer/Window/Inventory/InventoryContainer" method="_on_input_manager_global_clicked"]

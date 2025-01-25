@@ -32,9 +32,11 @@ func add_signal(node:Node):
 			el.pressed.connect(func():
 				if (inventory.size() < 9):
 					el.visible = not el.visible
-					var item = ItemManager.items_dict.get(el.item)
+					var item :Items= ItemManager.items_dict.get(el.item)
 					addItem(item)
 					inventory.append(item)
+					ItemManager.current_items.append(item.name)
+					print(ItemManager.current_items)
 				else:
 					print("max slots!!")
 				)

@@ -167,7 +167,7 @@ flat = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="OptionsButton" type="Button" parent="MenuMargin/VBoxContainer/ButtonGroup/Options"]
+[node name="OptionsButton" type="Button" parent="MenuMargin/VBoxContainer/ButtonGroup/Options" node_paths=PackedStringArray("option_panel")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -183,6 +183,7 @@ grow_vertical = 2
 scale = Vector2(0.3, 0.3)
 icon = SubResource("AtlasTexture_dspww")
 script = ExtResource("4_u6lha")
+option_panel = NodePath("../../../../../OptionPanel")
 
 [node name="Exit" type="Control" parent="MenuMargin/VBoxContainer/ButtonGroup"]
 layout_mode = 2
