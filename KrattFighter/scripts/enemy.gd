@@ -16,9 +16,9 @@ class_name Enemy
 var failed_attack_count:=0
 
 
-enum ENEMY_STATE{IDLE, ATTACK, DEFEND}
+enum ENEMY_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
 var current_state=ENEMY_STATE.IDLE
-var current_weapon:BodyPart
+var current_weapon:BodyPart=null
 signal attack_signal(body_part: int, is_left:bool)
 var loot_pool:Dictionary={
 	ItemManager.BODY_PART.HEAD:[],
@@ -73,12 +73,17 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(0.5).timeout
 			current_state=ENEMY_STATE.ATTACK
 		ENEMY_STATE.ATTACK:
+			current_state=ENEMY_STATE.ATTACKING
 			attack()
 			animation_player.play("attack_left")
 			await animation_player.animation_finished
 			await get_tree().create_timer(current_weapon.item.attack_speed).timeout
+			if(current_state==ENEMY_STATE.ATTACKING):
+				current_state=ENEMY_STATE.ATTACK
 		ENEMY_STATE.DEFEND:
 			current_weapon=null
+		ENEMY_STATE.ATTACKING:
+			return
 	
 func fill_loot_pool():
 	for item in ItemManager.ITEMS.values():

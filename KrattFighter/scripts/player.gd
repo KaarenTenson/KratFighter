@@ -21,7 +21,8 @@ func _process(delta: float) -> void:
 	pass
 func refresh_body():
 	for child in get_children():
-		(child.get_children()[0] as StaticBody2D).queue_free()
+		if(child is StaticBody2D):
+			(child.get_children()[0] as StaticBody2D).queue_free()
 	create_body()
 func create_body():
 	head.set_items(ItemManager.items_dict[ItemManager.kratt_body.head])
