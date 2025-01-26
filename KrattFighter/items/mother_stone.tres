@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://dpy7jpkkkp8k5"]
 
-[ext_resource type="PackedScene" path="res://Item_scenes/mother_stone.tscn" id="1_5ad6e"]
+[ext_resource type="PackedScene" uid="uid://di5qlh1o5xl1t" path="res://Item_scenes/mother_stone.tscn" id="1_5ad6e"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="2_ge4fw"]
 [ext_resource type="Texture2D" uid="uid://byv07ny2gctcj" path="res://assets/drive-download-20250125T091820Z-001/mother_stone.png" id="3_h08va"]
 
@@ -12,8 +12,8 @@ texture = ExtResource("3_h08va")
 name = 22
 desc = "Stone that has a particular kind of warmth to it. Sitting on it makes you want to tear up."
 body_part = 1
-hp = 100
-damage = 5
+hp = 50
+damage = 0
 attack_speed = 0
 ability = 0
 str_name = "mother stone"

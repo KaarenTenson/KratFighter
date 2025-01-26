@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://b6b5pymevnkiu"]
 
-[ext_resource type="PackedScene" path="res://Item_scenes/small_spruce.tscn" id="1_xsdhd"]
+[ext_resource type="PackedScene" uid="uid://d1dfe3tqjpsdo" path="res://Item_scenes/small_spruce.tscn" id="1_xsdhd"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="2_am1s6"]
 [ext_resource type="Texture2D" uid="uid://dnskbhsh1xjtl" path="res://assets/drive-download-20250125T091820Z-001/Untitled-2.png" id="3_gqjvg"]
 
@@ -12,8 +12,8 @@ texture = ExtResource("3_gqjvg")
 name = 21
 desc = "A strong trunk of spruce wood. Could be good for whacking hordes of enemies off their feet."
 body_part = 2
-hp = 5
-damage = 5
-attack_speed = 0
+hp = 10
+damage = 2
+attack_speed = 1
 ability = 0
 str_name = "small spruce"

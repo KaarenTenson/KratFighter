@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://b3jdexjus5doo"]
 
-[ext_resource type="PackedScene" path="res://Item_scenes/fertility_god_statue.tscn" id="1_ae4rd"]
+[ext_resource type="PackedScene" uid="uid://dilrgdlwu7fit" path="res://Item_scenes/fertility_god_statue.tscn" id="1_ae4rd"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="1_nd2y4"]
 [ext_resource type="Texture2D" uid="uid://dmepumjkf5h2b" path="res://assets/drive-download-20250125T091820Z-001/totem.png" id="2_fh3nw"]
 
@@ -13,7 +13,7 @@ name = 19
 desc = "A long statue that moves to a new home every year. Has the face of a king, and brings luck to those who harbor it."
 body_part = 3
 hp = 30
-damage = 5
+damage = 10
 attack_speed = 5
 ability = 0
 str_name = "fertility god statue"

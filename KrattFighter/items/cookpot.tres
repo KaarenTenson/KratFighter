@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://55yamvj3qbj6"]
 
-[ext_resource type="PackedScene" path="res://Item_scenes/cookpot.tscn" id="1_202wq"]
+[ext_resource type="PackedScene" uid="uid://me6r4dytxnlv" path="res://Item_scenes/cookpot.tscn" id="1_202wq"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="2_sayly"]
 [ext_resource type="Texture2D" uid="uid://cihuyxxmrw8im" path="res://assets/drive-download-20250125T091820Z-001/pot.png" id="3_viuvb"]
 
@@ -12,7 +12,7 @@ texture = ExtResource("3_viuvb")
 name = 13
 desc = "Used to make many types of food, from potatoes to more elegant meals like kale porridge."
 body_part = 0
-hp = 60
+hp = 20
 damage = 0
 attack_speed = 0
 ability = 0
