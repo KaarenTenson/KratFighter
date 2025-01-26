@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-[gd_scene load_steps=28 format=3 uid="uid://dbmla2m42cyto"]
-=======
-[gd_scene load_steps=32 format=3 uid="uid://dbmla2m42cyto"]
->>>>>>> e53e5b9 (muudatused)
+[gd_scene load_steps=32 format=3 uid="uid://b3wgsiklv36d2"]
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
 [ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
-[ext_resource type="Texture2D" uid="uid://c5okwhnx8a54x" path="res://assets/building-scene.png" id="1_qdelb"]
 [ext_resource type="Script" path="res://scripts/inventory_container.gd" id="1_ym7jk"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="3_6ivee"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_xye4o"]
@@ -17,8 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://b0o60oi2we1cq" path="res://assets/EquipmentIcons/rightarmicon.png" id="8_yvcg7"]
 [ext_resource type="Texture2D" uid="uid://bk7qjwxeb2upk" path="res://assets/EquipmentIcons/leftlegicon.png" id="9_qkwhn"]
 [ext_resource type="Texture2D" uid="uid://cmuxjtr1crft5" path="res://assets/EquipmentIcons/rightlegicon.png" id="10_75fv8"]
+[ext_resource type="Texture2D" uid="uid://bpey0d6veju3x" path="res://assets/art/white_bg.jpg" id="13_ofv5c"]
 [ext_resource type="Script" path="res://scripts/input_manager.gd" id="13_s8gds"]
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="14_8mukd"]
+[ext_resource type="Texture2D" uid="uid://gp20vt16soja" path="res://assets/buttons/fight.png" id="15_jpb3i"]
+[ext_resource type="Script" path="res://scenes/Build_next_scene_button.gd" id="16_202cd"]
+[ext_resource type="PackedScene" uid="uid://vn00x1r4dvvx" path="res://scenes/ItemInfoBox.tscn" id="18_m6eq0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d65m7"]
 texture = ExtResource("1_ejhf3")
@@ -60,8 +59,11 @@ modulate_color = Color(0.558077, 0.446423, 0.423286, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_0yk3e"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5tfd"]
+texture = ExtResource("13_ofv5c")
+modulate_color = Color(0.446777, 0.446777, 0.446777, 1)
+
 [node name="Margin" type="Control"]
-texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,13 +72,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.481789, 0.481789, 0.481789, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_qdelb")
+texture = ExtResource("4_xye4o")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -137,6 +140,19 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 50
 text = "Equipment
 "
+
+[node name="Label" type="Label" parent="MarginContainer/Labels"]
+layout_mode = 2
+offset_left = 1153.0
+offset_top = -92.0
+offset_right = 1722.0
+offset_bottom = -23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Player"
+horizontal_alignment = 1
 
 [node name="Window" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -481,28 +497,34 @@ layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="MarginContainer/Window/Information"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Player"
-horizontal_alignment = 1
-
-[node name="Control" type="Control" parent="MarginContainer/Window/Information"]
+[node name="Control" type="Panel" parent="MarginContainer/Window/Information"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_s5tfd")
 
 [node name="Player" parent="MarginContainer/Window/Information/Control" instance=ExtResource("14_8mukd")]
-position = Vector2(269, 450)
-scale = Vector2(0.5, 0.5)
+position = Vector2(421, 360)
+scale = Vector2(0.32, 0.32)
+
+[node name="Button" type="Button" parent="MarginContainer/Window/Information"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("15_jpb3i")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("16_202cd")
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("13_s8gds")
 
-[node name="info_box" parent="." instance=ExtResource("18_qg5jj")]
+[node name="info_box" parent="." instance=ExtResource("18_m6eq0")]
 visible = false
 layout_mode = 0
 
 [connection signal="high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_high_light"]
 [connection signal="remove_btn" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_remove_btn"]
 [connection signal="un_high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_un_high_light"]
+[connection signal="pressed" from="MarginContainer/Window/Information/Button" to="MarginContainer/Window/Information/Button" method="_on_pressed"]
 [connection signal="global_clicked" from="InputManager" to="MarginContainer/Window/Inventory/InventoryContainer" method="_on_input_manager_global_clicked"]
