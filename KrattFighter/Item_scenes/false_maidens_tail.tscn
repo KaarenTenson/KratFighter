@@ -4,8 +4,9 @@
 
 [node name="FalseMaidensTail" type="StaticBody2D"]
 rotation = 0.0872665
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-8, 214)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-13.2206, 391.977)
+scale = Vector2(0.477372, 0.944091)
 texture = ExtResource("1_tad4v")

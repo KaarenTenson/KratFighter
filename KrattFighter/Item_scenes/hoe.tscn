@@ -4,7 +4,6 @@
 
 [node name="Hoe" type="StaticBody2D"]
 rotation = 2.35619
-scale = Vector2(0.75, 0.75)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(398.808, -413.893)

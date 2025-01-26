@@ -4,6 +4,7 @@
 
 [node name="Plough" type="StaticBody2D"]
 rotation = 1.09956
+scale = Vector2(1.25, 1.25)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(474, 218)

@@ -58,9 +58,16 @@ func create_random_body():
 	else:
 		body_class.right_hand=ItemManager.ITEMS.WOOD_HAND
 func create_body():
-	head.set_items(ItemManager.items_dict[body_class.head])
-	chest.set_items(ItemManager.items_dict[body_class.body])
-	left_hand.set_items(ItemManager.items_dict[body_class.left_hand])
-	right_hand.set_items(ItemManager.items_dict[body_class.right_hand])
-	left_leg.set_items(ItemManager.items_dict[body_class.left_leg])
-	right_leg.set_items(ItemManager.items_dict[body_class.right_leg])
+	#head.set_items(ItemManager.items_dict[body_class.head])
+	#chest.set_items(ItemManager.items_dict[body_class.body])
+	#left_hand.set_items(ItemManager.items_dict[body_class.left_hand])
+	#right_hand.set_items(ItemManager.items_dict[body_class.right_hand])
+	#left_leg.set_items(ItemManager.items_dict[body_class.left_leg])
+	#right_leg.set_items(ItemManager.items_dict[body_class.right_leg])
+	
+	head.set_items(ItemManager.items_dict[ItemManager.ITEMS.WOOD_HEAD])
+	chest.set_items(ItemManager.items_dict[ItemManager.ITEMS.WOOD_CHEST])
+	left_hand.set_items(ItemManager.items_dict[ItemManager.ITEMS.GRIEVING_BLADE])
+	right_hand.set_items(ItemManager.items_dict[ItemManager.ITEMS.GRIEVING_BLADE])
+	left_leg.set_items(ItemManager.items_dict[ItemManager.ITEMS.PITCH_FORK])
+	right_leg.set_items(ItemManager.items_dict[ItemManager.ITEMS.FALSE_MAIDENS_TAIL])
