@@ -137,6 +137,24 @@ theme_override_colors/font_outline_color = Color(0.983009, 0.267647, 0.222779, 1
 theme_override_constants/outline_size = 2
 text = "bucket"
 
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/HeadContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/HeadContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/HeadContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
+
 [node name="BodyContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -158,6 +176,24 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1)
 theme_override_constants/outline_size = 2
 text = "plated armor"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/BodyContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/BodyContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/BodyContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
 
 [node name="LHanContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
@@ -181,6 +217,24 @@ theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1
 theme_override_constants/outline_size = 2
 text = "sturdy stick"
 
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/LHanContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/LHanContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/LHanContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
+
 [node name="RHandContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -202,6 +256,24 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1)
 theme_override_constants/outline_size = 2
 text = "sychte"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/RHandContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/RHandContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/RHandContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
 
 [node name="LLegContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
@@ -225,6 +297,24 @@ theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1
 theme_override_constants/outline_size = 2
 text = "wooden leg"
 
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/LLegContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/LLegContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/LLegContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
+
 [node name="RLegContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -246,6 +336,24 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1)
 theme_override_constants/outline_size = 2
 text = "pitch fork"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/RLegContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/RLegContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/EnemyPanel/VBoxContainer/RLegContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
 
 [node name="PlayerPanel" type="Panel" parent="UILayer"]
 offset_top = 50.0
@@ -282,6 +390,24 @@ theme_override_colors/font_outline_color = Color(0.983009, 0.267647, 0.222779, 1
 theme_override_constants/outline_size = 2
 text = "bucket"
 
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/PlayerPanel/VBoxContainer/HeadContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/HeadContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/HeadContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
+
 [node name="BodyContainer" type="HBoxContainer" parent="UILayer/PlayerPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -303,6 +429,24 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1)
 theme_override_constants/outline_size = 2
 text = "plated armor"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/PlayerPanel/VBoxContainer/BodyContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/BodyContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/BodyContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
 
 [node name="LHandContainer" type="HBoxContainer" parent="UILayer/PlayerPanel/VBoxContainer"]
 layout_mode = 2
@@ -326,6 +470,24 @@ theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1
 theme_override_constants/outline_size = 2
 text = "sturdy stick"
 
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/PlayerPanel/VBoxContainer/LHandContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/LHandContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/LHandContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
+
 [node name="RHandContainer" type="HBoxContainer" parent="UILayer/PlayerPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -347,6 +509,24 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1)
 theme_override_constants/outline_size = 2
 text = "sychte"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/PlayerPanel/VBoxContainer/RHandContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/RHandContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/RHandContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
 
 [node name="LLegContainer" type="HBoxContainer" parent="UILayer/PlayerPanel/VBoxContainer"]
 layout_mode = 2
@@ -370,6 +550,24 @@ theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1
 theme_override_constants/outline_size = 2
 text = "wooden leg"
 
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/PlayerPanel/VBoxContainer/LLegContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/LLegContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/LLegContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
+
 [node name="RLegContainer" type="HBoxContainer" parent="UILayer/PlayerPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -391,6 +589,24 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.984314, 0.266667, 0.223529, 1)
 theme_override_constants/outline_size = 2
 text = "pitch fork"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UILayer/PlayerPanel/VBoxContainer/RLegContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/RLegContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "HP:"
+
+[node name="CurrentHPLabel" type="Label" parent="UILayer/PlayerPanel/VBoxContainer/RLegContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "100"
 
 [node name="EnemyLabel" type="Label" parent="UILayer"]
 offset_left = 1602.0
