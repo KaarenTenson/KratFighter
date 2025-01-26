@@ -18,7 +18,7 @@ extends Node2D
 "Singing, dancing..", "..till [color=#6DD5FA]the end of their time...[/color]"]
 @onready var voices = ["res://assets/sfx/OP1.mp3", "res://assets/sfx/OP2.mp3", "res://assets/sfx/OP3.mp3", "res://assets/sfx/OP4.mp3", "res://assets/sfx/OP5.mp3", "res://assets/sfx/OP6.mp3", "res://assets/sfx/OP7.mp3"]
 @onready var creditsVoices = ["res://assets/sfx/Credits1.mp3", "res://assets/sfx/Credits2.mp3", "res://assets/sfx/Credits3.mp3", "res://assets/sfx/Credits4.mp3"]
-@onready var credits = get_tree().root.name
+@export var credits : String
 @onready var creditsIndex = 0
 
 func _on_button_pressed() -> void:
@@ -41,7 +41,7 @@ func _on_button_pressed() -> void:
 
 func _ready():
 	$ColorRect/AnimationPlayer.play("fade_in")
-	if (credits):
+	if (credits == "credits"):
 		$SFX.set_stream(load(creditsVoices[scene]))
 		$SFX.play()
 		await get_tree().create_timer(2).timeout

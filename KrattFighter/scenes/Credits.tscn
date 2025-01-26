@@ -323,11 +323,12 @@ _data = {
 "text_disappear": SubResource("Animation_ofbpv")
 }
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("nextButton", "openingTextPlayer", "openingScenePlayer")]
+[node name="Credits" type="Node2D" node_paths=PackedStringArray("nextButton", "openingTextPlayer", "openingScenePlayer")]
 script = ExtResource("1_sud5s")
 nextButton = NodePath("Node2D/Button")
 openingTextPlayer = NodePath("PanelContainer/Text/AnimationPlayer")
 openingScenePlayer = NodePath("SceneTrans")
+credits = "credits"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 top_level = true

@@ -151,6 +151,7 @@ _data = {
 script = ExtResource("1_qjys5")
 openingTextPlayer = NodePath("PanelContainer/Text/AnimationPlayer")
 openingScenePlayer = NodePath("SceneTransition")
+credits = "mittecredits"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 top_level = true

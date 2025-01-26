@@ -10,6 +10,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
+	$"../../../../../SFX".set_stream(load("res://assets/sfx/Collect.mp3"))
+	play_with_random_pitch()
 	option_panel.visible = not option_panel.visible
 
 
@@ -20,3 +22,9 @@ func _on_buildingbutton_pressed() -> void:
 	$"../../ColorRect/AnimationPlayer".play("fade_out")
 	await get_tree().create_timer(1.75).timeout
 	get_tree().change_scene_to_file("res://scenes/BuildingScene.tscn")
+
+func play_with_random_pitch():
+	# Generate a random pitch scale between 0.8 and 1.2 (adjust range as needed)
+	var random_pitch = randf_range(0.8, 1.2)
+	$"../../../../../SFX".pitch_scale = random_pitch
+	$"../../../../../SFX".play()
