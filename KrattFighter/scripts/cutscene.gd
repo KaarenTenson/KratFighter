@@ -38,4 +38,5 @@ func _ready():
 	await get_tree().create_timer(1.75).timeout
 
 func _on_music_finished() -> void:
-	$Music.play("res://assets/music/Opening (loop).wav")
+	$Music.set_stream(load("res://assets/music/Opening (loop).wav"))
+	$Music.play()

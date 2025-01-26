@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bllugb4ij0vev"]
+[gd_scene load_steps=8 format=3 uid="uid://bllugb4ij0vev"]
 
 [ext_resource type="Script" path="res://scripts/option_panel.gd" id="1_ma8cl"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="2_6vflv"]
@@ -12,9 +12,6 @@ texture = ExtResource("2_6vflv")
 subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_ghosy"]
-subpixel_positioning = 0
-
-[sub_resource type="SystemFont" id="SystemFont_mi287"]
 subpixel_positioning = 0
 
 [node name="OptionMargin" type="MarginContainer"]
@@ -92,12 +89,6 @@ size_flags_vertical = 1
 max_value = 1.0
 step = 0.01
 
-[node name="CheckBox" type="CheckBox" parent="OptionPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_mi287")
-theme_override_font_sizes/font_size = 54
-text = "Fullscreen mode"
-
 [node name="Button" type="Button" parent="OptionPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -114,5 +105,4 @@ texture = ExtResource("4_rqmsr")
 
 [connection signal="value_changed" from="OptionPanel/MarginContainer/VBoxContainer/sliderSFXBOX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="OptionPanel/MarginContainer/VBoxContainer/sliderMusicBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="toggled" from="OptionPanel/MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="OptionPanel/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

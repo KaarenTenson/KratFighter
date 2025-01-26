@@ -10,7 +10,7 @@
 [ext_resource type="VideoStream" path="res://assets/animations/S4.ogv" id="7_dd530"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="7_s5c1f"]
 [ext_resource type="AnimationLibrary" uid="uid://dq3bl11c2oxtp" path="res://assets/animations/globalAnimations.res" id="8_fhoih"]
-[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://buttontheme.tres" id="9_3yno6"]
+[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://themes/buttontheme.tres" id="9_3yno6"]
 [ext_resource type="Texture2D" uid="uid://bmiuaowg3nvhf" path="res://assets/buttons/play.png" id="10_2faw4"]
 [ext_resource type="AudioStream" uid="uid://1qutnwr5yapx" path="res://assets/music/Opening (loop).wav" id="13_4m5fk"]
 
@@ -266,3 +266,4 @@ volume_db = -1.486
 bus = &"SFX"
 
 [connection signal="pressed" from="Node2D/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

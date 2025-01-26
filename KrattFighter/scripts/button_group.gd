@@ -15,15 +15,7 @@ func _process(delta: float) -> void:
 func _on_start_button_pressed() -> void:
 	$"../../../ColorRect/AnimationPlayer".play("fade_in")
 	await get_tree().create_timer(1.75).timeout
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	get_tree().change_scene_to_file("res://scenes/MapScene.tscn")
-=======
 	get_tree().change_scene_to_file("res://scenes/Opening.tscn")
->>>>>>> Stashed changes
-=======
-	get_tree().change_scene_to_file("res://scenes/Opening.tscn")
->>>>>>> Stashed changes
 
 
 func _on_exit_button_pressed() -> void:
