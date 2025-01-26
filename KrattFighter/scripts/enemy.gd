@@ -8,6 +8,7 @@ class_name Enemy
 @onready var right_leg: BodyPart = $rightleg
 
 @export var chance_for_item:=0.5
+signal attack(body_part: int, is_left:bool)
 var loot_pool:Dictionary={
 	ItemManager.BODY_PART.HEAD:[],
 	ItemManager.BODY_PART.CHEST:[],
@@ -15,6 +16,11 @@ var loot_pool:Dictionary={
 	ItemManager.BODY_PART.LEG:[],
 }
 var body_class:=ItemManager.KrattBodyClass.new()
+func start_attack():
+	var body_part:int=ItemManager.BODY_PART.values().pick_random()
+	var is_left:bool= randf()>0.5
+	attack.emit(body_part, is_left)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	fill_loot_pool()
