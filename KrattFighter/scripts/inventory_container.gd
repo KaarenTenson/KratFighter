@@ -13,6 +13,8 @@ func _ready() -> void:
 	inv_instance=INVENTORY_SLOT.instantiate()
 	for item in ItemManager.current_items:
 		var new_obj :=inv_instance.duplicate()
+		if(find_empty()==null):
+			return
 		find_empty().add_child(new_obj)
 		new_obj.pressed.connect(handle_btn_input.bind(new_obj))
 		new_obj.mouse_entered.connect(handle_hover.bind(new_obj))
@@ -62,6 +64,8 @@ func _on_equipment_panel_switch_btn(btn: InventorySlot) -> void:
 	cur_button=null
 	btn.reparent(find_empty())
 	handle_btn_input(btn)
+	
+	
 func handle_hover(btn:InventorySlot):
 	if(btn.in_air):
 		info_box.visible=false

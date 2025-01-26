@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://dqvhfq5aimuq4"]
+[gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://7uf011vuviuu"]
 
 [ext_resource type="Script" path="res://scripts/Items.gd" id="1_igwc1"]
-[ext_resource type="PackedScene" uid="uid://ccywi1k0spjff" path="res://Item_scenes/sturdy_branch.tscn" id="1_inb7p"]
+[ext_resource type="PackedScene" path="res://Item_scenes/sturdy_branch.tscn" id="1_inb7p"]
 [ext_resource type="Texture2D" uid="uid://buii0foq6nuh4" path="res://assets/drive-download-20250125T091820Z-001/stiik.png" id="2_yc8ra"]
 
 [resource]
@@ -16,3 +16,4 @@ hp = 20
 damage = 5
 attack_speed = 3
 ability = 0
+str_name = "sturdy branch"

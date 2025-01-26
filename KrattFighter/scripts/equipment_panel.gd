@@ -45,10 +45,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func high_light_panel(panel:Panel)->void:
-	panel.modulate=Color.REBECCA_PURPLE
+	print("eeeeee")
+	panel.add_theme_stylebox_override("panel", load("res://themes/high_ligh_panel.tres"))
 func un_high_light_panel(panel:Panel)->void:
-	panel.modulate=Color.AQUA
-
+	panel.remove_theme_stylebox_override("panel")
 
 func _on_inventory_container_high_light(body_part: int) -> void:
 	for el in translate_enum_dict[body_part]:

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Items" load_steps=4 format=3 uid="uid://ds12nr0p5gbhl"]
 
-[ext_resource type="PackedScene" uid="uid://cmhl8qjc2h7el" path="res://Item_scenes/plated_armor.tscn" id="1_ii4os"]
+[ext_resource type="PackedScene" uid="uid://dj2bnkdbrmcma" path="res://Item_scenes/plated_armor.tscn" id="1_ii4os"]
 [ext_resource type="Script" path="res://scripts/Items.gd" id="2_p8sr4"]
 [ext_resource type="Texture2D" uid="uid://c4bgt3fxhuqde" path="res://assets/drive-download-20250125T091820Z-001/armor.png" id="3_tvl3l"]
 
@@ -16,3 +16,4 @@ hp = 50
 damage = 0
 attack_speed = 0
 ability = 0
+str_name = "plated armor"

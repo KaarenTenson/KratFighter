@@ -16,3 +16,4 @@ hp = 20
 damage = 0
 attack_speed = 0
 ability = 0
+str_name = "bucket"

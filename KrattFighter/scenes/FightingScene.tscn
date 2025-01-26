@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://p5r0ud5bjfiu"]
+[gd_scene load_steps=8 format=3 uid="uid://p5r0ud5bjfiu"]
 
 [ext_resource type="Script" path="res://scripts/fighting_scene.gd" id="1_2pcju"]
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="2_5syol"]
 [ext_resource type="PackedScene" uid="uid://dyv8i1x5wo1vq" path="res://scenes/Enemy.tscn" id="3_xa43e"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_rsupd"]
+[ext_resource type="Texture2D" uid="uid://dy5si2vhf44kk" path="res://assets/mapp base grass/with-roads-night.png" id="5_vd63l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymjcf"]
 size = Vector2(1921, 104)
@@ -21,10 +22,6 @@ scale = Vector2(-0.25, 0.25)
 [node name="Enemy" parent="." instance=ExtResource("3_xa43e")]
 position = Vector2(1209, 500)
 scale = Vector2(0.25, 0.25)
-
-[node name="BackGround" type="Parallax2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="BackGround"]
 
 [node name="ground" type="StaticBody2D" parent="."]
 
@@ -356,3 +353,15 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(944, 536)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+y_sort_enabled = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_vd63l")

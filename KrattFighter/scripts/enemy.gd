@@ -1,4 +1,5 @@
 extends Node2D
+class_name Enemy
 @onready var head: BodyPart = $Head
 @onready var chest: BodyPart = $chest
 @onready var left_hand: BodyPart = $LeftHand

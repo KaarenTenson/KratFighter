@@ -14,3 +14,4 @@ hp = 50
 damage = 0
 attack_speed = 0
 ability = 0
+str_name = "wood chest"

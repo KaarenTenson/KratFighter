@@ -15,7 +15,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func set_item(item:Items):
-	self.name_label.text="name:"+ str(item.name)
-	self.damage_label.text="damage:"+  str(item.damage)
-	self.body_label.text="bodypart:"+ str(item.body_part)
-	self.desc_label.text="desc:"+ item.desc
+	self.name_label.text="name: "+ str(item.str_name)
+	self.damage_label.text="damage: "+  str(item.damage)
+	self.body_label.text="bodypart: "+ translate_body_part(item.body_part)
+	self.desc_label.text="desc: "+ item.desc
+func translate_body_part(part:int)->String:
+	match part:
+		ItemManager.BODY_PART.HEAD:
+			return "head"
+		ItemManager.BODY_PART.CHEST:
+			return "chest"
+		ItemManager.BODY_PART.HAND:
+			return "hand"
+		ItemManager.BODY_PART.LEG:
+			return "leg"
+	return ""

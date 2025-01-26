@@ -70,13 +70,13 @@ var items_dict:Dictionary={
 	ITEMS.BARREL: load("res://items/barrel.tres")
 }
 class KrattBodyClass: 
-	var head: int 
-	var body: int 
-	var left_hand: int 
-	var right_hand: int 
-	var left_leg: int
-	var right_leg: int
-var current_items:Array[int]=[]
+	var head: int =ITEMS.WOOD_HEAD
+	var body: int =ITEMS.WOOD_CHEST
+	var left_hand: int  =ITEMS.WOOD_HAND
+	var right_hand: int = ITEMS.WOOD_HAND
+	var left_leg: int =ITEMS.WOOD_LEG
+	var right_leg: int= ITEMS.WOOD_LEG
+var current_items:Array[int]=[ITEMS.BARREL, ITEMS.SYCHTE, ITEMS.STURDY_BRANCH, ITEMS.GRIEVING_BLADE]
 var kratt_body:=KrattBodyClass.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -115,7 +115,6 @@ func remove_item(body_part:int, isLeft:bool):
 func _ready() -> void:
 	kratt_body.head=ITEMS.WOOD_HEAD
 	kratt_body.body=ITEMS.WOOD_CHEST
-	
 	kratt_body.left_hand=ITEMS.WOOD_HAND
 	kratt_body.right_hand=ITEMS.WOOD_HAND
 	kratt_body.left_leg=ITEMS.WOOD_LEG

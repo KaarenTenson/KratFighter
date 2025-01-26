@@ -16,3 +16,4 @@ hp = 10
 damage = 30
 attack_speed = 20
 ability = 0
+str_name = "sword"

@@ -14,3 +14,4 @@ hp = 30
 damage = 10
 attack_speed = 1
 ability = 0
+str_name = "wood leg"

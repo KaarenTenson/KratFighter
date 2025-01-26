@@ -10,3 +10,4 @@ class_name  Items
 @export var damage: int
 @export var attack_speed: int
 @export var ability: ItemManager.ABILITY
+@export var str_name: String
