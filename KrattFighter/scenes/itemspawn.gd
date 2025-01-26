@@ -15,6 +15,7 @@ func getTextures():
 			itemIndexes.append(ItemManager.items_dict[i].name)
 
 func _ready():
+	Musicplayer.play_music_map()
 	getTextures()
 	for i in range(spawns.size()):
 		var randomnessFactor = (randi() % textures.size() - 1)
@@ -45,3 +46,6 @@ func add_signal(node:Node):
 
 func addItem(item):
 	invIcons[inventory.size()].icon = item.texture
+
+func _on_audio_stream_player_2d_finished() -> void:
+	$SFX.play("res://assets/sfx/Birds.mp3")

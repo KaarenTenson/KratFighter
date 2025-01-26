@@ -1,11 +1,20 @@
 extends AudioStreamPlayer2D
 
+const map_music = preload("res://assets/music/Map (loop).mp3")
+const fightprep_music = preload("res://assets/music/FightPrep (loop).mp3")
+const fight_music = preload("res://assets/music/Fight (loop).mp3")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _play_music(music: AudioStream, volume = 0.0):
+	if stream == music:
+		return
+	
+	stream = music
+	volume_db = volume
+	play()
+	
+func play_music_map():
+	_play_music(map_music)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_finished() -> void:
+	play_music_map()

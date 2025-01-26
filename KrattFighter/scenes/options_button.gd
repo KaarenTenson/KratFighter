@@ -9,7 +9,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_pressed() -> void:
 	option_panel.visible = not option_panel.visible
 

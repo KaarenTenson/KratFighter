@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://0f77yxc2a1tb"]
+[gd_scene load_steps=22 format=3 uid="uid://0f77yxc2a1tb"]
 
 [ext_resource type="Texture2D" uid="uid://dppxnd13kefer" path="res://assets/mapp base grass/with-roads-day.png" id="2_3dxf1"]
 [ext_resource type="Texture2D" uid="uid://b4dy285wvr1pe" path="res://assets/map object/day/cave.png" id="2_kttar"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/options_button.gd" id="15_a4wxh"]
 [ext_resource type="PackedScene" uid="uid://bkvyr4bgx088l" path="res://scenes/BagButton.tscn" id="15_cthh8"]
 [ext_resource type="Texture2D" uid="uid://dkbs4tl1vaulu" path="res://assets/buttons/building.png" id="16_50xbk"]
+[ext_resource type="AudioStream" uid="uid://bhlvcxmi7ax0l" path="res://assets/sfx/Birds.mp3" id="17_htaq4"]
 [ext_resource type="Script" path="res://scenes/itemspawn.gd" id="21_bw3bk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7dsxm"]
@@ -321,5 +322,10 @@ icon = ExtResource("16_50xbk")
 flat = true
 script = ExtResource("15_a4wxh")
 
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_htaq4")
+autoplay = true
+
 [connection signal="pressed" from="Bag/bagbutton" to="Bag/bagbutton" method="_on_bagbutton_pressed"]
 [connection signal="pressed" from="Building icon/buildingbutton" to="Building icon/buildingbutton" method="_on_buildingbutton_pressed"]
+[connection signal="finished" from="SFX" to="." method="_on_audio_stream_player_2d_finished"]

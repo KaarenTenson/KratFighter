@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dsnf0kqqflnkn"]
+[gd_scene load_steps=29 format=3 uid="uid://dsnf0kqqflnkn"]
 
 [ext_resource type="Script" path="res://scripts/button_group.gd" id="1_231kn"]
 [ext_resource type="PackedScene" uid="uid://bllugb4ij0vev" path="res://scenes/OptionsPanel.tscn" id="2_aribr"]
@@ -8,6 +8,61 @@
 [ext_resource type="Script" path="res://scenes/options_button.gd" id="4_u6lha"]
 [ext_resource type="Texture2D" uid="uid://d2gpr522nvjc7" path="res://assets/vignette.png" id="6_7vwc7"]
 [ext_resource type="Script" path="res://scripts/menuAnimation.gd" id="7_clixt"]
+[ext_resource type="AudioStream" uid="uid://bomtd0fuvgeip" path="res://assets/music/Title (loop).mp3" id="9_2i1ui"]
+
+[sub_resource type="Animation" id="Animation_85xwy"]
+resource_name = "fade_in"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 1.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r31w0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ihxyy"]
+resource_name = "fade_out"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4q8x"]
+_data = {
+"RESET": SubResource("Animation_r31w0"),
+"fade_in": SubResource("Animation_85xwy"),
+"fade_out": SubResource("Animation_ihxyy")
+}
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_4inwi"]
 resource_local_to_scene = true
@@ -95,6 +150,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_i4q8x")
+}
+autoplay = "fade_out"
 
 [node name="Title_Video" type="VideoStreamPlayer" parent="."]
 visibility_layer = 2
@@ -206,9 +279,6 @@ scale = Vector2(0.3, 0.3)
 icon = ExtResource("4_dtbie")
 flat = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
-
 [node name="OptionPanel" parent="." instance=ExtResource("2_aribr")]
 visible = false
 z_index = 2
@@ -265,6 +335,11 @@ libraries = {
 "": SubResource("AnimationLibrary_ns3yx")
 }
 script = ExtResource("7_clixt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2i1ui")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Start/StartButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" to="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" method="_on_pressed"]

@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://dqooy24fhgr78"]
+[gd_scene load_steps=2 format=3 uid="uid://dqooy24fhgr78"]
 
-[node name="Musicplayer" type="Node2D"]
+[ext_resource type="Script" path="res://scenes/musicplayer.gd" id="1_v3ohf"]
+
+[node name="Musicplayer" type="AudioStreamPlayer2D"]
+bus = &"Music"
+script = ExtResource("1_v3ohf")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
