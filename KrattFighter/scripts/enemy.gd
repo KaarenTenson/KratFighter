@@ -82,7 +82,7 @@ func set_HP_labels():
 	left_hand_HP_label.text = validate_part(left_hand)
 	right_hand_HP_label.text =validate_part(right_hand)
 	left_leg_HP_label.text = validate_part(left_leg)
-	right_hand_HP_label.text = validate_part(right_hand)
+	right_leg_HP_label.text = validate_part(right_hand)
 
 func validate_part(part)->String:
 	if(is_instance_valid(part)):
