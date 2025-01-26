@@ -27,9 +27,11 @@ var enemy_body:ItemManager.KrattBodyClass
 func _ready() -> void:
 	enemy_body=enemy.body_class
 	setLabels()
-	start.emit()
+	
 	await get_tree().create_timer(1).timeout
 	anim.play("spawn")
+	await anim.animation_finished
+	start.emit()
 	
 func setLabels():
 	headLabel_player.text = ItemManager.items_dict[player_body.head].str_name

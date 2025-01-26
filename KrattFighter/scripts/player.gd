@@ -26,6 +26,8 @@ signal attack_signal(body_part:int, is_left:bool, damage:int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if(get_parent() is Node2D):
+		get_parent().start.connect(func(): current_state=PLAYER_STATE.ATTACK)
 	create_body()
 	ItemManager.kratt_changed.connect(refresh_body)
 	set_HP_labels()
@@ -43,8 +45,24 @@ func get_random_weapon()->BodyPart:
 		return get_random_weapon()
 	return part
 func attack():
-	var body_part:int=ItemManager.BODY_PART.values().pick_random()
-	var is_left:bool= randf()>0.5
+	var body_part:int
+	var is_left:bool=false
+	match focus:
+		"head":
+			body_part=ItemManager.BODY_PART.HEAD
+		"body":
+			body_part=ItemManager.BODY_PART.CHEST
+		"Lhand":
+			body_part=ItemManager.BODY_PART.HAND
+			is_left=true
+		"Rhand":
+			body_part=ItemManager.BODY_PART.HAND
+		"LLeg":
+			body_part=ItemManager.BODY_PART.LEG
+			is_left=true
+		"RLeg":
+			body_part=ItemManager.BODY_PART.LEG
+			
 	current_weapon=get_random_weapon()
 	attack_signal.emit(body_part, is_left, current_weapon.item.damage)
 func get_attack_animation()->String:
@@ -63,8 +81,7 @@ func _process(delta: float) -> void:
 	set_HP_labels()
 	match current_state:
 		PLAYER_STATE.IDLE:
-			await get_tree().create_timer(1).timeout
-			current_state=PLAYER_STATE.ATTACK
+			return
 		PLAYER_STATE.ATTACK:
 			current_state=PLAYER_STATE.ATTACKING
 			attack()

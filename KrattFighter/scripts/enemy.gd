@@ -90,6 +90,7 @@ func validate_part(part)->String:
 		return "dead"
 
 func _ready() -> void:
+	get_parent().start.connect(func(): current_state=ENEMY_STATE.ATTACK)
 	fill_loot_pool()
 	create_random_body()
 	create_body()
@@ -99,8 +100,7 @@ func _process(delta: float) -> void:
 	set_HP_labels()
 	match current_state:
 		ENEMY_STATE.IDLE:
-			await get_tree().create_timer(1).timeout
-			current_state=ENEMY_STATE.ATTACK
+			return
 		ENEMY_STATE.ATTACK:
 			current_state=ENEMY_STATE.ATTACKING
 			attack()
