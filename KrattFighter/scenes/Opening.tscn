@@ -164,6 +164,7 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_56upv")
 }
+autoplay = "fade_in"
 
 [node name="black bg" type="ColorRect" parent="ColorRect"]
 visible = false
@@ -200,7 +201,6 @@ position = Vector2(960, 540)
 texture = ExtResource("3_q01wo")
 
 [node name="S4" type="VideoStreamPlayer" parent="SceneTransition"]
-modulate = Color(1, 1, 1, 0)
 offset_right = 1920.0
 offset_bottom = 1088.0
 stream = ExtResource("7_dd530")
