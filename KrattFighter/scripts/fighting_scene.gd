@@ -8,6 +8,7 @@ signal start
 @onready var LLegLabel_player = $UILayer/PlayerPanel/VBoxContainer/LLegContainer/LLegItemLabel
 @onready var RLegLabel_player = $UILayer/PlayerPanel/VBoxContainer/RLegContainer/RLegItemLabel
 
+@onready var player: Player = $Player
 var player_body:=ItemManager.kratt_body
 #ENEMY
 @onready var head_enemy_label: Label = $UILayer/EnemyPanel/VBoxContainer/HeadContainer/HeadItemLabel
@@ -25,6 +26,8 @@ func _ready() -> void:
 	enemy_body=enemy.body_class
 	setLabels()
 	start.emit()
+	await get_tree().create_timer(1).timeout
+	player.left_attack()
 	
 func setLabels():
 	headLabel_player.text = ItemManager.items_dict[player_body.head].str_name
