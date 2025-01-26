@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b3wgsiklv36d2"]
+[gd_scene load_steps=31 format=3 uid="uid://b3wgsiklv36d2"]
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
 [ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
@@ -27,9 +27,6 @@ texture = ExtResource("4_xye4o")
 expand_margin_top = 15.0
 expand_margin_bottom = 15.0
 modulate_color = Color(0.336507, 0.822113, 0.991336, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1e1yh"]
-texture = ExtResource("4_xye4o")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngw4j"]
 texture = ExtResource("4_xye4o")
@@ -253,7 +250,6 @@ size_flags_stretch_ratio = 2.0
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_1e1yh")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel/EquipmentContainer/HeadPanel"]
 layout_mode = 1
@@ -522,6 +518,10 @@ script = ExtResource("13_s8gds")
 [node name="info_box" parent="." instance=ExtResource("18_m6eq0")]
 visible = false
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 279.0
+offset_bottom = 332.0
 
 [connection signal="high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_high_light"]
 [connection signal="remove_btn" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_remove_btn"]

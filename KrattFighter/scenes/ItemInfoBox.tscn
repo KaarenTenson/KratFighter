@@ -1,12 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://vn00x1r4dvvx"]
+[gd_scene load_steps=6 format=3 uid="uid://vn00x1r4dvvx"]
 
 [ext_resource type="Script" path="res://scripts/item_info_box.gd" id="1_epaut"]
+
+[sub_resource type="SystemFont" id="SystemFont_3ir8w"]
+font_names = PackedStringArray("Hack")
+generate_mipmaps = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_584dh"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id="Theme_0q5tt"]
+Label/colors/font_shadow_color = Color(0.164706, 0.266667, 0.290196, 0.839216)
+Label/font_sizes/font_size = 20
+Label/fonts/font = SubResource("SystemFont_3ir8w")
+Panel/styles/panel = SubResource("StyleBoxFlat_584dh")
 
 [sub_resource type="Theme" id="Theme_p848h"]
 
 [node name="MarginContainer" type="Panel"]
-offset_right = 130.0
-offset_bottom = 181.0
+texture_filter = 1
+offset_left = -1.0
+offset_top = -78.0
+offset_right = 278.0
+offset_bottom = 254.0
+theme = SubResource("Theme_0q5tt")
 script = ExtResource("1_epaut")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -28,6 +54,7 @@ theme = SubResource("Theme_p848h")
 [node name="name" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.466667, 1)
 text = "name:"
 autowrap_mode = 3
 

@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://pxjtkcsbpos0" path="res://assets/music/s2.png" id="5_ira5p"]
 [ext_resource type="Texture2D" uid="uid://bvd4l6fp6id4f" path="res://assets/music/s1.png" id="6_2q33f"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="7_s5c1f"]
-[ext_resource type="AnimationLibrary" uid="uid://dq3bl11c2oxtp" path="res://assets/animations/globalAnimations.res" id="8_fhoih"]
-[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://buttontheme.tres" id="9_3yno6"]
+[ext_resource type="AnimationLibrary" path="res://assets/animations/globalAnimations.res" id="8_fhoih"]
+[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://themes/buttontheme.tres" id="9_3yno6"]
 [ext_resource type="Texture2D" uid="uid://bmiuaowg3nvhf" path="res://assets/buttons/play.png" id="10_2faw4"]
 
 [sub_resource type="Animation" id="Animation_af64j"]

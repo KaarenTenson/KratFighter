@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkvyr4bgx088l"]
 
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="1_3wxfc"]
-[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://buttontheme.tres" id="1_23ydh"]
+[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://themes/buttontheme.tres" id="1_23ydh"]
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="2_46ca0"]
 
 [node name="Node2D" type="Button"]

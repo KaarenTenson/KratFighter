@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0gw0jf5rwehw"]
 
-[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://buttontheme.tres" id="1_f2kgi"]
+[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://themes/buttontheme.tres" id="1_f2kgi"]
 [ext_resource type="Texture2D" uid="uid://ctdaqnvah7lj2" path="res://assets/drive-download-20250125T091820Z-001/axe.png" id="2_em2t1"]
 
 [node name="Node2D" type="Button"]
