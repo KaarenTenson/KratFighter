@@ -8,7 +8,8 @@ class_name Player
 @onready var right_leg: BodyPart = $rightleg
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+enum PLAYER_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
+var current_state:int=PLAYER_STATE.IDLE
 var focus
 
 # Called when the node enters the scene tree for the first time.
@@ -18,10 +19,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	match current_state:
+		PLAYER_STATE.IDLE:
+			await get_tree().create_timer(0.5).timeout
+			current_state=PLAYER_STATE.ATTACK
 func refresh_body():
 	for child in get_children():
-		if(child is StaticBody2D):
+		if(child is Node2D):
 			(child.get_children()[0] as StaticBody2D).queue_free()
 	create_body()
 func create_body():

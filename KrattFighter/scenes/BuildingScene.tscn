@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="14_8mukd"]
 [ext_resource type="Texture2D" uid="uid://gp20vt16soja" path="res://assets/buttons/fight.png" id="15_jpb3i"]
 [ext_resource type="Script" path="res://scenes/Build_next_scene_button.gd" id="16_202cd"]
-[ext_resource type="PackedScene" path="res://scenes/ItemInfoBox.tscn" id="18_m6eq0"]
+[ext_resource type="PackedScene" uid="uid://vn00x1r4dvvx" path="res://scenes/ItemInfoBox.tscn" id="18_m6eq0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d65m7"]
 texture = ExtResource("1_ejhf3")
