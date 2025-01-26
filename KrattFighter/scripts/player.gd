@@ -16,6 +16,8 @@ class_name Player
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 enum PLAYER_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
+var defence_change:=0.3
+var defence_chance_defending:=0.8
 var current_state:int=PLAYER_STATE.IDLE
 var current_weapon:BodyPart=null
 var focus
@@ -35,7 +37,11 @@ func get_random_weapon()->BodyPart:
 		body_parts=ItemManager.BODY_PART.HAND
 	else:
 		body_parts=ItemManager.BODY_PART.LEG
-	return translate_body_part(body_parts, is_left)
+		
+	var part:= translate_body_part(body_parts, is_left)
+	if(!is_instance_valid(part)):
+		return get_random_weapon()
+	return part
 func attack():
 	var body_part:int=ItemManager.BODY_PART.values().pick_random()
 	var is_left:bool= randf()>0.5
@@ -57,7 +63,7 @@ func _process(delta: float) -> void:
 	set_HP_labels()
 	match current_state:
 		PLAYER_STATE.IDLE:
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(1).timeout
 			current_state=PLAYER_STATE.ATTACK
 		PLAYER_STATE.ATTACK:
 			current_state=PLAYER_STATE.ATTACKING
@@ -77,14 +83,18 @@ func refresh_body():
 			(child.get_children()[0] as StaticBody2D).queue_free()
 	create_body()
 
-func set_HP_labels():
-	head_HP_label.text = str(head.current_hp)
-	chest_HP_label.text = str(chest.current_hp)
-	left_hand_HP_label.text = str(left_hand.current_hp)
-	right_hand_HP_label.text = str(right_hand.current_hp)
-	left_leg_HP_label.text = str(left_leg.current_hp)
-	right_hand_HP_label.text = str(right_leg.current_hp)
-
+func set_HP_labels():	
+	head_HP_label.text=validate_part(head)
+	chest_HP_label.text = validate_part(chest)
+	left_hand_HP_label.text = validate_part(left_hand)
+	right_hand_HP_label.text =validate_part(right_hand)
+	left_leg_HP_label.text = validate_part(left_leg)
+	right_hand_HP_label.text = validate_part(right_hand)
+func validate_part(part)->String:
+	if(is_instance_valid(part)):
+		return str(part.current_hp)
+	else:
+		return "dead"
 func create_body():
 	head.set_items(ItemManager.items_dict[ItemManager.kratt_body.head])
 	chest.set_items(ItemManager.items_dict[ItemManager.kratt_body.body])
@@ -93,20 +103,22 @@ func create_body():
 	left_leg.set_items(ItemManager.items_dict[ItemManager.kratt_body.left_leg])
 	right_leg.set_items(ItemManager.items_dict[ItemManager.kratt_body.right_leg])
 	
-func get_damage(body_part:int, is_left:bool):
-	match body_part:
-		ItemManager.BODY_PART.HEAD: print("got damage")
-		ItemManager.BODY_PART.CHEST: print("got damage")
-		ItemManager.BODY_PART.HAND:
-			if(is_left):
-				print("got damage")
-			else:
-				print("got damage")
-		ItemManager.BODY_PART.LEG: 
-			if(is_left):
-				print("got damage")
-			else:
-				print("got damage")
+func get_damage(body_part:int, is_left:bool, damage:int)->bool:
+	var part:BodyPart=translate_body_part(body_part, is_left)
+	if(!is_instance_valid(part)):
+		return false
+	if(current_state==PLAYER_STATE.DEFEND and body_part!= ItemManager.BODY_PART.LEG):
+		if randf()>defence_chance_defending:
+			part.get_damage(damage)
+			return true
+		else:
+			return false
+	else:
+		if(randf()>defence_change):
+			part.get_damage(damage)
+			return true
+		else:
+			return false
 func translate_body_part(body_part:int, is_left:bool)->BodyPart:
 	match body_part:
 		ItemManager.BODY_PART.HEAD:

@@ -26,7 +26,7 @@ var failed_attack_count:=0
 enum ENEMY_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
 var current_state=ENEMY_STATE.IDLE
 var current_weapon:BodyPart=null
-signal attack_signal(body_part: int, is_left:bool)
+signal attack_signal(body_part: int, is_left:bool, damage:int)
 var loot_pool:Dictionary={
 	ItemManager.BODY_PART.HEAD:[],
 	ItemManager.BODY_PART.CHEST:[],
@@ -46,13 +46,18 @@ func get_result(success:bool):
 			current_state=ENEMY_STATE.DEFEND
 			failed_attack_count=0
 func get_damage(damage:int, body_part:int, is_left:bool)->bool:
+	var part:BodyPart=translate_body_part(body_part, is_left)
+	if(!is_instance_valid(part)):
+		return false
 	if(current_state==ENEMY_STATE.DEFEND and body_part!= ItemManager.BODY_PART.LEG):
 		if randf()>defence_chance_defending:
+			part.get_damage(damage)
 			return true
 		else:
 			return false
 	else:
 		if(randf()>defence_change):
+			part.get_damage(damage)
 			return true
 		else:
 			return false
@@ -65,16 +70,24 @@ func get_random_weapon()->BodyPart:
 		body_parts=ItemManager.BODY_PART.HAND
 	else:
 		body_parts=ItemManager.BODY_PART.LEG
-	return translate_body_part(body_parts, is_left)
+	var part:= translate_body_part(body_parts, is_left)
+	if(!is_instance_valid(part)):
+		return get_random_weapon()
+	return part
 # Called when the node enters the scene tree for the first time.
 
-func set_HP_labels():
-	head_HP_label.text = str(head.current_hp)
-	chest_HP_label.text = str(chest.current_hp)
-	left_hand_HP_label.text = str(left_hand.current_hp)
-	right_hand_HP_label.text = str(right_hand.current_hp)
-	left_leg_HP_label.text = str(left_leg.current_hp)
-	right_hand_HP_label.text = str(right_leg.current_hp)
+func set_HP_labels():	
+	head_HP_label.text=validate_part(head)
+	chest_HP_label.text = validate_part(chest)
+	left_hand_HP_label.text = validate_part(left_hand)
+	right_hand_HP_label.text =validate_part(right_hand)
+	left_leg_HP_label.text = validate_part(left_leg)
+	right_hand_HP_label.text = validate_part(right_hand)
+func validate_part(part)->String:
+	if(is_instance_valid(part)):
+		return str(head.current_hp)
+	else:
+		return "dead"
 
 func _ready() -> void:
 	fill_loot_pool()
@@ -86,7 +99,7 @@ func _process(delta: float) -> void:
 	set_HP_labels()
 	match current_state:
 		ENEMY_STATE.IDLE:
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(1).timeout
 			current_state=ENEMY_STATE.ATTACK
 		ENEMY_STATE.ATTACK:
 			current_state=ENEMY_STATE.ATTACKING
