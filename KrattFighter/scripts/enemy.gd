@@ -1,5 +1,8 @@
 extends Node2D
 class_name Enemy
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
 @onready var head: BodyPart = $Head
 @onready var chest: BodyPart = $chest
 @onready var left_hand: BodyPart = $LeftHand
@@ -12,9 +15,11 @@ class_name Enemy
 @export var defence_change:=0.25
 var failed_attack_count:=0
 
+
 enum ENEMY_STATE{IDLE, ATTACK, DEFEND}
 var current_state=ENEMY_STATE.IDLE
-signal attack(body_part: int, is_left:bool)
+var current_weapon:BodyPart
+signal attack_signal(body_part: int, is_left:bool)
 var loot_pool:Dictionary={
 	ItemManager.BODY_PART.HEAD:[],
 	ItemManager.BODY_PART.CHEST:[],
@@ -22,13 +27,18 @@ var loot_pool:Dictionary={
 	ItemManager.BODY_PART.LEG:[],
 }
 var body_class:=ItemManager.KrattBodyClass.new()
-func start_attack():
+func attack():
 	var body_part:int=ItemManager.BODY_PART.values().pick_random()
 	var is_left:bool= randf()>0.5
-	attack.emit(body_part, is_left)
+	if(current_weapon==null):
+		current_weapon=get_random_weapon()
+	attack_signal.emit(body_part, is_left, current_weapon.item.damage)
 func get_result(success:bool):
 	if(success==false):
-		current_state=ENEMY_STATE.DEFEND
+		failed_attack_count+=1
+		if(failed_attack_count>2):
+			current_state=ENEMY_STATE.DEFEND
+			failed_attack_count=0
 func get_damage(damage:int, body_part:int, is_left:bool)->bool:
 	if(current_state==ENEMY_STATE.DEFEND and body_part!= ItemManager.BODY_PART.LEG):
 		if randf()>defence_chance_defending:
@@ -40,9 +50,16 @@ func get_damage(damage:int, body_part:int, is_left:bool)->bool:
 			return true
 		else:
 			return false
-func deal_damage_to_part(body_part:int,is_left:bool ):
+func get_damage_to_part(body_part:int,is_left:bool ):
 	translate_body_part(body_part, is_left)
-	
+func get_random_weapon()->BodyPart:
+	var is_left:=randf()>0.5
+	var body_parts:int
+	if(randf()>0.5):
+		body_parts=ItemManager.BODY_PART.HAND
+	else:
+		body_parts=ItemManager.BODY_PART.LEG
+	return translate_body_part(body_parts, is_left)
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
@@ -56,9 +73,12 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(0.5).timeout
 			current_state=ENEMY_STATE.ATTACK
 		ENEMY_STATE.ATTACK:
-			start_attack()
+			attack()
+			animation_player.play("attack_left")
+			await animation_player.animation_finished
+			await get_tree().create_timer(current_weapon.item.attack_speed).timeout
 		ENEMY_STATE.DEFEND:
-			pass
+			current_weapon=null
 	
 func fill_loot_pool():
 	for item in ItemManager.ITEMS.values():
