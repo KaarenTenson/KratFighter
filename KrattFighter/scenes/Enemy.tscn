@@ -3,21 +3,6 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_dwljl"]
 [ext_resource type="Script" path="res://scripts/body_part.gd" id="2_blje7"]
 
-[sub_resource type="Animation" id="Animation_ejgll"]
-resource_name = "attack_left"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LeftHand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.39626, 2.26893, 1.39626]
-}
-
 [sub_resource type="Animation" id="Animation_fv2hx"]
 length = 0.001
 tracks/0/type = "value"
@@ -31,6 +16,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.39626]
+}
+
+[sub_resource type="Animation" id="Animation_ejgll"]
+resource_name = "attack_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.39626, 2.26893, 1.39626]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b1nh6"]

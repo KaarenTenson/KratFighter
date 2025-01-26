@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b3wgsiklv36d2"]
+[gd_scene load_steps=31 format=3 uid="uid://d2s4t1d7k26mn"]
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
 [ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="14_8mukd"]
 [ext_resource type="Texture2D" uid="uid://gp20vt16soja" path="res://assets/buttons/fight.png" id="15_jpb3i"]
 [ext_resource type="Script" path="res://scenes/Build_next_scene_button.gd" id="16_202cd"]
-[ext_resource type="PackedScene" uid="uid://vn00x1r4dvvx" path="res://scenes/ItemInfoBox.tscn" id="18_m6eq0"]
+[ext_resource type="PackedScene" path="res://scenes/ItemInfoBox.tscn" id="18_m6eq0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d65m7"]
 texture = ExtResource("1_ejhf3")

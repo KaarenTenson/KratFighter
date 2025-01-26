@@ -32,7 +32,7 @@ func attack():
 	var is_left:bool= randf()>0.5
 	if(current_weapon==null):
 		current_weapon=get_random_weapon()
-	attack_signal.emit(body_part, is_left, current_weapon.item.damage)
+	#attack_signal.emit(body_part, is_left, current_weapon.item.damage)
 func get_result(success:bool):
 	if(success==false):
 		failed_attack_count+=1
@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 			attack()
 			animation_player.play("attack_left")
 			await animation_player.animation_finished
-			await get_tree().create_timer(current_weapon.item.attack_speed).timeout
+	#		await get_tree().create_timer(current_weapon.item.attack_speed).timeout
 		ENEMY_STATE.DEFEND:
 			current_weapon=null
 	

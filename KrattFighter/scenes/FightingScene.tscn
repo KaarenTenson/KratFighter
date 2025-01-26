@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://p5r0ud5bjfiu"]
+[gd_scene load_steps=10 format=3 uid="uid://ci5uyxkvnwouj"]
 
 [ext_resource type="Script" path="res://scripts/fighting_scene.gd" id="1_2pcju"]
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="2_5syol"]
-[ext_resource type="PackedScene" uid="uid://dyv8i1x5wo1vq" path="res://scenes/Enemy.tscn" id="3_xa43e"]
+[ext_resource type="PackedScene" uid="uid://dyv8i1x5wo1vq" path="res://scenes/enemy.tscn" id="3_xa43e"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_rsupd"]
 
 [sub_resource type="Animation" id="Animation_soluq"]
@@ -421,3 +421,16 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(944, 536)
+
+[connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/HeadContainer" to="Player" method="_on_head_container_focus_entered"]
+[connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/HeadContainer" to="Player" method="_on_head_container_focus_exited"]
+[connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/BodyContainer" to="Player" method="_on_body_container_focus_entered"]
+[connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/BodyContainer" to="Player" method="_on_body_container_focus_exited"]
+[connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/LHanContainer" to="Player" method="_on_l_han_container_focus_entered"]
+[connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/LHanContainer" to="Player" method="_on_l_han_container_focus_exited"]
+[connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/RHandContainer" to="Player" method="_on_r_hand_container_focus_entered"]
+[connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/RHandContainer" to="Player" method="_on_r_hand_container_focus_exited"]
+[connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/LLegContainer" to="Player" method="_on_l_leg_container_focus_entered"]
+[connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/LLegContainer" to="Player" method="_on_l_leg_container_focus_exited"]
+[connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/RLegContainer" to="Player" method="_on_r_leg_container_focus_entered"]
+[connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/RLegContainer" to="Player" method="_on_r_leg_container_focus_exited"]
