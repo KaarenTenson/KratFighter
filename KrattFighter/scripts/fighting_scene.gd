@@ -32,6 +32,7 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	anim.play("spawn")
 	await anim.animation_finished
+	connect_signals()
 	start.emit()
 func connect_signals():
 	player.chest.part_dead.connect(func(obj):
@@ -80,11 +81,16 @@ func _on_enemy_attack_signal(body_part: int, is_left: bool, damage: int) -> void
 
 
 func _on_won() -> void:
-	
+	ItemManager.current_items.clear()
+	ItemManager.reset_kratt()
+	print("yeeee")
 	get_tree().change_scene_to_file("res://scenes/Credits.tscn")
 
 func _on_lost() -> void:
-	pass # Replace with function body.
+	ItemManager.reset_kratt()
+	ItemManager.current_items.clear()
+	print("yeeee")
+	get_tree().change_scene_to_file("res://scenes/MapScene.tscn")
 
 func _on_music_finished() -> void:
 	$Music.set_stream(load("res://assets/music/Fight (loop).mp3"))

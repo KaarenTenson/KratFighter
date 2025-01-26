@@ -43,6 +43,8 @@ func get_result(success:bool):
 		failed_attack_count+=1
 		if(failed_attack_count>2):
 			current_state=ENEMY_STATE.DEFEND
+			await get_tree().create_timer(4)
+			current_state=ENEMY_STATE.ATTACK
 			failed_attack_count=0
 func get_damage(damage:int, body_part:int, is_left:bool)->bool:
 	var part:BodyPart=translate_body_part(body_part, is_left)
