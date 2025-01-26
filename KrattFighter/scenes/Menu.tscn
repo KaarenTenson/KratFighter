@@ -367,7 +367,26 @@ parameters/looping = true
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1783, 1002)
+
+[node name="Button" type="Button" parent="Node2D"]
+z_index = 2
+offset_right = 114.0
+offset_bottom = 61.0
+text = "Credits"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]
+offset_left = -658.0
+offset_top = 9.0
+offset_right = -17.0
+offset_bottom = 52.0
+theme_override_font_sizes/normal_font_size = 28
+text = "If you're stuck on fighting, progress from here:"
+
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Start/StartButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" to="MenuMargin/VBoxContainer/ButtonGroup/Options/OptionsButton" method="_on_pressed"]
 [connection signal="pressed" from="MenuMargin/VBoxContainer/ButtonGroup/Exit/ExitButton" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_exit_button_pressed"]
 [connection signal="animation_finished" from="Vignette/AnimationPlayer" to="Vignette/AnimationPlayer" method="_on_animation_finished"]
+[connection signal="pressed" from="Node2D/Button" to="MenuMargin/VBoxContainer/ButtonGroup" method="_on_button_pressed"]

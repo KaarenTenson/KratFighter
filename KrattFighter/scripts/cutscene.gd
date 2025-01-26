@@ -67,7 +67,7 @@ func _on_button_pressed_credits() -> void:
 		$ColorRect/AnimationPlayer.play("fade_out")
 		await get_tree().create_timer(1.75).timeout
 		$"ColorRect/black bg".visible = true
-		get_tree().change_scene_to_file("res://scenes/Menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/End.tscn")
 		scene = 0
 		return
 	else:

@@ -1,0 +1,115 @@
+[gd_scene load_steps=8 format=3 uid="uid://cabtu5n1m86st"]
+
+[ext_resource type="Script" path="res://scripts/end.gd" id="1_nx00v"]
+[ext_resource type="Texture2D" uid="uid://dqydwdhyelul" path="res://assets/animations/c7.png" id="2_jr7fv"]
+[ext_resource type="AudioStream" uid="uid://v7tc440nqshj" path="res://assets/music/End (loop).wav" id="3_5k8gi"]
+[ext_resource type="Texture2D" uid="uid://bk1tdwmvp511d" path="res://assets/pealkiri.png" id="4_r15eh"]
+
+[sub_resource type="Animation" id="Animation_jbp4k"]
+resource_name = "fade_in"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w1w32"]
+resource_name = "fade_out"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56upv"]
+_data = {
+"fade_in": SubResource("Animation_jbp4k"),
+"fade_out": SubResource("Animation_w1w32")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nx00v")
+
+[node name="C7" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_jr7fv")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5k8gi")
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 126.0
+offset_top = 382.0
+offset_right = 796.0
+offset_bottom = 548.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "A game by Saunavennad"
+
+[node name="Pealkiri" type="Sprite2D" parent="."]
+position = Vector2(940, 658)
+scale = Vector2(0.938889, 0.938889)
+texture = ExtResource("4_r15eh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 92.0
+offset_top = 498.0
+offset_right = 1096.0
+offset_bottom = 1214.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Programming, VFX
+Kaaren Tenson, Ander Saarniit, Gregor Artur Mäe
+
+Art, Animations, Cutscenes
+Olesja-Väsvy Soitu, Sofia Zimina
+
+Concept, Music, SFX
+Gregor Artur Mäe
+
+Thank you for playing our game!
+Until next time! :)
+"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+top_level = true
+z_index = 4
+z_as_relative = false
+offset_right = 1947.0
+offset_bottom = 1115.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_56upv")
+}
+autoplay = "fade_in"
+
+[node name="black bg" type="ColorRect" parent="ColorRect"]
+visible = false
+top_level = true
+z_index = 4
+z_as_relative = false
+layout_mode = 0
+offset_right = 1947.0
+offset_bottom = 1115.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

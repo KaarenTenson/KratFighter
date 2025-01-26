@@ -30,3 +30,11 @@ func play_with_random_pitch():
 	var random_pitch = randf_range(0.8, 1.2)
 	$"../../../SFX".pitch_scale = random_pitch
 	$"../../../SFX".play()
+
+# credits
+func _on_button_pressed() -> void:
+	$"../../../SFX".set_stream(load("res://assets/sfx/Collect.mp3"))
+	play_with_random_pitch()
+	$"../../../ColorRect/AnimationPlayer".play("fade_in")
+	await get_tree().create_timer(1.75).timeout
+	get_tree().change_scene_to_file("res://scenes/Credits.tscn")
