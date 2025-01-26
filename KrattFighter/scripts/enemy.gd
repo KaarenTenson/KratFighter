@@ -22,7 +22,6 @@ class_name Enemy
 @export var defence_change:=0.25
 var failed_attack_count:=0
 
-
 enum ENEMY_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
 var current_state=ENEMY_STATE.IDLE
 var current_weapon:BodyPart=null
@@ -84,9 +83,10 @@ func set_HP_labels():
 	right_hand_HP_label.text =validate_part(right_hand)
 	left_leg_HP_label.text = validate_part(left_leg)
 	right_hand_HP_label.text = validate_part(right_hand)
+
 func validate_part(part)->String:
 	if(is_instance_valid(part)):
-		return str(head.current_hp)
+		return str(part.current_hp)
 	else:
 		return "dead"
 
@@ -175,6 +175,7 @@ func translate_body_part(body_part:int, is_left:bool)->BodyPart:
 			else:
 				return right_leg
 	return null
+
 func create_body():
 	head.set_items(ItemManager.items_dict[body_class.head])
 	chest.set_items(ItemManager.items_dict[body_class.body])

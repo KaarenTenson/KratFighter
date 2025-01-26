@@ -55,14 +55,14 @@ func setLabels():
 	RHandLabel_player.text = ItemManager.items_dict[player_body.right_hand].str_name
 	LLegLabel_player.text = ItemManager.items_dict[player_body.left_leg].str_name
 	RLegLabel_player.text = ItemManager.items_dict[player_body.right_leg].str_name
-	
+
 	head_enemy_label.text=ItemManager.items_dict[enemy_body.head].str_name
 	body_enemy_label.text=ItemManager.items_dict[enemy_body.body].str_name
 	l_hand_enemy_label.text=ItemManager.items_dict[enemy_body.left_hand].str_name
 	r_hand_enemy_label.text=ItemManager.items_dict[enemy_body.right_hand].str_name
 	l_leg_enemy_label.text=ItemManager.items_dict[enemy_body.left_leg].str_name
 	r_leg_enemy_label.text=ItemManager.items_dict[enemy_body.right_leg].str_name
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -71,7 +71,6 @@ func load_player():
 	pass
 func load_enemy():
 	pass
-
 
 func _on_player_attack_signal(body_part: int, is_left: bool, damage: int) -> void:
 	var result:=enemy.get_damage(body_part, is_left, damage)
