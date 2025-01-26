@@ -35,20 +35,11 @@ func _ready() -> void:
 	connect_signals()
 	start.emit()
 func connect_signals():
-	player.chest.part_dead.connect(func(obj):
-		lost.emit()
-		queue_free())
-	player.head.part_dead.connect(
-		func(obj):
-			lost.emit()
-			queue_free())
+	player.chest.part_dead.connect(func(obj):lost.emit())
+	player.head.part_dead.connect(func(obj):lost.emit())
 	
-	enemy.chest.part_dead.connect(func(obj):
-		won.emit()
-		queue_free())
-	enemy.head.part_dead.connect(func(ojj):
-		won.emit()
-		queue_free())
+	enemy.chest.part_dead.connect(func(obj):won.emit())
+	enemy.head.part_dead.connect(func(ojj):won.emit())
 func setLabels():
 	headLabel_player.text = ItemManager.items_dict[player_body.head].str_name
 	bodyLabel_player.text = ItemManager.items_dict[player_body.body].str_name
