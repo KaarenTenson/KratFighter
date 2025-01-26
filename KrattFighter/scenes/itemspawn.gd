@@ -26,6 +26,7 @@ func _ready():
 			spawns[i].icon = textures[randomnessFactor]
 			spawnsTextures.append(textures[randomnessFactor])
 	add_signal($"Spawns (11 kokku)")
+	$ColorRect/AnimationPlayer.play("fade_in")
 
 func add_signal(node:Node):
 	for el in node.get_children():

@@ -1,252 +1,55 @@
-[gd_scene load_steps=34 format=3 uid="uid://bcx0yjg7f3w7d"]
+[gd_scene load_steps=23 format=3 uid="uid://bcx0yjg7f3w7d"]
 
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_qjys5"]
-[ext_resource type="Texture2D" uid="uid://dpdcu3tbav4ij" path="res://assets/music/s7.png" id="1_xced5"]
 [ext_resource type="Texture2D" uid="uid://cal52dojxe2h8" path="res://assets/music/s6.png" id="2_2ed4u"]
+[ext_resource type="VideoStream" path="res://assets/animations/S8.ogv" id="3_lwgjo"]
 [ext_resource type="Texture2D" uid="uid://b8bny3cqd00lo" path="res://assets/music/s5.png" id="3_q01wo"]
 [ext_resource type="Texture2D" uid="uid://dcg182ndqx4f5" path="res://assets/music/s3.png" id="4_mmbdn"]
 [ext_resource type="Texture2D" uid="uid://pxjtkcsbpos0" path="res://assets/music/s2.png" id="5_ira5p"]
 [ext_resource type="Texture2D" uid="uid://bvd4l6fp6id4f" path="res://assets/music/s1.png" id="6_2q33f"]
+[ext_resource type="VideoStream" path="res://assets/animations/S4.ogv" id="7_dd530"]
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="7_s5c1f"]
-[ext_resource type="AnimationLibrary" path="res://assets/animations/globalAnimations.res" id="8_fhoih"]
-[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://themes/buttontheme.tres" id="9_3yno6"]
+[ext_resource type="AnimationLibrary" uid="uid://dq3bl11c2oxtp" path="res://assets/animations/globalAnimations.res" id="8_fhoih"]
+[ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://buttontheme.tres" id="9_3yno6"]
 [ext_resource type="Texture2D" uid="uid://bmiuaowg3nvhf" path="res://assets/buttons/play.png" id="10_2faw4"]
+[ext_resource type="AudioStream" uid="uid://1qutnwr5yapx" path="res://assets/music/Opening (loop).wav" id="13_4m5fk"]
 
-[sub_resource type="Animation" id="Animation_af64j"]
-resource_name = "image_transition"
-length = 0.6
+[sub_resource type="Animation" id="Animation_jbp4k"]
+resource_name = "fade_in"
+length = 1.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.566667),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0btd"]
-_data = {
-"image_transition": SubResource("Animation_af64j")
-}
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_0a5cy"]
-file = "res://assets/animations/S7_OGG.ogg"
-
-[sub_resource type="Animation" id="Animation_utpv1"]
-resource_name = "image_transition"
-length = 0.6
+[sub_resource type="Animation" id="Animation_w1w32"]
+resource_name = "fade_out"
+length = 1.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.566667),
+"times": PackedFloat32Array(0, 1.73333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.366667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(960, 540), Vector2(960, 360)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_44cug"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56upv"]
 _data = {
-"image_transition": SubResource("Animation_utpv1")
-}
-
-[sub_resource type="Animation" id="Animation_n632f"]
-resource_name = "image_transition"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.533333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 0.566667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(960, 540), Vector2(960, 360)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3d7ce"]
-_data = {
-"image_transition": SubResource("Animation_n632f")
-}
-
-[sub_resource type="Animation" id="Animation_ili5x"]
-resource_name = "image_transition"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.566667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.233333, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(960, 540), Vector2(960, 360)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fyy2"]
-_data = {
-"image_transition": SubResource("Animation_ili5x")
-}
-
-[sub_resource type="Animation" id="Animation_n2n1d"]
-resource_name = "image_transition"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.566667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 0.566667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(960, 540), Vector2(960, 360)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8gg73"]
-_data = {
-"image_transition": SubResource("Animation_n2n1d")
-}
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_j4v6t"]
-file = "res://assets/animations/S4_OGG.ogg"
-
-[sub_resource type="Animation" id="Animation_bvfw3"]
-resource_name = "image_transition"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.233333, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(960, 540), Vector2(960, 360)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.533333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kfm15"]
-_data = {
-"image_transition": SubResource("Animation_bvfw3")
-}
-
-[sub_resource type="Animation" id="Animation_1jr0g"]
-resource_name = "image_transition"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.233333, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(960, 540), Vector2(960, 360)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.533333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a1alf"]
-_data = {
-"image_transition": SubResource("Animation_1jr0g")
+"fade_in": SubResource("Animation_jbp4k"),
+"fade_out": SubResource("Animation_w1w32")
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yysbh"]
@@ -344,93 +147,69 @@ _data = {
 "text_disappear": SubResource("Animation_ofbpv")
 }
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("nextButton", "openingTextPlayer")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("openingTextPlayer", "openingScenePlayer")]
 script = ExtResource("1_qjys5")
-nextButton = NodePath("")
 openingTextPlayer = NodePath("PanelContainer/Text/AnimationPlayer")
+openingScenePlayer = NodePath("SceneTransition")
 
-[node name="SceneTransition8" type="AnimationPlayer" parent="." groups=["animation"]]
-root_node = NodePath("S8")
+[node name="ColorRect" type="ColorRect" parent="."]
+top_level = true
+z_index = 4
+z_as_relative = false
+offset_right = 1947.0
+offset_bottom = 1115.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 libraries = {
-"": SubResource("AnimationLibrary_m0btd")
+"": SubResource("AnimationLibrary_56upv")
 }
 
-[node name="S8" type="VideoStreamPlayer" parent="SceneTransition8"]
-offset_left = 960.0
-offset_top = 540.0
-offset_right = 2880.0
-offset_bottom = 1628.0
-stream = SubResource("VideoStreamTheora_0a5cy")
-paused = true
-
-[node name="SceneTransition7" type="AnimationPlayer" parent="." groups=["animation"]]
-root_node = NodePath("S7")
-libraries = {
-"": SubResource("AnimationLibrary_44cug")
-}
-
-[node name="S7" type="Sprite2D" parent="SceneTransition7"]
-position = Vector2(960, 540)
-texture = ExtResource("1_xced5")
-
-[node name="SceneTransition6" type="AnimationPlayer" parent="." groups=["animation"]]
-root_node = NodePath("S6")
-libraries = {
-"": SubResource("AnimationLibrary_3d7ce")
-}
-
-[node name="S6" type="Sprite2D" parent="SceneTransition6"]
-position = Vector2(960, 540)
-texture = ExtResource("2_2ed4u")
-
-[node name="SceneTransition5" type="AnimationPlayer" parent="." groups=["animation"]]
-root_node = NodePath("S5")
-libraries = {
-"": SubResource("AnimationLibrary_4fyy2")
-}
-
-[node name="S5" type="Sprite2D" parent="SceneTransition5"]
-position = Vector2(960, 540)
-texture = ExtResource("3_q01wo")
-
-[node name="SceneTransition4" type="AnimationPlayer" parent="." groups=["animation"]]
-root_node = NodePath("S4")
-libraries = {
-"": SubResource("AnimationLibrary_8gg73")
-}
-
-[node name="S4" type="VideoStreamPlayer" parent="SceneTransition4"]
-offset_left = 960.0
-offset_top = 540.0
-offset_right = 2880.0
-offset_bottom = 1628.0
-stream = SubResource("VideoStreamTheora_j4v6t")
-paused = true
-
-[node name="SceneTransition3" type="AnimationPlayer" parent="." groups=["animation"]]
-root_node = NodePath("S3")
-libraries = {
-"": SubResource("AnimationLibrary_kfm15")
-}
-
-[node name="S3" type="Sprite2D" parent="SceneTransition3"]
-position = Vector2(960, 540)
-texture = ExtResource("4_mmbdn")
-
-[node name="SceneTransition2" type="AnimationPlayer" parent="." groups=["animation"]]
-root_node = NodePath("S2")
-libraries = {
-"": SubResource("AnimationLibrary_a1alf")
-}
-
-[node name="S2" type="Sprite2D" parent="SceneTransition2"]
-position = Vector2(960, 540)
-texture = ExtResource("5_ira5p")
+[node name="black bg" type="ColorRect" parent="ColorRect"]
+visible = false
+top_level = true
+z_index = 4
+z_as_relative = false
+layout_mode = 0
+offset_right = 1947.0
+offset_bottom = 1115.0
+color = Color(0, 0, 0, 1)
 
 [node name="SceneTransition" type="AnimationPlayer" parent="." groups=["animation"]]
 libraries = {
 "": ExtResource("8_fhoih")
 }
+
+[node name="S8" type="VideoStreamPlayer" parent="SceneTransition"]
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = ExtResource("3_lwgjo")
+autoplay = true
+loop = true
+
+[node name="S3" type="Sprite2D" parent="SceneTransition"]
+position = Vector2(960, 540)
+texture = ExtResource("4_mmbdn")
+
+[node name="S6" type="Sprite2D" parent="SceneTransition"]
+position = Vector2(960, 540)
+texture = ExtResource("2_2ed4u")
+
+[node name="S5" type="Sprite2D" parent="SceneTransition"]
+position = Vector2(960, 540)
+texture = ExtResource("3_q01wo")
+
+[node name="S4" type="VideoStreamPlayer" parent="SceneTransition"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = ExtResource("7_dd530")
+autoplay = true
+loop = true
+
+[node name="S2" type="Sprite2D" parent="SceneTransition"]
+position = Vector2(960, 540)
+texture = ExtResource("5_ira5p")
 
 [node name="S1" type="Sprite2D" parent="SceneTransition"]
 position = Vector2(960, 540)
@@ -461,15 +240,13 @@ text = "In the bright plains of what later became [color=#005AA7]Estonia[/color]
 libraries = {
 "": SubResource("AnimationLibrary_2j87r")
 }
-autoplay = "text_arrive"
 
 [node name="Node2D" type="Node2D" parent="."]
-z_index = 1
+z_index = 4
 position = Vector2(1334, 947)
 scale = Vector2(17.0923, 10.2429)
 
 [node name="Button" type="Button" parent="Node2D"]
-z_index = 3
 offset_right = 8.0
 offset_bottom = 8.0
 scale = Vector2(0.0131473, 0.021627)
@@ -478,5 +255,14 @@ icon = ExtResource("10_2faw4")
 flat = true
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_4m5fk")
+autoplay = true
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+volume_db = -1.486
+bus = &"SFX"
 
 [connection signal="pressed" from="Node2D/Button" to="." method="_on_button_pressed"]
