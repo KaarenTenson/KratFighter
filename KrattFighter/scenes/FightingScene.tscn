@@ -118,6 +118,7 @@ offset_bottom = 356.0
 [node name="HeadContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/HeadContainer"]
 layout_mode = 2
@@ -158,6 +159,7 @@ text = "100"
 [node name="BodyContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/BodyContainer"]
 layout_mode = 2
@@ -198,6 +200,7 @@ text = "100"
 [node name="LHanContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/LHanContainer"]
 layout_mode = 2
@@ -238,6 +241,7 @@ text = "100"
 [node name="RHandContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/RHandContainer"]
 layout_mode = 2
@@ -278,6 +282,7 @@ text = "100"
 [node name="LLegContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/LLegContainer"]
 layout_mode = 2
@@ -318,6 +323,7 @@ text = "100"
 [node name="RLegContainer" type="HBoxContainer" parent="UILayer/EnemyPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/EnemyPanel/VBoxContainer/RLegContainer"]
 layout_mode = 2

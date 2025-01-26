@@ -10,6 +10,13 @@ class_name Enemy
 @onready var left_leg: BodyPart = $leftLeg
 @onready var right_leg: BodyPart = $rightleg
 
+@onready var head_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/HeadContainer/CurrentHPLabel"
+@onready var chest_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/BodyContainer/CurrentHPLabel"
+@onready var left_hand_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/LHanContainer/CurrentHPLabel"
+@onready var right_hand_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/RHandContainer/CurrentHPLabel"
+@onready var left_leg_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/LLegContainer/CurrentHPLabel"
+@onready var right_leg_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/RLegContainer/CurrentHPLabel"
+
 @export var chance_for_item:=0.5
 @export var defence_chance_defending:=0.75
 @export var defence_change:=0.25
@@ -61,12 +68,22 @@ func get_random_weapon()->BodyPart:
 	return translate_body_part(body_parts, is_left)
 # Called when the node enters the scene tree for the first time.
 
+func set_HP_labels():
+	head_HP_label.text = str(head.current_hp)
+	chest_HP_label.text = str(chest.current_hp)
+	left_hand_HP_label.text = str(left_hand.current_hp)
+	right_hand_HP_label.text = str(right_hand.current_hp)
+	left_leg_HP_label.text = str(left_leg.current_hp)
+	right_hand_HP_label.text = str(right_leg.current_hp)
+
 func _ready() -> void:
 	fill_loot_pool()
 	create_random_body()
 	create_body()
+	set_HP_labels()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	set_HP_labels()
 	match current_state:
 		ENEMY_STATE.IDLE:
 			await get_tree().create_timer(0.5).timeout

@@ -7,6 +7,13 @@ class_name Player
 @onready var left_leg: BodyPart = $leftLeg
 @onready var right_leg: BodyPart = $rightleg
 
+@onready var head_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/HeadContainer/CurrentHPLabel"
+@onready var chest_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/BodyContainer/CurrentHPLabel"
+@onready var left_hand_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/LHanContainer/CurrentHPLabel"
+@onready var right_hand_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/RHandContainer/CurrentHPLabel"
+@onready var left_leg_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/LLegContainer/CurrentHPLabel"
+@onready var right_leg_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/RLegContainer/CurrentHPLabel"
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 enum PLAYER_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
 var current_state:int=PLAYER_STATE.IDLE
@@ -19,6 +26,8 @@ signal attack_signal(body_part:int, is_left:bool, damage:int)
 func _ready() -> void:
 	create_body()
 	ItemManager.kratt_changed.connect(refresh_body)
+	set_HP_labels()
+
 func get_random_weapon()->BodyPart:
 	var is_left:=randf()>0.5
 	var body_parts:int
@@ -45,6 +54,7 @@ func get_attack_animation()->String:
 	return ""
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	set_HP_labels()
 	match current_state:
 		PLAYER_STATE.IDLE:
 			await get_tree().create_timer(0.5).timeout
@@ -60,11 +70,21 @@ func _process(delta: float) -> void:
 			return
 		PLAYER_STATE.ATTACKING:
 			return
+
 func refresh_body():
 	for child in get_children():
 		if(child is Node2D):
 			(child.get_children()[0] as StaticBody2D).queue_free()
 	create_body()
+
+func set_HP_labels():
+	head_HP_label.text = str(head.current_hp)
+	chest_HP_label.text = str(chest.current_hp)
+	left_hand_HP_label.text = str(left_hand.current_hp)
+	right_hand_HP_label.text = str(right_hand.current_hp)
+	left_leg_HP_label.text = str(left_leg.current_hp)
+	right_hand_HP_label.text = str(right_leg.current_hp)
+
 func create_body():
 	head.set_items(ItemManager.items_dict[ItemManager.kratt_body.head])
 	chest.set_items(ItemManager.items_dict[ItemManager.kratt_body.body])
