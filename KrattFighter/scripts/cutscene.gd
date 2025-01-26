@@ -15,7 +15,7 @@ extends Node2D
 @onready var voices = ["res://assets/sfx/OP1.mp3", "res://assets/sfx/OP2.mp3", "res://assets/sfx/OP3.mp3", "res://assets/sfx/OP4.mp3", "res://assets/sfx/OP5.mp3", "res://assets/sfx/OP6.mp3", "res://assets/sfx/OP7.mp3"]
 
 func _on_button_pressed() -> void:
-	if scene == 6:
+	if scene >= 6:
 		$ColorRect/AnimationPlayer.play("fade_out")
 		await get_tree().create_timer(1.75).timeout
 		$"ColorRect/black bg".visible = true
