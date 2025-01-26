@@ -95,6 +95,7 @@ func _ready() -> void:
 	create_random_body()
 	create_body()
 	set_HP_labels()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	set_HP_labels()

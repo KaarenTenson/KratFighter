@@ -32,7 +32,12 @@ func _ready() -> void:
 	anim.play("spawn")
 	await anim.animation_finished
 	start.emit()
+func connect_signals():
+	player.chest.part_dead.connect(func(obj):queue_free())
+	player.head.part_dead.connect(func(obj):queue_free())
 	
+	enemy.chest.part_dead.connect(func(obj): queue_free())
+	enemy.head.part_dead.connect(func(ojj):queue_free())
 func setLabels():
 	headLabel_player.text = ItemManager.items_dict[player_body.head].str_name
 	bodyLabel_player.text = ItemManager.items_dict[player_body.body].str_name
