@@ -40,7 +40,10 @@ func add_signal(node:Node):
 					ItemManager.current_items.append(item.name)
 					print(ItemManager.current_items)
 				else:
-					print("max slots!!")
+					$MarginContainer.visible = true
+					$MarginContainer/AnimationPlayer.play("pop")
+					await get_tree().create_timer(2).timeout
+					$MarginContainer.visible = false
 				)
 		else:
 			add_signal(el)

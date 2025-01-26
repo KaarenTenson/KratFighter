@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="7_s5c1f"]
 [ext_resource type="AnimationLibrary" uid="uid://dq3bl11c2oxtp" path="res://assets/animations/globalAnimations.res" id="8_fhoih"]
 [ext_resource type="Theme" uid="uid://p2ah2hu3gk35" path="res://themes/buttontheme.tres" id="9_3yno6"]
-[ext_resource type="Texture2D" uid="uid://bmiuaowg3nvhf" path="res://assets/buttons/play.png" id="10_2faw4"]
+[ext_resource type="Texture2D" uid="uid://cl1t3dt3ov5i0" path="res://assets/buttons/next.png" id="12_6cji1"]
 [ext_resource type="AudioStream" uid="uid://1qutnwr5yapx" path="res://assets/music/Opening (loop).wav" id="13_4m5fk"]
 
 [sub_resource type="Animation" id="Animation_jbp4k"]
@@ -247,11 +247,11 @@ position = Vector2(1334, 947)
 scale = Vector2(17.0923, 10.2429)
 
 [node name="Button" type="Button" parent="Node2D"]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 960.0
+offset_bottom = 540.0
 scale = Vector2(0.0131473, 0.021627)
 theme = ExtResource("9_3yno6")
-icon = ExtResource("10_2faw4")
+icon = ExtResource("12_6cji1")
 flat = true
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true

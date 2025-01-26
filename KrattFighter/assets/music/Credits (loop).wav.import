@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bmuoy6ug8by14"
+path="res://.godot/imported/Credits (loop).wav-b576d7354d23ccd36042ecc2c7104ae8.sample"
+
+[deps]
+
+source_file="res://assets/music/Credits (loop).wav"
+dest_files=["res://.godot/imported/Credits (loop).wav-b576d7354d23ccd36042ecc2c7104ae8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
