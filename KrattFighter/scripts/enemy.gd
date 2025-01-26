@@ -48,6 +48,7 @@ func get_result(success:bool):
 func get_damage(damage:int, body_part:int, is_left:bool)->bool:
 	var part:BodyPart=translate_body_part(body_part, is_left)
 	if(!is_instance_valid(part)):
+		print("ei tööta")
 		return false
 	if(current_state==ENEMY_STATE.DEFEND and body_part!= ItemManager.BODY_PART.LEG):
 		if randf()>defence_chance_defending:
@@ -90,8 +91,8 @@ func validate_part(part)->String:
 		return "dead"
 
 func _ready() -> void:
-	get_parent().start.connect(func(): current_state=ENEMY_STATE.ATTACK)
 	fill_loot_pool()
+	get_parent().start.connect(func(): current_state=ENEMY_STATE.ATTACK)
 	create_random_body()
 	create_body()
 	set_HP_labels()

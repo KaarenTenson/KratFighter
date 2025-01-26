@@ -30,7 +30,9 @@ func _ready() -> void:
 		get_parent().start.connect(func(): current_state=PLAYER_STATE.ATTACK)
 	create_body()
 	ItemManager.kratt_changed.connect(refresh_body)
-	set_HP_labels()
+	if(get_parent() is Node2D):
+		print(get_parent())
+		set_HP_labels()
 
 func get_random_weapon()->BodyPart:
 	var is_left:=randf()>0.5
@@ -101,6 +103,8 @@ func refresh_body():
 	create_body()
 
 func set_HP_labels():	
+	if(head_HP_label==null):
+		return
 	head_HP_label.text=validate_part(head)
 	chest_HP_label.text = validate_part(chest)
 	left_hand_HP_label.text = validate_part(left_hand)
