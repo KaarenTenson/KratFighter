@@ -77,3 +77,15 @@ func _on_player_attack_signal(body_part: int, is_left: bool, damage: int) -> voi
 func _on_enemy_attack_signal(body_part: int, is_left: bool, damage: int) -> void:
 	var result:bool=player.get_damage(body_part, is_left, damage)
 	enemy.get_result(result)
+
+
+func _on_won() -> void:
+	
+	get_tree().change_scene_to_file("res://scenes/Credits.tscn")
+
+func _on_lost() -> void:
+	pass # Replace with function body.
+
+func _on_music_finished() -> void:
+	$Music.set_stream(load("res://assets/music/Fight (loop).mp3"))
+	$Music.play()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ci5uyxkvnwouj"]
+[gd_scene load_steps=12 format=3 uid="uid://ci5uyxkvnwouj"]
 
 [ext_resource type="Script" path="res://scripts/fighting_scene.gd" id="1_2pcju"]
 [ext_resource type="Texture2D" uid="uid://cbhi70u4mb7j2" path="res://assets/kmappäv.png" id="2_1n4j5"]
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="2_5syol"]
 [ext_resource type="PackedScene" uid="uid://dyv8i1x5wo1vq" path="res://scenes/Enemy.tscn" id="3_xa43e"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_rsupd"]
+[ext_resource type="AudioStream" uid="uid://84ggviji303s" path="res://assets/music/Fight (loop).mp3" id="6_gu8la"]
 
 [sub_resource type="Animation" id="Animation_soluq"]
 length = 0.001
@@ -660,6 +661,12 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(944, 536)
 
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_gu8la")
+autoplay = true
+
+[connection signal="lost" from="." to="." method="_on_lost"]
+[connection signal="won" from="." to="." method="_on_won"]
 [connection signal="attack_signal" from="Player" to="." method="_on_player_attack_signal"]
 [connection signal="attack_signal" from="Enemy" to="." method="_on_enemy_attack_signal"]
 [connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/HeadContainer" to="Player" method="_on_head_container_focus_entered"]
@@ -674,3 +681,4 @@ position = Vector2(944, 536)
 [connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/LLegContainer" to="Player" method="_on_l_leg_container_focus_exited"]
 [connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/RLegContainer" to="Player" method="_on_r_leg_container_focus_entered"]
 [connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/RLegContainer" to="Player" method="_on_r_leg_container_focus_exited"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

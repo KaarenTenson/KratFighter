@@ -33,6 +33,8 @@ func add_signal(node:Node):
 		if(el is Button):
 			el.pressed.connect(func():
 				if (inventory.size() < 9):
+					$Extra.set_stream(load("res://assets/sfx/Collect.mp3"))
+					$Extra.play()
 					el.visible = not el.visible
 					var item :Items= ItemManager.items_dict.get(el.item)
 					addItem(item)

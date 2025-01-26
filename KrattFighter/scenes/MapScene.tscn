@@ -68,33 +68,6 @@ texture = ExtResource("14_0yxf7")
 Button/styles/focus = SubResource("StyleBoxEmpty_apntk")
 Button/styles/normal = SubResource("StyleBoxEmpty_m0x3j")
 
-[sub_resource type="Animation" id="Animation_ptiaa"]
-resource_name = "pop"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.533333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.01041, 1.89509), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.533333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(305, 939), Vector2(305, 939), Vector2(305, 939)]
-}
-
 [sub_resource type="Animation" id="Animation_n81c4"]
 length = 0.001
 tracks/0/type = "value"
@@ -120,6 +93,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(305, 939)]
+}
+
+[sub_resource type="Animation" id="Animation_ptiaa"]
+resource_name = "pop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.01041, 1.89509), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(305, 939), Vector2(305, 939), Vector2(305, 939)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ey1lt"]
@@ -464,6 +464,17 @@ texture = ExtResource("18_uqqca")
 libraries = {
 "": SubResource("AnimationLibrary_ey1lt")
 }
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 33.0
+offset_top = 37.0
+offset_right = 397.0
+offset_bottom = 154.0
+theme_override_font_sizes/normal_font_size = 54
+bbcode_enabled = true
+text = "[color=#6DD5FA][wave amp=50.0 freq=5.0 connected=1]Collect items![/wave][/color]"
+
+[node name="Extra" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="Bag/bagbutton" to="Bag/bagbutton" method="_on_bagbutton_pressed"]
 [connection signal="pressed" from="Building icon/buildingbutton" to="Building icon/buildingbutton" method="_on_buildingbutton_pressed"]
