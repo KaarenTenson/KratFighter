@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ci5uyxkvnwouj"]
+[gd_scene load_steps=11 format=3 uid="uid://ci5uyxkvnwouj"]
 
 [ext_resource type="Script" path="res://scripts/fighting_scene.gd" id="1_2pcju"]
+[ext_resource type="Texture2D" uid="uid://cbhi70u4mb7j2" path="res://assets/kmappäv.png" id="2_1n4j5"]
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="2_5syol"]
 [ext_resource type="PackedScene" uid="uid://dyv8i1x5wo1vq" path="res://scenes/Enemy.tscn" id="3_xa43e"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_rsupd"]
@@ -73,6 +74,21 @@ texture = ExtResource("4_rsupd")
 
 [node name="FightingScene" type="Node2D"]
 script = ExtResource("1_2pcju")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -264.0
+offset_right = 2060.0
+offset_bottom = 1068.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1n4j5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
