@@ -7,12 +7,14 @@ class_name Player
 @onready var left_leg: BodyPart = $leftLeg
 @onready var right_leg: BodyPart = $rightleg
 
-@onready var head_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/HeadContainer/CurrentHPLabel"
-@onready var chest_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/BodyContainer/CurrentHPLabel"
-@onready var left_hand_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/LHanContainer/CurrentHPLabel"
-@onready var right_hand_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/RHandContainer/CurrentHPLabel"
-@onready var left_leg_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/LLegContainer/CurrentHPLabel"
-@onready var right_leg_HP_label = $"../UILayer/EnemyPanel/VBoxContainer/RLegContainer/CurrentHPLabel"
+@onready var head_HP_label = $"../UILayer/PlayerPanel/VBoxContainer/HeadContainer/CurrentHPLabel"
+@onready var chest_HP_label = $"../UILayer/PlayerPanel/VBoxContainer/BodyContainer/CurrentHPLabel"
+@onready var left_hand_HP_label =$"../UILayer/PlayerPanel/VBoxContainer/LHandContainer/CurrentHPLabel"
+@onready var right_hand_HP_label = $"../UILayer/PlayerPanel/VBoxContainer/RHandContainer/CurrentHPLabel"
+@onready var left_leg_HP_label =$"../UILayer/PlayerPanel/VBoxContainer/LLegContainer/CurrentHPLabel"
+@onready var right_leg_HP_label = $"../UILayer/PlayerPanel/VBoxContainer/RLegContainer/CurrentHPLabel"
+
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 enum PLAYER_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
@@ -110,7 +112,7 @@ func set_HP_labels():
 	left_hand_HP_label.text = validate_part(left_hand)
 	right_hand_HP_label.text =validate_part(right_hand)
 	left_leg_HP_label.text = validate_part(left_leg)
-	right_hand_HP_label.text = validate_part(right_hand)
+	right_leg_HP_label.text = validate_part(right_leg)
 func validate_part(part)->String:
 	if(is_instance_valid(part)):
 		return str(part.current_hp)
