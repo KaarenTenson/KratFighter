@@ -18,3 +18,5 @@ func play_music_map():
 
 func _on_finished() -> void:
 	play_music_map()
+func stop_music():
+	stop()

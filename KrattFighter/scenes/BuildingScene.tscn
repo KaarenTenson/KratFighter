@@ -1,9 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://d2s4t1d7k26mn"]
+[gd_scene load_steps=26 format=3 uid="uid://d2s4t1d7k26mn"]
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
 [ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
 [ext_resource type="Script" path="res://scripts/inventory_container.gd" id="1_ym7jk"]
-[ext_resource type="Texture2D" uid="uid://w0bhpcideq48" path="res://assets/taust.png" id="3_6ivee"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_xye4o"]
 [ext_resource type="Texture2D" uid="uid://cc2yx0bd7cp7d" path="res://assets/EquipmentIcons/faceicon.png" id="5_1vt3v"]
 [ext_resource type="Script" path="res://scripts/equipment_panel.gd" id="5_ubaec"]
@@ -42,19 +41,6 @@ texture = ExtResource("4_xye4o")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsi4x"]
 texture = ExtResource("4_xye4o")
-
-[sub_resource type="SystemFont" id="SystemFont_3ocvv"]
-subpixel_positioning = 0
-
-[sub_resource type="Theme" id="Theme_vqfua"]
-default_font_size = 40
-TextEdit/fonts/font = SubResource("SystemFont_3ocvv")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jn06"]
-texture = ExtResource("3_6ivee")
-modulate_color = Color(0.558077, 0.446423, 0.423286, 1)
-
-[sub_resource type="SystemFont" id="SystemFont_0yk3e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5tfd"]
 texture = ExtResource("13_ofv5c")
@@ -377,117 +363,6 @@ texture = ExtResource("10_75fv8")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="StatsContainer" type="PanelContainer" parent="MarginContainer/Window/Equipment"]
-texture_filter = 3
-layout_mode = 2
-size_flags_vertical = 3
-theme = SubResource("Theme_vqfua")
-theme_override_styles/panel = SubResource("StyleBoxTexture_2jn06")
-
-[node name="TextContainer" type="VBoxContainer" parent="MarginContainer/Window/Equipment/StatsContainer"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="AttackMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 30
-
-[node name="AttackContainer" type="HBoxContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AttackMargin"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
-
-[node name="AttackLabel" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.755178, 0.846742, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.0439989, 0.0931322, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 2
-theme_override_fonts/font = SubResource("SystemFont_0yk3e")
-text = "Attack:"
-
-[node name="TextMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 46
-
-[node name="AttackText" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AttackMargin/AttackContainer/TextMargin"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_outline_size = 3
-theme_override_font_sizes/font_size = 35
-text = "10 - 15"
-
-[node name="HitpointsMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 30
-
-[node name="HitpointsContainer" type="HBoxContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/HitpointsMargin"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HitpointsLabel" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.756863, 0.847059, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.0431373, 0.0941176, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 2
-text = "HP:"
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 114
-
-[node name="HitpointsText" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/HitpointsMargin/HitpointsContainer/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_outline_size = 3
-theme_override_font_sizes/font_size = 35
-text = "15"
-
-[node name="AbilitiesMargin" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 30
-
-[node name="AbilitiesContainer" type="HBoxContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="AbilitiesLabel" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.756863, 0.847059, 1, 1)
-theme_override_colors/font_shadow_color = Color(0.0431373, 0.0941176, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 2
-text = "Abilities:"
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-
-[node name="AbilitiesText" type="Label" parent="MarginContainer/Window/Equipment/StatsContainer/TextContainer/AbilitiesMargin/AbilitiesContainer/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.909804, 1, 0.431373, 1)
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 3
-theme_override_constants/shadow_outline_size = 3
-theme_override_font_sizes/font_size = 35
-text = "poop throw"
-
 [node name="Information" type="VBoxContainer" parent="MarginContainer/Window"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -522,6 +397,15 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 279.0
 offset_bottom = 332.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 700.0
+offset_top = 768.0
+offset_right = 1276.0
+offset_bottom = 940.0
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[color=green][wave amp=50.0 freq=5.0 connected=1]Equip your items and prepare for battle![/wave][/color]"
 
 [connection signal="high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_high_light"]
 [connection signal="remove_btn" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_remove_btn"]
