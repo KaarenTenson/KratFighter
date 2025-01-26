@@ -30,8 +30,7 @@ var body_class:=ItemManager.KrattBodyClass.new()
 func attack():
 	var body_part:int=ItemManager.BODY_PART.values().pick_random()
 	var is_left:bool= randf()>0.5
-	if(current_weapon==null):
-		current_weapon=get_random_weapon()
+	current_weapon=get_random_weapon()
 	attack_signal.emit(body_part, is_left, current_weapon.item.damage)
 func get_result(success:bool):
 	if(success==false):
@@ -75,16 +74,26 @@ func _process(delta: float) -> void:
 		ENEMY_STATE.ATTACK:
 			current_state=ENEMY_STATE.ATTACKING
 			attack()
-			animation_player.play("attack_left")
+			animation_player.play(get_attack_animation())
 			await animation_player.animation_finished
 			await get_tree().create_timer(current_weapon.item.attack_speed).timeout
 			if(current_state==ENEMY_STATE.ATTACKING):
 				current_state=ENEMY_STATE.ATTACK
 		ENEMY_STATE.DEFEND:
-			current_weapon=null
+			return
 		ENEMY_STATE.ATTACKING:
 			return
-	
+func get_attack_animation()->String:
+	match current_weapon:
+		left_leg:
+			return "attack_leg_left"
+		right_leg:
+			return "attack_leg_right"
+		left_hand:
+			return "attack_hand_left"
+		right_hand:
+			return "attack_hand_right"
+	return ""
 func fill_loot_pool():
 	for item in ItemManager.ITEMS.values():
 		print(item)
