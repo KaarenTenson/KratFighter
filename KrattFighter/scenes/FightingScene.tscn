@@ -1,9 +1,69 @@
-[gd_scene load_steps=7 format=3 uid="uid://p5r0ud5bjfiu"]
+[gd_scene load_steps=10 format=3 uid="uid://p5r0ud5bjfiu"]
 
 [ext_resource type="Script" path="res://scripts/fighting_scene.gd" id="1_2pcju"]
 [ext_resource type="PackedScene" uid="uid://dvlgq6xjep4er" path="res://scenes/Player.tscn" id="2_5syol"]
 [ext_resource type="PackedScene" uid="uid://dyv8i1x5wo1vq" path="res://scenes/Enemy.tscn" id="3_xa43e"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_rsupd"]
+
+[sub_resource type="Animation" id="Animation_xr4k4"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-199, -342), Vector2(650, 500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1750, -309), Vector2(1200, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_soluq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-199, -342)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1750, -309)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bxla"]
+_data = {
+"RESET": SubResource("Animation_soluq"),
+"spawn": SubResource("Animation_xr4k4")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymjcf"]
 size = Vector2(1921, 104)
@@ -14,12 +74,17 @@ texture = ExtResource("4_rsupd")
 [node name="FightingScene" type="Node2D"]
 script = ExtResource("1_2pcju")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1bxla")
+}
+
 [node name="Player" parent="." instance=ExtResource("2_5syol")]
-position = Vector2(553, 500)
+position = Vector2(-199, -342)
 scale = Vector2(-0.25, 0.25)
 
 [node name="Enemy" parent="." instance=ExtResource("3_xa43e")]
-position = Vector2(1209, 500)
+position = Vector2(1750, -309)
 scale = Vector2(0.25, 0.25)
 
 [node name="BackGround" type="Parallax2D" parent="."]

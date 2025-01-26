@@ -19,6 +19,8 @@ var player_body:=ItemManager.kratt_body
 @onready var r_leg_enemy_label: Label = $UILayer/EnemyPanel/VBoxContainer/RLegContainer/RLegItemLabel
 
 @onready var enemy: Enemy = $Enemy
+
+@onready var anim = $AnimationPlayer
 var enemy_body:ItemManager.KrattBodyClass
 #const ENEMY=preload("res://scenes/Enemy.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +30,7 @@ func _ready() -> void:
 	start.emit()
 	await get_tree().create_timer(1).timeout
 	player.left_attack()
+	anim.play("spawn")
 	
 func setLabels():
 	headLabel_player.text = ItemManager.items_dict[player_body.head].str_name

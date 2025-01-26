@@ -3,21 +3,6 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5eog6"]
 [ext_resource type="Script" path="res://scripts/body_part.gd" id="2_yok0s"]
 
-[sub_resource type="Animation" id="Animation_pw7my"]
-resource_name = "left_attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LeftHand:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [1.39626, 2.44346, 1.39626]
-}
-
 [sub_resource type="Animation" id="Animation_5mrl5"]
 length = 0.001
 tracks/0/type = "value"
@@ -31,6 +16,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.39626]
+}
+
+[sub_resource type="Animation" id="Animation_pw7my"]
+resource_name = "left_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftHand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.39626, 2.44346, 1.39626]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17uh5"]
