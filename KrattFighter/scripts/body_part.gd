@@ -10,7 +10,7 @@ func set_items(item:Items):
 # Called when the node enters the scene tree for the first time.
 func get_damage(damage:int):
 	current_hp-=damage
-	if(current_hp<0):
+	if(current_hp<=0):
 		part_dead.emit(self)
 		queue_free()
 func _ready() -> void:
