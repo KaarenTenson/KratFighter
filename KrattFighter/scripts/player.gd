@@ -22,7 +22,7 @@ var defence_change:=0.3
 var defence_chance_defending:=0.8
 var current_state:int=PLAYER_STATE.IDLE
 var current_weapon:BodyPart=null
-var focus
+var focus="head"
 
 signal attack_signal(body_part:int, is_left:bool, damage:int)
 

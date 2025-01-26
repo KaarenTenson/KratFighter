@@ -111,12 +111,13 @@ func remove_item(body_part:int, isLeft:bool):
 			else:
 				kratt_body.right_leg=ITEMS.WOOD_LEG
 	kratt_changed.emit()
-	
-func _ready() -> void:
+func reset_kratt():	
 	kratt_body.head=ITEMS.WOOD_HEAD
 	kratt_body.body=ITEMS.WOOD_CHEST
 	kratt_body.left_hand=ITEMS.WOOD_HAND
 	kratt_body.right_hand=ITEMS.WOOD_HAND
 	kratt_body.left_leg=ITEMS.WOOD_LEG
 	kratt_body.right_leg=ITEMS.WOOD_LEG
+func _ready() -> void:
+	reset_kratt()
 	

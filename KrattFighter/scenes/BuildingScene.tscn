@@ -399,6 +399,7 @@ offset_right = 279.0
 offset_bottom = 332.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 700.0
 offset_top = 768.0
 offset_right = 1276.0
