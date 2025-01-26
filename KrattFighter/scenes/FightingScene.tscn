@@ -638,6 +638,7 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(944, 536)
 
+[connection signal="attack_signal" from="Player" to="." method="_on_player_attack_signal"]
 [connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/HeadContainer" to="Player" method="_on_head_container_focus_entered"]
 [connection signal="focus_exited" from="UILayer/EnemyPanel/VBoxContainer/HeadContainer" to="Player" method="_on_head_container_focus_exited"]
 [connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/BodyContainer" to="Player" method="_on_body_container_focus_entered"]

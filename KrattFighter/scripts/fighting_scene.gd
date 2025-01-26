@@ -54,3 +54,7 @@ func load_player():
 	pass
 func load_enemy():
 	pass
+
+
+func _on_player_attack_signal(body_part: int, is_left: bool, damage: int) -> void:
+	var result:=enemy.get_damage(body_part, is_left, damage)
