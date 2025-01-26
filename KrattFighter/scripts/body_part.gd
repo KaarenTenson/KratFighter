@@ -6,6 +6,7 @@ signal part_dead(body_part_obj:BodyPart)
 func set_items(item:Items):
 	add_child(item.scene.instantiate())
 	current_hp=item.hp
+	self.item=item
 # Called when the node enters the scene tree for the first time.
 func get_damage(damage:int):
 	current_hp-=damage
