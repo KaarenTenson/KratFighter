@@ -1,6 +1,7 @@
 extends Node2D
 signal start
-
+signal lost
+signal won
 @onready var headLabel_player = $UILayer/PlayerPanel/VBoxContainer/HeadContainer/HeadItemLabel
 @onready var bodyLabel_player = $UILayer/PlayerPanel/VBoxContainer/BodyContainer/BodyItemLabel
 @onready var LHandLabel_player = $UILayer/PlayerPanel/VBoxContainer/LHandContainer/LHandItemLabel
@@ -33,11 +34,20 @@ func _ready() -> void:
 	await anim.animation_finished
 	start.emit()
 func connect_signals():
-	player.chest.part_dead.connect(func(obj):queue_free())
-	player.head.part_dead.connect(func(obj):queue_free())
+	player.chest.part_dead.connect(func(obj):
+		lost.emit()
+		queue_free())
+	player.head.part_dead.connect(
+		func(obj):
+			lost.emit()
+			queue_free())
 	
-	enemy.chest.part_dead.connect(func(obj): queue_free())
-	enemy.head.part_dead.connect(func(ojj):queue_free())
+	enemy.chest.part_dead.connect(func(obj):
+		won.emit()
+		queue_free())
+	enemy.head.part_dead.connect(func(ojj):
+		won.emit()
+		queue_free())
 func setLabels():
 	headLabel_player.text = ItemManager.items_dict[player_body.head].str_name
 	bodyLabel_player.text = ItemManager.items_dict[player_body.body].str_name
