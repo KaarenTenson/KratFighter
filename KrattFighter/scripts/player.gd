@@ -10,19 +10,56 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 enum PLAYER_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
 var current_state:int=PLAYER_STATE.IDLE
+var current_weapon:BodyPart=null
 var focus
+
+signal attack_signal(body_part:int, is_left:bool, damage:int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	create_body()
 	ItemManager.kratt_changed.connect(refresh_body)
-
+func get_random_weapon()->BodyPart:
+	var is_left:=randf()>0.5
+	var body_parts:int
+	if(randf()>0.5):
+		body_parts=ItemManager.BODY_PART.HAND
+	else:
+		body_parts=ItemManager.BODY_PART.LEG
+	return translate_body_part(body_parts, is_left)
+func attack():
+	var body_part:int=ItemManager.BODY_PART.values().pick_random()
+	var is_left:bool= randf()>0.5
+	current_weapon=get_random_weapon()
+	attack_signal.emit(body_part, is_left, current_weapon.item.damage)
+func get_attack_animation()->String:
+	match current_weapon:
+		left_leg:
+			return "left_leg_attack"
+		right_leg:
+			return "right_leg_attack"
+		left_hand:
+			return "left_hand_attack"
+		right_hand:
+			return "right_hand_attack"
+	return ""
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	match current_state:
 		PLAYER_STATE.IDLE:
 			await get_tree().create_timer(0.5).timeout
 			current_state=PLAYER_STATE.ATTACK
+		PLAYER_STATE.ATTACK:
+			current_state=PLAYER_STATE.ATTACKING
+			attack()
+			animation_player.play(get_attack_animation())
+			await animation_player.animation_finished
+			await get_tree().create_timer(1).timeout
+			current_state=PLAYER_STATE.ATTACK
+		PLAYER_STATE.DEFEND:
+			return
+		PLAYER_STATE.ATTACKING:
+			return
 func refresh_body():
 	for child in get_children():
 		if(child is Node2D):
@@ -35,8 +72,7 @@ func create_body():
 	right_hand.set_items(ItemManager.items_dict[ItemManager.kratt_body.right_hand])
 	left_leg.set_items(ItemManager.items_dict[ItemManager.kratt_body.left_leg])
 	right_leg.set_items(ItemManager.items_dict[ItemManager.kratt_body.right_leg])
-func left_attack():
-	animation_player.play("left_attack")
+	
 func get_damage(body_part:int, is_left:bool):
 	match body_part:
 		ItemManager.BODY_PART.HEAD: print("got damage")
@@ -51,7 +87,23 @@ func get_damage(body_part:int, is_left:bool):
 				print("got damage")
 			else:
 				print("got damage")
-
+func translate_body_part(body_part:int, is_left:bool)->BodyPart:
+	match body_part:
+		ItemManager.BODY_PART.HEAD:
+			return head
+		ItemManager.BODY_PART.CHEST:
+			return chest
+		ItemManager.BODY_PART.HAND:
+			if(is_left):
+				return left_hand
+			else:
+				return right_hand
+		ItemManager.BODY_PART.LEG:
+			if(is_left):
+				return left_leg
+			else:
+				return right_leg
+	return null
 func _on_head_container_focus_entered():
 	if (focus != "head"):
 		focus = "head"

@@ -29,7 +29,6 @@ func _ready() -> void:
 	setLabels()
 	start.emit()
 	await get_tree().create_timer(1).timeout
-	player.left_attack()
 	anim.play("spawn")
 	
 func setLabels():
