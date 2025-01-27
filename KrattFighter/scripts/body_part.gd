@@ -15,11 +15,8 @@ func get_damage(damage:int):
 		part_dead.emit(self)
 		var node:=RigidBody2D.new()
 		for child in self.get_children():
-			if(child is CollisionPolygon2D):
-				child.reparent(node)
-		self.reparent(node)
+			child.reparent(node)
 		root.add_child(node)
-		await  get_tree().create_timer(2).timeout
 		queue_free()
 func _ready() -> void:
 	pass # Replace with function body.
