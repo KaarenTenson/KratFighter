@@ -58,29 +58,21 @@ func setLabels():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func load_player():
-	pass
-func load_enemy():
-	pass
-
-func _on_player_attack_signal(body_part: int, is_left: bool, damage: int) -> void:
-	var result:=enemy.get_damage(body_part, is_left, damage)
+func _on_player_attack_signal(body_parts: int, is_left: bool, damage: int) -> void:
+	
+	var result:=enemy.get_damage(body_parts, is_left, damage)
 func _on_enemy_attack_signal(body_part: int, is_left: bool, damage: int) -> void:
 	var result:bool=player.get_damage(body_part, is_left, damage)
 	enemy.get_result(result)
 
-
 func _on_won() -> void:
 	ItemManager.current_items.clear()
 	ItemManager.reset_kratt()
-	print("yeeee")
 	get_tree().change_scene_to_file("res://scenes/Credits.tscn")
 
 func _on_lost() -> void:
 	ItemManager.reset_kratt()
 	ItemManager.current_items.clear()
-	print("yeeee")
 	get_tree().change_scene_to_file("res://scenes/MapScene.tscn")
 
 func _on_music_finished() -> void:

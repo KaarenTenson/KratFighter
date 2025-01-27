@@ -10,8 +10,16 @@ func set_items(item:Items):
 # Called when the node enters the scene tree for the first time.
 func get_damage(damage:int):
 	current_hp-=damage
+	var root:=get_tree().root
 	if(current_hp<=0):
 		part_dead.emit(self)
+		var node:=RigidBody2D.new()
+		for child in self.get_children():
+			if(child is CollisionPolygon2D):
+				child.reparent(node)
+		self.reparent(node)
+		root.add_child(node)
+		await  get_tree().create_timer(2).timeout
 		queue_free()
 func _ready() -> void:
 	pass # Replace with function body.

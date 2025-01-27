@@ -46,12 +46,12 @@ func get_result(success:bool):
 			await get_tree().create_timer(4)
 			current_state=ENEMY_STATE.ATTACK
 			failed_attack_count=0
-func get_damage(damage:int, body_part:int, is_left:bool)->bool:
-	var part:BodyPart=translate_body_part(body_part, is_left)
+func get_damage(body_parts: int, is_left: bool, damage: int)->bool:
+	print(body_parts)
+	var part:BodyPart=translate_body_part(body_parts, is_left)
 	if(!is_instance_valid(part)):
-		print("ei tööta")
 		return false
-	if(current_state==ENEMY_STATE.DEFEND and body_part!= ItemManager.BODY_PART.LEG):
+	if(current_state==ENEMY_STATE.DEFEND and body_parts!= ItemManager.BODY_PART.LEG):
 		if randf()>defence_chance_defending:
 			part.get_damage(damage)
 			return true
@@ -63,8 +63,6 @@ func get_damage(damage:int, body_part:int, is_left:bool)->bool:
 			return true
 		else:
 			return false
-func get_damage_to_part(body_part:int,is_left:bool ):
-	translate_body_part(body_part, is_left)
 func get_random_weapon()->BodyPart:
 	var is_left:=randf()>0.5
 	var body_parts:int
@@ -94,10 +92,10 @@ func validate_part(part)->String:
 
 func _ready() -> void:
 	fill_loot_pool()
-	get_parent().start.connect(func(): current_state=ENEMY_STATE.ATTACK)
 	create_random_body()
 	create_body()
 	set_HP_labels()
+	get_parent().start.connect(func(): current_state=ENEMY_STATE.ATTACK)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -128,9 +126,26 @@ func get_attack_animation()->String:
 		right_hand:
 			return "attack_hand_right"
 	return ""
+func translate_body_part(body_parts:int, is_left:bool)->BodyPart:
+	match body_parts:
+		ItemManager.BODY_PART.HEAD:
+			return head
+		ItemManager.BODY_PART.CHEST:
+			return chest
+		ItemManager.BODY_PART.HAND:
+			if(is_left):
+				return left_hand
+			else:
+				return right_hand
+		ItemManager.BODY_PART.LEG:
+			if(is_left):
+				return left_leg
+			else:
+				print("yes")
+				return right_leg
+	return null
 func fill_loot_pool():
 	for item in ItemManager.ITEMS.values():
-		print(item)
 		var item_obj:Items=ItemManager.items_dict[item]
 		if(item_obj.default):
 			continue
@@ -160,23 +175,6 @@ func create_random_body():
 		body_class.right_hand=(loot_pool[ItemManager.BODY_PART.HAND] as Array).pick_random()
 	else:
 		body_class.right_hand=ItemManager.ITEMS.WOOD_HAND
-func translate_body_part(body_part:int, is_left:bool)->BodyPart:
-	match body_part:
-		ItemManager.BODY_PART.HEAD:
-			return head
-		ItemManager.BODY_PART.CHEST:
-			return chest
-		ItemManager.BODY_PART.HAND:
-			if(is_left):
-				return left_hand
-			else:
-				return right_hand
-		ItemManager.BODY_PART.LEG:
-			if(is_left):
-				return left_leg
-			else:
-				return right_leg
-	return null
 
 func create_body():
 	head.set_items(ItemManager.items_dict[body_class.head])
