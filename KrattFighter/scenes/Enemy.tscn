@@ -122,6 +122,7 @@ _data = {
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_dwljl")
+chance_for_item = 0.75
 
 [node name="Head" type="Node2D" parent="."]
 position = Vector2(-116, -696)

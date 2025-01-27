@@ -12,16 +12,19 @@ func get_damage(damage:int):
 	current_hp-=damage
 	var root:=get_tree().root
 	if(current_hp<=0):
-		part_dead.emit(self)
-		var node:=RigidBody2D.new()
-		for child in self.get_children():
-			child.reparent(node)
-		root.add_child(node)
-		queue_free()
+		die()
 func _ready() -> void:
 	pass # Replace with function body.
 
-
+func die():
+	var scene_root:=get_tree().root
+	part_dead.emit(self)
+	var falling_part:=RigidBody2D.new()
+	falling_part.global_position=self.global_position
+	for child in self.get_child(0).get_children():
+		child.reparent(falling_part)
+	scene_root.add_child(falling_part)
+	queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

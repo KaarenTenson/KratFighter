@@ -110,9 +110,12 @@ scale = Vector2(0.25, 0.25)
 [node name="Sprite2D" type="Sprite2D" parent="BackGround"]
 
 [node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(3, 130)
+collision_layer = 3
+collision_mask = 3
 
 [node name="groundCollision" type="CollisionShape2D" parent="ground"]
-position = Vector2(960.5, 1024)
+position = Vector2(949, 957)
 shape = SubResource("RectangleShape2D_ymjcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="ground"]

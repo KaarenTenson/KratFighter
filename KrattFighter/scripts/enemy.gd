@@ -47,7 +47,6 @@ func get_result(success:bool):
 			current_state=ENEMY_STATE.ATTACK
 			failed_attack_count=0
 func get_damage(body_parts: int, is_left: bool, damage: int)->bool:
-	print(body_parts)
 	var part:BodyPart=translate_body_part(body_parts, is_left)
 	if(!is_instance_valid(part)):
 		return false
@@ -82,7 +81,7 @@ func set_HP_labels():
 	left_hand_HP_label.text = validate_part(left_hand)
 	right_hand_HP_label.text =validate_part(right_hand)
 	left_leg_HP_label.text = validate_part(left_leg)
-	right_leg_HP_label.text = validate_part(right_hand)
+	right_leg_HP_label.text = validate_part(right_leg)
 
 func validate_part(part)->String:
 	if(is_instance_valid(part)):
@@ -141,7 +140,6 @@ func translate_body_part(body_parts:int, is_left:bool)->BodyPart:
 			if(is_left):
 				return left_leg
 			else:
-				print("yes")
 				return right_leg
 	return null
 func fill_loot_pool():
@@ -151,27 +149,27 @@ func fill_loot_pool():
 			continue
 		loot_pool[item_obj.body_part].append(item)
 func create_random_body():
-	if(randf_range(0,1)>chance_for_item):
+	if(randf_range(0,1)<chance_for_item):
 		body_class.head=(loot_pool[ItemManager.BODY_PART.HEAD] as Array).pick_random()
 	else:
 		body_class.head=ItemManager.ITEMS.WOOD_HEAD
-	if(randf_range(0,1)>chance_for_item):
+	if(randf_range(0,1)<chance_for_item):
 		body_class.body=(loot_pool[ItemManager.BODY_PART.CHEST] as Array).pick_random()
 	else:
 		body_class.body=ItemManager.ITEMS.WOOD_CHEST
-	if(randf_range(0,1)>chance_for_item):
+	if(randf_range(0,1)<chance_for_item):
 		body_class.left_hand=(loot_pool[ItemManager.BODY_PART.HAND] as Array).pick_random()
 	else:
 		body_class.left_hand=ItemManager.ITEMS.WOOD_HAND
-	if(randf_range(0,1)>chance_for_item):
+	if(randf_range(0,1)<chance_for_item):
 		body_class.right_hand=(loot_pool[ItemManager.BODY_PART.HAND] as Array).pick_random()
 	else:
 		body_class.right_hand=ItemManager.ITEMS.WOOD_HAND
-	if(randf_range(0,1)>chance_for_item):
+	if(randf_range(0,1)<chance_for_item):
 		body_class.left_leg=(loot_pool[ItemManager.BODY_PART.LEG] as Array).pick_random()
 	else:
 		body_class.left_leg=ItemManager.ITEMS.WOOD_LEG
-	if(randf_range(0,1)>chance_for_item):
+	if(randf_range(0,1)<chance_for_item):
 		body_class.right_hand=(loot_pool[ItemManager.BODY_PART.HAND] as Array).pick_random()
 	else:
 		body_class.right_hand=ItemManager.ITEMS.WOOD_HAND
