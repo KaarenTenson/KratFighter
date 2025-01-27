@@ -679,8 +679,6 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[color=red][wave amp=50.0 freq=5.0 connected=1]Select a part of the enemy's equipment to target![/wave][/color]"
 
-[connection signal="lost" from="." to="." method="_on_lost"]
-[connection signal="won" from="." to="." method="_on_won"]
 [connection signal="attack_signal" from="Player" to="." method="_on_player_attack_signal"]
 [connection signal="attack_signal" from="Enemy" to="." method="_on_enemy_attack_signal"]
 [connection signal="focus_entered" from="UILayer/EnemyPanel/VBoxContainer/HeadContainer" to="UILayer" method="_on_head_container_focus_entered"]

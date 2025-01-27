@@ -1,7 +1,5 @@
 extends Node2D
 signal start
-signal lost
-signal won
 @onready var headLabel_player = $UILayer/PlayerPanel/VBoxContainer/HeadContainer/HeadItemLabel
 @onready var bodyLabel_player = $UILayer/PlayerPanel/VBoxContainer/BodyContainer/BodyItemLabel
 @onready var LHandLabel_player = $UILayer/PlayerPanel/VBoxContainer/LHandContainer/LHandItemLabel
@@ -35,11 +33,8 @@ func _ready() -> void:
 	connect_signals()
 	start.emit()
 func connect_signals():
-	player.chest.part_dead.connect(func(obj):lost.emit())
-	player.head.part_dead.connect(func(obj):lost.emit())
-	
-	enemy.chest.part_dead.connect(func(obj):won.emit())
-	enemy.head.part_dead.connect(func(ojj):won.emit())
+	player.death.connect(_on_lost)
+	enemy.death.connect(_on_won)
 func setLabels():
 	headLabel_player.text = ItemManager.items_dict[player_body.head].str_name
 	bodyLabel_player.text = ItemManager.items_dict[player_body.body].str_name
@@ -74,7 +69,6 @@ func _on_lost() -> void:
 	ItemManager.reset_kratt()
 	ItemManager.current_items.clear()
 	get_tree().change_scene_to_file("res://scenes/MapScene.tscn")
-
 func _on_music_finished() -> void:
 	$Music.set_stream(load("res://assets/music/Fight (loop).mp3"))
 	$Music.play()

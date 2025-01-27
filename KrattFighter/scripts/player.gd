@@ -9,6 +9,8 @@ class_name Player
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var part_manager: Node = $part_manager
+
 enum PLAYER_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
 var defence_change:=0.3
 var defence_chance_defending:=0.8
@@ -17,9 +19,10 @@ var current_weapon:BodyPart=null
 var focus="head"
 
 signal attack_signal(body_part:int, is_left:bool, damage:int)
-
+signal death
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	part_manager.death.connect(func(): death.emit())
 	if(get_parent() is Node2D):
 		get_parent().start.connect(func(): current_state=PLAYER_STATE.ATTACK)
 	create_body()

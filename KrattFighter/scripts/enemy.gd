@@ -1,6 +1,7 @@
 extends Node2D
 class_name Enemy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var part_manager: Node = $part_manager
 
 
 @onready var head: BodyPart = $Head
@@ -25,6 +26,8 @@ var failed_attack_count:=0
 enum ENEMY_STATE{IDLE, ATTACK, DEFEND, ATTACKING}
 var current_state=ENEMY_STATE.IDLE
 var current_weapon:BodyPart=null
+
+signal death
 signal attack_signal(body_part: int, is_left:bool, damage:int)
 var loot_pool:Dictionary={
 	ItemManager.BODY_PART.HEAD:[],
@@ -94,6 +97,7 @@ func _ready() -> void:
 	create_random_body()
 	create_body()
 	set_HP_labels()
+	part_manager.death.connect(func(): death.emit())
 	get_parent().start.connect(func(): current_state=ENEMY_STATE.ATTACK)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

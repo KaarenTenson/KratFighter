@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvlgq6xjep4er"]
+[gd_scene load_steps=10 format=3 uid="uid://dvlgq6xjep4er"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5eog6"]
 [ext_resource type="Script" path="res://scripts/body_part.gd" id="2_yok0s"]
+[ext_resource type="PackedScene" uid="uid://cwxttka4tm61n" path="res://scenes/part_manager.tscn" id="3_cnanu"]
 
 [sub_resource type="Animation" id="Animation_5mrl5"]
 length = 0.001
@@ -158,3 +159,11 @@ script = ExtResource("2_yok0s")
 libraries = {
 "": SubResource("AnimationLibrary_17uh5")
 }
+
+[node name="part_manager" parent="." node_paths=PackedStringArray("head", "chest", "left_hand", "right_hand", "left_leg", "right_leg") instance=ExtResource("3_cnanu")]
+head = NodePath("../Head")
+chest = NodePath("../chest")
+left_hand = NodePath("../LeftHand")
+right_hand = NodePath("../rightHand")
+left_leg = NodePath("../leftLeg")
+right_leg = NodePath("../rightleg")
