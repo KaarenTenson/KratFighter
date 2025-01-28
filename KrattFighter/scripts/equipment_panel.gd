@@ -7,7 +7,6 @@ class_name EquipmentPanel
 @onready var l_leg_panel: Panel = $EquipmentContainer/LegMargin/HBoxContainer/LHandMargin/L_LegPanel
 @onready var r_leg_panel: Panel = $EquipmentContainer/LegMargin/HBoxContainer/MarginContainer/RLegPanel
 
-
 var btn_dict:Dictionary
 var translate_enum_dict:Dictionary
 var translate_side_dict:Dictionary
@@ -21,7 +20,7 @@ func _ready() -> void:
 	ItemManager.BODY_PART.LEG:[l_leg_panel ,r_leg_panel],
 	ItemManager.BODY_PART.HEAD: [head_panel],
 	ItemManager.BODY_PART.CHEST: [body_panel]
-}
+	}
 	btn_dict={
 		head_panel: null,
 		body_panel: null,
@@ -39,25 +38,20 @@ func _ready() -> void:
 		head_panel: false,
 		body_panel:false,
 	}
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 func _process(delta: float) -> void:
 	pass
-func high_light_panel(panel:Panel)->void:
-	print("eeeeee")
-	panel.add_theme_stylebox_override("panel", load("res://themes/high_ligh_panel.tres"))
-func un_high_light_panel(panel:Panel)->void:
-	panel.remove_theme_stylebox_override("panel")
 
 func _on_inventory_container_high_light(body_part: int) -> void:
 	for el in translate_enum_dict[body_part]:
-		high_light_panel(el)
+		el.add_theme_stylebox_override("panel", load("res://themes/high_ligh_panel.tres"))
 
 
 func _on_inventory_container_un_high_light(body_part: int) -> void:
 	for el in translate_enum_dict[body_part]:
-		un_high_light_panel(el)
+		el.add_theme_stylebox_override("panel", load("res://themes/un_high_light_panel.tres"))
 
 func is_equpping(body_part:int):
 	match body_part:
@@ -80,18 +74,25 @@ func is_inside(panel:Panel)->bool:
 		active_panel=panel
 		return true
 	return false
+func is_button_equipped(button: InventorySlot)-> bool:
+	for btn in btn_dict.values():
+		if(btn==button):
+			return true
+	return false
 func add_item(button:InventorySlot):
 	if(btn_dict[active_panel]!=null):
-		_on_inventory_container_remove_btn(button)
+		if(btn_dict[active_panel]==button):
+			return
+		remove_btn(button)
 		switch_btn.emit(btn_dict[active_panel])
+	if(is_button_equipped(button)):
+		remove_btn(button)
 	var btn_item=button.item
 	ItemManager.set_bodypart(btn_item.name, translate_side_dict[active_panel])
 	btn_dict[active_panel]=button
 	button.reparent(active_panel)
 	
-	
-	
-func _on_inventory_container_remove_btn(btn: InventorySlot) -> void:
+func remove_btn(btn: InventorySlot) -> void:
 	for key in btn_dict.keys():
 		if(btn_dict[key]==btn):
 			var btn_item:Items=btn_dict[key].item

@@ -1,7 +1,14 @@
 extends Button
 class_name InventorySlot
-signal clicked(btn:InventorySlot)
-var in_air:bool=false
+var is_iniventory:=true
+var is_active=false:
+	set(value):
+		if value==false:
+			free_mouse()
+			is_active=value
+		else:
+			is_active=value
+			self.top_level = true
 var item:Items
 var margin:=self.get_rect().size.x/2
 func set_item(item:Items):
@@ -10,9 +17,8 @@ func set_item(item:Items):
 func _ready():
 	pass
 func _process(delta: float) -> void:
-	if(in_air):
+	if(is_active):
 		self.global_position=get_global_mouse_position()+Vector2(-margin, -margin)
 func free_mouse():
-	in_air=false
 	self.top_level=false
 	self.set_position(Vector2(0,0))

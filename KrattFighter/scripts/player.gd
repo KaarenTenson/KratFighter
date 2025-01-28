@@ -27,7 +27,20 @@ func _ready() -> void:
 		get_parent().start.connect(func(): current_state=PLAYER_STATE.ATTACK)
 	create_body()
 	ItemManager.kratt_changed.connect(refresh_body)
-
+func refresh_body():
+	for child in get_children():
+		if(child is Node2D):
+			for chi in child.get_children():
+				if(chi is StaticBody2D):
+					chi.queue_free()
+	create_body()
+func create_body():
+	head.set_items(ItemManager.items_dict[ItemManager.kratt_body.head])
+	chest.set_items(ItemManager.items_dict[ItemManager.kratt_body.body])
+	left_hand.set_items(ItemManager.items_dict[ItemManager.kratt_body.left_hand])
+	right_hand.set_items(ItemManager.items_dict[ItemManager.kratt_body.right_hand])
+	left_leg.set_items(ItemManager.items_dict[ItemManager.kratt_body.left_leg])
+	right_leg.set_items(ItemManager.items_dict[ItemManager.kratt_body.right_leg])
 func get_random_weapon()->BodyPart:
 	var is_left:=randf()>0.5
 	var body_parts:int
@@ -89,20 +102,6 @@ func _process(delta: float) -> void:
 		PLAYER_STATE.ATTACKING:
 			return
 
-func refresh_body():
-	for child in get_children():
-		if(child is Node2D):
-			(child.get_children()[0] as StaticBody2D).queue_free()
-	create_body()
-
-func create_body():
-	head.set_items(ItemManager.items_dict[ItemManager.kratt_body.head])
-	chest.set_items(ItemManager.items_dict[ItemManager.kratt_body.body])
-	left_hand.set_items(ItemManager.items_dict[ItemManager.kratt_body.left_hand])
-	right_hand.set_items(ItemManager.items_dict[ItemManager.kratt_body.right_hand])
-	left_leg.set_items(ItemManager.items_dict[ItemManager.kratt_body.left_leg])
-	right_leg.set_items(ItemManager.items_dict[ItemManager.kratt_body.right_leg])
-	
 func get_damage(body_part: int, is_left: bool, damage: int)->bool:
 	var part:BodyPart=translate_body_part(body_part, is_left)
 	if(!is_instance_valid(part)):
