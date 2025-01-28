@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://d2s4t1d7k26mn"]
+[gd_scene load_steps=23 format=3 uid="uid://d2s4t1d7k26mn"]
 
 [ext_resource type="Texture2D" uid="uid://hbcp5di882hq" path="res://assets/bag.png" id="1_6idb2"]
-[ext_resource type="Texture2D" uid="uid://cp2fs0xe23lsw" path="res://assets/inventorySlot.png" id="1_ejhf3"]
 [ext_resource type="Script" path="res://scripts/inventory_container.gd" id="1_ym7jk"]
 [ext_resource type="Texture2D" uid="uid://h5urhrltj4un" path="res://assets/EquipmentIcons/box.png" id="4_xye4o"]
 [ext_resource type="Texture2D" uid="uid://cc2yx0bd7cp7d" path="res://assets/EquipmentIcons/faceicon.png" id="5_1vt3v"]
@@ -17,9 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://gp20vt16soja" path="res://assets/buttons/fight.png" id="15_jpb3i"]
 [ext_resource type="Script" path="res://scenes/Build_next_scene_button.gd" id="16_202cd"]
 [ext_resource type="PackedScene" uid="uid://vn00x1r4dvvx" path="res://scenes/ItemInfoBox.tscn" id="18_m6eq0"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d65m7"]
-texture = ExtResource("1_ejhf3")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngw4j"]
 texture = ExtResource("4_xye4o")
@@ -140,59 +136,20 @@ layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
-[node name="InventoryContainer" type="GridContainer" parent="MarginContainer/Window/Inventory"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Window/Inventory"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
+
+[node name="InventoryContainer" type="GridContainer" parent="MarginContainer/Window/Inventory/ScrollContainer" node_paths=PackedStringArray("info_box", "equipment_panel")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
 columns = 3
 script = ExtResource("1_ym7jk")
+info_box = NodePath("../../../../../info_box")
+equipment_panel = NodePath("../../../Equipment/EquipmentMargin/EquipmentPanel")
 metadata/_edit_lock_ = true
-
-[node name="InventoryPanel1" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventoryPanel2" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventoryPanel3" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventoryPanel4" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventoryPanel5" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventoryPanel6" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventoryPanel7" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventoryPanel8" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
-
-[node name="InventoryPanel9" type="Panel" parent="MarginContainer/Window/Inventory/InventoryContainer"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_d65m7")
 
 [node name="Bag" type="Control" parent="MarginContainer/Window/Inventory"]
 layout_mode = 2
@@ -400,8 +357,8 @@ theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "[color=green][wave amp=50.0 freq=5.0 connected=1]Equip your items and prepare for battle![/wave][/color]"
 
-[connection signal="high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_high_light"]
-[connection signal="remove_btn" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_remove_btn"]
-[connection signal="un_high_light" from="MarginContainer/Window/Inventory/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_un_high_light"]
-[connection signal="switch_btn" from="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" to="MarginContainer/Window/Inventory/InventoryContainer" method="_on_equipment_panel_switch_btn"]
+[connection signal="high_light" from="MarginContainer/Window/Inventory/ScrollContainer/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_high_light"]
+[connection signal="remove_btn" from="MarginContainer/Window/Inventory/ScrollContainer/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_remove_btn"]
+[connection signal="un_high_light" from="MarginContainer/Window/Inventory/ScrollContainer/InventoryContainer" to="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" method="_on_inventory_container_un_high_light"]
+[connection signal="switch_btn" from="MarginContainer/Window/Equipment/EquipmentMargin/EquipmentPanel" to="MarginContainer/Window/Inventory/ScrollContainer/InventoryContainer" method="_on_equipment_panel_switch_btn"]
 [connection signal="pressed" from="MarginContainer/Window/Information/Button" to="MarginContainer/Window/Information/Button" method="_on_pressed"]
