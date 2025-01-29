@@ -5,8 +5,16 @@ extends CanvasLayer
 @onready var right_hand_HP_label = $"PlayerPanel/VBoxContainer/RHandContainer/CurrentHPLabel"
 @onready var left_leg_HP_label =$"PlayerPanel/VBoxContainer/LLegContainer/CurrentHPLabel"
 @onready var right_leg_HP_label = $"PlayerPanel/VBoxContainer/RLegContainer/CurrentHPLabel"
-@onready var player: Player = $"../Player"
 
+@onready var enemy_head_HP_label = $"EnemyPanel/VBoxContainer/HeadContainer/CurrentHPLabel"
+@onready var enemy_chest_HP_label = $"EnemyPanel/VBoxContainer/BodyContainer/CurrentHPLabel"
+@onready var enemy_left_hand_HP_label = $"EnemyPanel/VBoxContainer/LHanContainer/CurrentHPLabel"
+@onready var enemy_right_hand_HP_label = $"EnemyPanel/VBoxContainer/RHandContainer/CurrentHPLabel"
+@onready var enemy_left_leg_HP_label = $"EnemyPanel/VBoxContainer/LLegContainer/CurrentHPLabel"
+@onready var enemy_right_leg_HP_label = $"EnemyPanel/VBoxContainer/RLegContainer/CurrentHPLabel"
+
+@onready var player: Player = $"../Player"
+@onready var enemy: Enemy = $"../Enemy"
 var focus=""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +26,13 @@ func set_HP_labels():
 	right_hand_HP_label.text =validate_part(player.right_hand)
 	left_leg_HP_label.text = validate_part(player.left_leg)
 	right_leg_HP_label.text = validate_part(player.right_hand)
+	
+	enemy_head_HP_label.text=validate_part(enemy.head)
+	enemy_chest_HP_label.text = validate_part(enemy.chest)
+	enemy_left_hand_HP_label.text = validate_part(enemy.left_hand)
+	enemy_right_hand_HP_label.text =validate_part(enemy.right_hand)
+	enemy_left_leg_HP_label.text = validate_part(enemy.left_leg)
+	enemy_right_leg_HP_label.text = validate_part(enemy.right_hand)
 
 func validate_part(part)->String:
 	if(is_instance_valid(part)):

@@ -5,6 +5,7 @@
 [sub_resource type="SystemFont" id="SystemFont_3ir8w"]
 font_names = PackedStringArray("Hack")
 generate_mipmaps = true
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_584dh"]
 bg_color = Color(0, 0, 0, 1)
@@ -63,6 +64,9 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "damage:"
 autowrap_mode = 3
+
+[node name="health" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="body_part" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
